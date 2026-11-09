@@ -138,7 +138,7 @@
         aria-label="${esc(st.time)}: ${esc(st.what)}"><span>${st.flight ? '✈️' : st.hotel ? '🏨' : st.n}</span></button>`;
     }).join('');
     const two = lanes.length > 1;
-    bar.innerHTML = `<div class="sky${two ? ' two' : ''}" style="background:${sky}">${blocks}</div>
+    bar.innerHTML = `<div class="now"><span></span></div><div class="sky${two ? ' two' : ''}" style="background:${sky}">${blocks}</div>
       <div class="ticks">${[0, 6, 12, 18, 24].map((h) => `<i style="left:${pc(h)}">${h === 12 ? 'noon' : h % 24 === 0 ? '12 am' : hm(h)}</i>`).join('')}
         <i class="sun" style="left:${pc(rise)}">🌅 ${hm(rise)}</i><i class="sun" style="left:${pc(set)}">🌇 ${hm(set)}</i></div>`;
     bar.hidden = false;
@@ -384,6 +384,20 @@
     // timeline row doesn't throw you back up.
     if (!mobile()) $('#panel').scrollTop = 0;
     $('#daybar').querySelectorAll('.blk').forEach((b) => b.classList.toggle('on', +b.dataset.i === stop));
+    // Label the selected stop's time above its block, kept inside the bar's width.
+    const now = $('#daybar .now span'), sp = span(s.time);
+    if (now) {
+      now.parentNode.hidden = !sp;
+      if (sp) {
+        const mid = (Math.max(0, sp[0]) + Math.min(24, sp[1])) / 2 / 24 * 100;
+        now.textContent = s.time;
+        now.style.left = `${mid}%`;
+        requestAnimationFrame(() => {
+          const w = now.parentNode.clientWidth, half = now.offsetWidth / 2, x = mid / 100 * w;
+          now.style.left = `${Math.min(w - half, Math.max(half, x))}px`;
+        });
+      }
+    }
 
     $('#timeline').querySelectorAll('.stop').forEach((b) => b.classList.toggle('on', +b.dataset.i === stop));
     document.querySelectorAll('.pin.on').forEach((p) => p.classList.remove('on'));
