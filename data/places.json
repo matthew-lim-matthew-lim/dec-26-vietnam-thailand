@@ -39,9 +39,13 @@
   "id": "ChIJTeYpMT8vdTERMH8sUnkta40",
   "name": "Ben Thanh Market"
  },
- "Opera House": {
-  "id": "ChIJKcrnSUYvdTERO64MErYx9VU",
-  "name": "Saigon Opera House"
+ "The Cafe Apartment": {
+  "id": "ChIJP4LyNAAvdTERp2XLe0QvLeU",
+  "name": "The Cafe Apartment"
+ },
+ "Thien Hau Temple": {
+  "id": "ChIJU5jx0_YudTERl_Cqs-jwaiQ",
+  "name": "Thien Hau Pagoda"
  },
  "Cu Chi Tunnels": {
   "id": "ChIJQ2JhIpEzCzER45h9HsgvJAc",
@@ -54,6 +58,10 @@
  "Sunset Town": {
   "id": "ChIJG-HZ4ZaRpzERhjtO1_1kObg",
   "name": "Kiss Bridge"
+ },
+ "Ham Ninh": {
+  "id": "ChIJS4Ky0oiPpzERbE8mbGFjZ4k",
+  "name": "Ham Ninh fishing town"
  },
  "Vinpearl Safari": {
   "id": "ChIJ2bp76JUfCDER2BAKZAkG66c",
@@ -86,6 +94,10 @@
  "Wat Arun": {
   "id": "ChIJaSv_6gaZ4jARnbiUVn6Z_YY",
   "name": "Wat Arun Ratchawararam Ratchawaramahawihan"
+ },
+ "Talat Noi": {
+  "id": "ChIJzeH7rdiY4jAR8IriXbIAAQQ",
+  "name": "Talat Noi"
  },
  "Yaowarat (Chinatown)": {
   "id": "ChIJ95Nh9yGZ4jARAjfcG2uIZFg",
@@ -127,12 +139,24 @@
   "id": "ChIJtepc75aY4jARVvgRfYrM38s",
   "name": "Asiatique The Riverfront"
  },
- "Golden Mount": {
-  "id": "ChIJP-MtN12Z4jARlEBmga-oF4w",
-  "name": "Wat Saket Ratchawora Mahawihan"
+ "Wat Paknam": {
+  "id": "ChIJvwXXwEWY4jARC2dj117syBA",
+  "name": "Wat Paknam Phasi Charoen"
+ },
+ "Mae Klong market": {
+  "id": "ChIJ10pbl47T4jAR7qFFA1HY2Ds",
+  "name": "Maeklong Railway Market (Rom Hup Market)"
+ },
+ "Amphawa": {
+  "id": "ChIJW3z8Z7vV4jARB-7hOVZmvbM",
+  "name": "Amphawa Floating Market"
  },
  "Chatuchak Market": {
   "id": "ChIJ3fiD6BSc4jARS324hNeR8ZE",
   "name": "Chatuchak Weekend Market"
+ },
+ "Golden Mount": {
+  "id": "ChIJP-MtN12Z4jARlEBmga-oF4w",
+  "name": "Wat Saket Ratchawora Mahawihan"
  }
 }

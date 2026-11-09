@@ -47,12 +47,16 @@ button{font:inherit;color:inherit;cursor:pointer}
 .daybar{position:sticky;top:-16px;z-index:4;background:var(--surface);margin:-16px -16px 12px;padding:12px 16px 6px;border-bottom:1px solid var(--line)}
 .sky{position:relative;height:30px;border-radius:8px;overflow:hidden}
 .sky.two{height:46px}
+.sky::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;
+  background:repeating-linear-gradient(90deg,#8a96a3d9 0 1.5px,transparent 1.5px calc(100%/4)),
+             repeating-linear-gradient(90deg,#8a96a380 0 1px,transparent 1px calc(100%/24))}
+.blk{z-index:2}
 .blk{position:absolute;top:4px;height:22px;min-width:6px;padding:0;border:0;border-radius:5px;background:var(--c);color:#fff;font:700 10px system-ui,sans-serif;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 0 0 1px #fff8}
 .blk[data-lane="1"]{top:24px;height:18px}
 .blk.h{opacity:.55}
 .blk.f{background:#64748b}
 .blk span{pointer-events:none;white-space:nowrap}
-.blk.on{outline:2px solid var(--ink);outline-offset:1px;z-index:2;opacity:1}
+.blk.on{outline:2px solid var(--ink);outline-offset:1px;z-index:3;opacity:1}
 .ticks{position:relative;height:16px;font-size:.66rem;color:var(--muted);margin-top:3px}
 .ticks i{position:absolute;transform:translateX(-50%);font-style:normal;white-space:nowrap}
 .ticks i:first-child{transform:none}

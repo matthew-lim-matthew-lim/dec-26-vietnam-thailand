@@ -100,6 +100,12 @@
   },
   {
    "category": "Activities and tours",
+   "planned": 70,
+   "item": "Kiss of the Sea show, Thu 24 Dec",
+   "notes": "Two seats, book ahead"
+  },
+  {
+   "category": "Activities and tours",
    "planned": 80,
    "item": "Vinpearl Safari, Sat 26 Dec",
    "notes": ""
@@ -136,8 +142,14 @@
   },
   {
    "category": "Activities and tours",
+   "planned": 140,
+   "item": "Mae Klong and Amphawa private car and firefly boat, Fri 1 Jan",
+   "notes": "Car about 2,500–3,000 THB for the afternoon and evening"
+  },
+  {
+   "category": "Activities and tours",
    "planned": 10,
-   "item": "Golden Mount, Fri 1 Jan",
+   "item": "Golden Mount, Sat 2 Jan",
    "notes": ""
   },
   {
