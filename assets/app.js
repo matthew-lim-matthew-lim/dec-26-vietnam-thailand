@@ -13,6 +13,8 @@
     w: { icon: '🚶', name: 'Walk' }, d: { icon: '🚕', name: 'Grab or taxi' }, t: { icon: '🚇', name: 'Train' },
     b: { icon: '⛴️', name: 'Boat' }, s: { icon: '🛵', name: 'Scooter' }, f: { icon: '✈️', name: 'Flight' },
   };
+  // Late-December sunrise and sunset (hours) for each city, for the day bar.
+  const SUN = { saigon: [6.1, 17.6], phuquoc: [6.25, 17.85], bangkok: [6.6, 18.0] };
   const CAT_COLORS = ['#c2410c', '#0e7490', '#7c3aed', '#ca8a04', '#be185d', '#15803d', '#2563eb', '#9333ea', '#0f766e', '#64748b', '#b45309'];
 
   const $ = (s) => document.querySelector(s);
@@ -92,7 +94,59 @@
     return L.divIcon({ className: 'pin-wrap', html: `<div class="pin ${cls}" style="--c:${color}">${html}</div>`, iconSize: [0, 0] });
   }
 
+
+  // "8:30–9:45 am", "11 am – 1:30 pm", "7:30 pm – 12:30 am" -> [start, end] in hours (end may pass 24).
+  function span(t) {
+    const m = String(t).replace(/noon/g, '12 pm').replace(/midnight/g, '12 am')
+      .match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)?\s*[–-]\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/);
+    if (!m) {
+      const one = String(t).match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/);
+      if (!one) return null;
+      const h = (+one[1] % 12) + (one[3] === 'pm' ? 12 : 0) + (+one[2] || 0) / 60;
+      return [h, h + 0.25];
+    }
+    const h24 = (h, mm, ap) => (+h % 12) + (ap === 'pm' ? 12 : 0) + (+mm || 0) / 60;
+    let b = h24(m[4], m[5], m[6]);
+    let a = h24(m[1], m[2], m[3] || m[6]);
+    if (!m[3] && a > b) a -= 12; // "11–1 pm" means 11 am to 1 pm
+    if (b <= a) b += 24; // runs past midnight
+    return [a, b];
+  }
+  const hm = (h) => { h = ((h % 24) + 24) % 24; const H = Math.floor(h), M = Math.round((h - H) * 60);
+    return `${H % 12 || 12}${M ? ':' + String(M).padStart(2, '0') : ''} ${H < 12 ? 'am' : 'pm'}`; };
+
+  // The whole day as one bar: night, sunrise, daylight, sunset, night, with each stop as a block on top.
+  function renderBar(d) {
+    const bar = $('#daybar');
+    const [rise, set] = SUN[SLEEP[day]];
+    const pc = (h) => `${(Math.max(0, Math.min(24, h)) / 24 * 100).toFixed(2)}%`;
+    const sky = `linear-gradient(90deg,
+      var(--night) 0, var(--night) ${pc(rise - 0.9)}, var(--dawn) ${pc(rise - 0.3)}, var(--sunrise) ${pc(rise + 0.2)},
+      var(--day) ${pc(rise + 1.2)}, var(--day) ${pc(set - 1.2)}, var(--sunset) ${pc(set - 0.1)},
+      var(--dusk) ${pc(set + 0.5)}, var(--night) ${pc(set + 1.2)}, var(--night) 100%)`;
+    const color = CITY[SLEEP[day]].color;
+    const lanes = [];
+    const blocks = d.stops.map((st, i) => {
+      const sp = span(st.time);
+      if (!sp) return '';
+      let lane = lanes.findIndex((end) => end <= sp[0] + 0.01);
+      if (lane < 0) { lane = lanes.length; lanes.push(0); }
+      lanes[lane] = sp[1];
+      const a = Math.max(0, sp[0]), b = Math.min(24, sp[1]);
+      return `<button class="blk${st.hotel ? ' h' : ''}${st.flight ? ' f' : ''}" data-i="${i}" data-lane="${lane}"
+        style="left:${pc(a)};width:calc(${pc(b - a)} - 1px);--c:${color}" title="${esc(st.time)} · ${esc(st.what)}"
+        aria-label="${esc(st.time)}: ${esc(st.what)}"><span>${st.flight ? '✈️' : st.hotel ? '🏨' : st.n}</span></button>`;
+    }).join('');
+    const two = lanes.length > 1;
+    bar.innerHTML = `<div class="sky${two ? ' two' : ''}" style="background:${sky}">${blocks}</div>
+      <div class="ticks">${[0, 6, 12, 18, 24].map((h) => `<i style="left:${pc(h)}">${h === 12 ? 'noon' : h % 24 === 0 ? '12 am' : hm(h)}</i>`).join('')}
+        <i class="sun" style="left:${pc(rise)}">🌅 ${hm(rise)}</i><i class="sun" style="left:${pc(set)}">🌇 ${hm(set)}</i></div>`;
+    bar.hidden = false;
+    bar.querySelectorAll('.blk').forEach((b) => b.addEventListener('click', () => go(day, +b.dataset.i)));
+  }
+
   function renderOverview() {
+    $('#daybar').hidden = true;
     layer.clearLayers(); markers.clear();
     renderGhosts(-1);
     const pts = BASES.map((b) => [b.lat, b.lon]);
@@ -208,6 +262,7 @@
     else if (pts.length === 1) map.setView(pts[0], 14);
 
     $('#dayhead').innerHTML = `<h2>${esc(d.title)}</h2><p>${esc(d.sub)}</p>`;
+    renderBar(d);
     $('#timeline').innerHTML = d.stops.map((s, i) => {
       const lm = legMode(s);
       const move = s.commute ? `<li class="move">${s.commute.icon} ${esc(s.commute.label)} · ${esc(s.commute.dur)}</li>`
@@ -325,7 +380,10 @@
       }
     });
     fillGallery();
-    $('#panel').scrollTop = 0;
+    // Desktop: start each stop at the top. Phones: keep the sheet where it is, so tapping Next or a
+    // timeline row doesn't throw you back up.
+    if (!mobile()) $('#panel').scrollTop = 0;
+    $('#daybar').querySelectorAll('.blk').forEach((b) => b.classList.toggle('on', +b.dataset.i === stop));
 
     $('#timeline').querySelectorAll('.stop').forEach((b) => b.classList.toggle('on', +b.dataset.i === stop));
     document.querySelectorAll('.pin.on').forEach((p) => p.classList.remove('on'));

@@ -2,6 +2,7 @@
   --bg:#f6f4ef; --surface:#fff; --ink:#1d2327; --muted:#5d666d; --line:#e2ded5;
   --accent:#d9480f; --accent-soft:#fff0e6;
   --radius:14px;
+  --night:#1f2a48; --dawn:#7a5c9e; --sunrise:#f5a36b; --day:#d6ecf8; --sunset:#f08a5d; --dusk:#6d4f8f;
   font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   color-scheme:light;
 }
@@ -41,6 +42,23 @@ button{font:inherit;color:inherit;cursor:pointer}
 .handle{display:none}
 .dayhead h2{margin:0 0 4px;font-size:1.08rem}
 .dayhead p{margin:0 0 12px;color:var(--muted);font-size:.84rem;line-height:1.4}
+
+/* Day bar */
+.daybar{position:sticky;top:-16px;z-index:4;background:var(--surface);margin:-16px -16px 12px;padding:12px 16px 6px;border-bottom:1px solid var(--line)}
+.sky{position:relative;height:30px;border-radius:8px;overflow:hidden}
+.sky.two{height:46px}
+.blk{position:absolute;top:4px;height:22px;min-width:6px;padding:0;border:0;border-radius:5px;background:var(--c);color:#fff;font:700 10px system-ui,sans-serif;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 0 0 1px #fff8}
+.blk[data-lane="1"]{top:24px;height:18px}
+.blk.h{opacity:.55}
+.blk.f{background:#64748b}
+.blk span{pointer-events:none;white-space:nowrap}
+.blk.on{outline:2px solid var(--ink);outline-offset:1px;z-index:2;opacity:1}
+.ticks{position:relative;height:16px;font-size:.66rem;color:var(--muted);margin-top:3px}
+.ticks i{position:absolute;transform:translateX(-50%);font-style:normal;white-space:nowrap}
+.ticks i:first-child{transform:none}
+.ticks i:nth-child(5){transform:translateX(-100%)}
+.ticks i.sun{top:0;color:var(--ink);opacity:.8}
+.ticks i:nth-child(2),.ticks i:nth-child(4){opacity:0}
 
 /* Stop card */
 .card{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);margin-bottom:16px;position:relative}
@@ -137,6 +155,7 @@ td.num,th.num,.num{text-align:right;font-variant-numeric:tabular-nums}
   .panel.open{height:88%}
   .handle{display:block;position:sticky;top:0;width:calc(100% + 24px);margin:0 -12px;height:26px;border:0;background:var(--surface);z-index:3;touch-action:none}
   .handle span{display:block;width:42px;height:5px;border-radius:3px;background:var(--line);margin:0 auto}
+  .daybar{top:26px;margin:0 -12px 8px;padding:2px 12px 4px}
   .dayhead h2{font-size:.98rem}
   .dayhead p{font-size:.8rem;margin-bottom:8px}
   .gallery figure,.gallery .gph{height:170px}
@@ -148,6 +167,7 @@ td.num,th.num,.num{text-align:right;font-variant-numeric:tabular-nums}
 @media (max-width:860px){
   .panel{display:flex;flex-direction:column}
   .handle{order:0;flex:0 0 auto}
+  .daybar{order:0;flex:0 0 auto}
   .card{order:1;flex:0 0 auto}
   .dayhead{order:2}
   .timeline{order:3}
