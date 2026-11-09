@@ -1,0 +1,186 @@
+{
+ "currency": "AUD",
+ "note": "Planned amounts are estimates for Matthew and Amy together. The Google Sheet Budget tab tracks actual spending.",
+ "items": [
+  {
+   "category": "Flights",
+   "planned": 700,
+   "item": "Matthew: Sydney to Saigon, Sat 19 Dec",
+   "notes": ""
+  },
+  {
+   "category": "Flights",
+   "planned": 700,
+   "item": "Matthew: Bangkok to Sydney direct, Sun 3 Jan",
+   "notes": "Thai Airways or Qantas"
+  },
+  {
+   "category": "Flights",
+   "planned": 300,
+   "item": "Amy: Hong Kong to Saigon, Sat 19 Dec",
+   "notes": ""
+  },
+  {
+   "category": "Flights",
+   "planned": 300,
+   "item": "Amy: Bangkok to Hong Kong direct, Sun 3 Jan",
+   "notes": ""
+  },
+  {
+   "category": "Flights",
+   "planned": 200,
+   "item": "Saigon to Phu Quoc for two, Wed 23 Dec",
+   "notes": ""
+  },
+  {
+   "category": "Flights",
+   "planned": 500,
+   "item": "Phu Quoc to Bangkok for two, Sun 27 Dec",
+   "notes": "Direct if scheduled, otherwise via Saigon"
+  },
+  {
+   "category": "Accommodation",
+   "planned": 480,
+   "item": "Saigon, District 1: 4 nights (19 to 23 Dec)",
+   "notes": "About A$120 a night"
+  },
+  {
+   "category": "Accommodation",
+   "planned": 600,
+   "item": "Phu Quoc resort: 4 nights (23 to 27 Dec)",
+   "notes": "About A$150 a night, good 4-star"
+  },
+  {
+   "category": "Accommodation",
+   "planned": 770,
+   "item": "Bangkok, Bang Rak: 7 nights (27 Dec to 3 Jan)",
+   "notes": "About A$110 a night, good 4-star"
+  },
+  {
+   "category": "Meals and dining",
+   "planned": 1600,
+   "item": "Everyday meals and drinks",
+   "notes": "About A$100 a day for two, 16 days"
+  },
+  {
+   "category": "Meals and dining",
+   "planned": 100,
+   "item": "Christmas Eve dinner, Thu 24 Dec",
+   "notes": "Regular restaurant"
+  },
+  {
+   "category": "Meals and dining",
+   "planned": 100,
+   "item": "Christmas dinner, Fri 25 Dec",
+   "notes": "Regular restaurant"
+  },
+  {
+   "category": "Activities and tours",
+   "planned": 160,
+   "item": "Mekong Delta tour, Sun 20 Dec",
+   "notes": ""
+  },
+  {
+   "category": "Activities and tours",
+   "planned": 15,
+   "item": "Independence Palace and War Remnants Museum, Mon 21 Dec",
+   "notes": ""
+  },
+  {
+   "category": "Activities and tours",
+   "planned": 100,
+   "item": "Cu Chi Tunnels half-day tour, Tue 22 Dec",
+   "notes": "Afternoon group tour, entry included"
+  },
+  {
+   "category": "Activities and tours",
+   "planned": 40,
+   "item": "Scooter rental (3 days) and fuel, Phu Quoc, 24 to 26 Dec",
+   "notes": "One scooter, Matthew rides with Amy on the back"
+  },
+  {
+   "category": "Activities and tours",
+   "planned": 70,
+   "item": "Kiss of the Sea show, Thu 24 Dec",
+   "notes": "Two seats, book ahead"
+  },
+  {
+   "category": "Activities and tours",
+   "planned": 80,
+   "item": "Vinpearl Safari, Sat 26 Dec",
+   "notes": ""
+  },
+  {
+   "category": "Activities and tours",
+   "planned": 90,
+   "item": "Grand Palace, Wat Pho and Wat Arun, Mon 28 Dec",
+   "notes": ""
+  },
+  {
+   "category": "Activities and tours",
+   "planned": 170,
+   "item": "Ayutthaya private driver and temple tickets, Tue 29 Dec",
+   "notes": ""
+  },
+  {
+   "category": "Activities and tours",
+   "planned": 18,
+   "item": "Jim Thompson House, Wed 30 Dec",
+   "notes": ""
+  },
+  {
+   "category": "Activities and tours",
+   "planned": 60,
+   "item": "Sunset drinks at Three Sixty, Wed 30 Dec",
+   "notes": ""
+  },
+  {
+   "category": "Activities and tours",
+   "planned": 150,
+   "item": "New Year's Eve riverside dinner and fireworks, Thu 31 Dec",
+   "notes": ""
+  },
+  {
+   "category": "Activities and tours",
+   "planned": 140,
+   "item": "Mae Klong and Amphawa private car and firefly boat, Fri 1 Jan",
+   "notes": "Car about 2,500–3,000 THB for the afternoon and evening"
+  },
+  {
+   "category": "Activities and tours",
+   "planned": 10,
+   "item": "Golden Mount, Sat 2 Jan",
+   "notes": ""
+  },
+  {
+   "category": "Local transport",
+   "planned": 350,
+   "item": "Grab, taxis, boats, BTS and MRT",
+   "notes": "About A$22 a day"
+  },
+  {
+   "category": "Phone and internet",
+   "planned": 60,
+   "item": "eSIMs for Matthew and Amy",
+   "notes": ""
+  },
+  {
+   "category": "Travel insurance",
+   "planned": 200,
+   "item": "Two policies",
+   "notes": "Check it covers riding a scooter, as rider and passenger"
+  },
+  {
+   "category": "Visas",
+   "planned": 80,
+   "item": "Vietnam e-visas for both (about US$25 each)",
+   "notes": "Thailand is visa-free on Australian and Canadian passports"
+  },
+  {
+   "category": "Shopping and misc",
+   "planned": 400,
+   "item": "Souvenirs, tips, laundry",
+   "notes": ""
+  }
+ ]
+}

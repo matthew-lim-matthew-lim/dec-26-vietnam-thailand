@@ -22,6 +22,10 @@ button{font:inherit;color:inherit;cursor:pointer}
 .brand{min-width:0}
 .brand h1{font-size:1.1rem;margin:0;white-space:nowrap}
 .brand p{margin:2px 0 0;color:var(--muted);font-size:.82rem}
+.stay{display:flex;align-items:center;gap:4px;background:var(--bg);padding:4px;border-radius:999px;margin-left:auto;flex:0 0 auto}
+.stay span{font-size:.78rem;color:var(--muted);padding:0 6px 0 8px;white-space:nowrap}
+.stay button{white-space:nowrap;border:0;background:none;padding:6px 12px;border-radius:999px;font-size:.88rem;cursor:pointer}
+.stay button.on{background:#0e7490;color:#fff;font-weight:600}
 .views{display:flex;gap:4px;background:var(--bg);padding:4px;border-radius:999px;flex:0 0 auto}
 .views button{white-space:nowrap;border:0;background:none;padding:6px 12px;border-radius:999px;font-size:.88rem}
 .views button.on{background:var(--surface);box-shadow:0 1px 3px #0002;font-weight:600}
@@ -154,7 +158,11 @@ td.num,th.num,.num{text-align:right;font-variant-numeric:tabular-nums}
   .top{padding:8px 12px}
   .brand h1{font-size:1rem}
   .brand p{display:none}
-  .views button{padding:5px 10px;font-size:.82rem}
+  .views button,.stay button{padding:5px 8px;font-size:.8rem}
+  .stay span{display:none}
+  .top .brand{display:none}
+  .stay{margin-left:0}
+  .top{gap:8px}
   .days{padding:6px 12px;gap:6px}
   .mapview{display:block}
   #map{position:absolute;inset:0}

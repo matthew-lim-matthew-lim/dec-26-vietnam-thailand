@@ -1,12 +1,25 @@
 // Trip site: click a dot on the map to see that stop, then step to the next one.
 (() => {
-  const CITY = { saigon: { name: 'Saigon', color: '#c2410c' }, ninhbinh: { name: 'Ninh Binh', color: '#0e7490' }, bangkok: { name: 'Bangkok', color: '#7c3aed' } };
+  // Two versions of the Vietnam middle leg (23–27 Dec). The chosen one is kept in the URL (?stay=) and on this device.
+  const STAYS = {
+    phuquoc: { name: 'Phu Quoc', suffix: '-phuquoc', sun: [6.25, 17.85],
+      base: { lat: 10.175, lon: 103.965, hotel: 'Resort on Long Beach' } },
+    ninhbinh: { name: 'Ninh Binh', suffix: '', sun: [6.5, 17.3],
+      base: { lat: 20.2155, lon: 105.937, hotel: 'Riverside resort in Tam Coc' } },
+  };
+  const STAY = (() => {
+    const q = new URLSearchParams(location.search).get('stay');
+    if (STAYS[q]) return q;
+    try { const v = localStorage.getItem('stay'); if (STAYS[v]) return v; } catch (e) { /* storage blocked */ }
+    return 'ninhbinh';
+  })();
+  const CITY = { saigon: { name: 'Saigon', color: '#c2410c' }, mid: { name: STAYS[STAY].name, color: '#0e7490' }, bangkok: { name: 'Bangkok', color: '#7c3aed' } };
   // Where each night is spent (index = day number - 1).
-  const SLEEP = ['saigon', 'saigon', 'saigon', 'saigon', 'ninhbinh', 'ninhbinh', 'ninhbinh', 'ninhbinh',
+  const SLEEP = ['saigon', 'saigon', 'saigon', 'saigon', 'mid', 'mid', 'mid', 'mid',
     'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok'];
   const BASES = [
     { city: 'saigon', lat: 10.7769, lon: 106.7009, dates: '19–23 Dec', nights: 4, hotel: 'Hotel in District 1', day: 0 },
-    { city: 'ninhbinh', lat: 20.2155, lon: 105.937, dates: '23–27 Dec', nights: 4, hotel: 'Riverside resort in Tam Coc', day: 4 },
+    { city: 'mid', ...STAYS[STAY].base, dates: '23–27 Dec', nights: 4, day: 4 },
     { city: 'bangkok', lat: 13.725, lon: 100.515, dates: '27 Dec – 3 Jan', nights: 7, hotel: 'Hotel in Bang Rak, by the river', day: 8 },
   ];
   const MODES = {
@@ -14,7 +27,7 @@
     b: { icon: '⛴️', name: 'Boat' }, s: { icon: '🛵', name: 'Scooter' }, f: { icon: '✈️', name: 'Flight' },
   };
   // Late-December sunrise and sunset (hours) for each city, for the day bar.
-  const SUN = { saigon: [6.1, 17.6], ninhbinh: [6.5, 17.3], bangkok: [6.6, 18.0] };
+  const SUN = { saigon: [6.1, 17.6], mid: STAYS[STAY].sun, bangkok: [6.6, 18.0] };
   const CAT_COLORS = ['#c2410c', '#0e7490', '#7c3aed', '#ca8a04', '#be185d', '#15803d', '#2563eb', '#9333ea', '#0f766e', '#64748b', '#b45309'];
 
   const $ = (s) => document.querySelector(s);
@@ -507,7 +520,23 @@
     if (e.key === 'ArrowLeft') step(-1);
   });
 
-  Promise.all(['trip', 'budget', 'media', 'places'].map((f) => fetch(`data/${f}.json`).then((r) => r.json())))
+  function initStay() {
+    $('#stayLine').textContent = `19 Dec 2026 – 3 Jan 2027 · Saigon, ${STAYS[STAY].name}, Bangkok`;
+    document.querySelectorAll('.stay button').forEach((b) => {
+      b.classList.toggle('on', b.dataset.stay === STAY);
+      b.setAttribute('aria-pressed', b.dataset.stay === STAY);
+      b.addEventListener('click', () => {
+        if (b.dataset.stay === STAY) return;
+        try { localStorage.setItem('stay', b.dataset.stay); } catch (e) { /* storage blocked */ }
+        const u = new URL(location.href); u.searchParams.set('stay', b.dataset.stay);
+        location.href = u.toString();
+      });
+    });
+  }
+  initStay();
+
+  const sfx = STAYS[STAY].suffix;
+  Promise.all([`trip${sfx}`, `budget${sfx}`, 'media', 'places'].map((f) => fetch(`data/${f}.json`).then((r) => r.json())))
     .then(([t, b, m, p]) => {
       trip = t; budget = b; media = m; places = p;
       initMap(); initSheet(); initDayWheel(); renderBudget();
