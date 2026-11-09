@@ -34,7 +34,7 @@
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const mobile = () => window.matchMedia('(max-width: 860px)').matches;
 
-  let trip = [], budget = null, media = {}, places = {}, day = null, stop = 0;
+  let trip = [], budget = null, media = {}, places = {}, steps = {}, day = null, stop = 0;
   // Google Maps Platform key. It only works on matthew-lim-matthew-lim.github.io (referrer restricted).
   const GKEY = 'AIzaSyC22mrrewNOFmwmXCY0waUHCl3sQ32IcR4';
   let map, layer, ghosts, arrows, legs = [], markers = new Map();
@@ -329,6 +329,26 @@
     }
   }
 
+  // Step-by-step breakdown for tours and big sights (data/steps.json, keyed by stop name).
+  function stepList(s) {
+    const st = steps[s.what];
+    if (!st) return '';
+    return `<details class="steps" open><summary>${esc(st.label)} · ${st.steps.length} parts</summary><ol>
+      ${st.steps.map((x) => `<li>${x.pid ? `<div class="sthumb" data-spid="${esc(x.pid)}"></div>` : ''}
+        <div><b>${esc(x.t)}</b><span>${esc(x.d)}</span></div></li>`).join('')}</ol></details>`;
+  }
+
+  function fillStepThumbs() {
+    const w = Math.round(160 * (window.devicePixelRatio || 1));
+    $('#card').querySelectorAll('.sthumb[data-spid]').forEach(async (el) => {
+      try {
+        const [p] = await placePhotos(el.dataset.spid);
+        if (!p || !el.isConnected) { el.remove(); return; }
+        el.innerHTML = `<img src="https://places.googleapis.com/v1/${esc(p.name)}/media?maxWidthPx=${w}&key=${GKEY}" alt="" loading="lazy" onerror="this.parentNode.remove()">`;
+      } catch (e) { el.remove(); }
+    });
+  }
+
   function videos(s) {
     const v = (media[s.tag] || {}).videos || [];
     if (!v.length) return s.tiktok ? `<a class="tt-more" href="${esc(s.tiktok)}" target="_blank" rel="noopener">🎬 Browse #${esc(s.tag)} on TikTok</a>` : '';
@@ -375,6 +395,7 @@
       <div class="body">
         ${s.lat == null ? '<p class="offmap">Not shown on the map.</p>' : ''}
         ${s.details ? `<p class="details">${esc(s.details)}</p>` : ''}
+        ${stepList(s)}
         <dl class="facts">${facts.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl>
         <div class="links">${links}</div>
         ${videos(s)}
@@ -393,6 +414,7 @@
       }
     });
     fillGallery();
+    fillStepThumbs();
     // Desktop: start each stop at the top. Phones: keep the sheet where it is, so tapping Next or a
     // timeline row doesn't throw you back up.
     if (!mobile()) $('#panel').scrollTop = 0;
@@ -536,9 +558,9 @@
   initStay();
 
   const sfx = STAYS[STAY].suffix;
-  Promise.all([`trip${sfx}`, `budget${sfx}`, 'media', 'places'].map((f) => fetch(`data/${f}.json`).then((r) => r.json())))
-    .then(([t, b, m, p]) => {
-      trip = t; budget = b; media = m; places = p;
+  Promise.all([`trip${sfx}`, `budget${sfx}`, 'media', 'places', 'steps'].map((f) => fetch(`data/${f}.json`).then((r) => r.json())))
+    .then(([t, b, m, p, st]) => {
+      trip = t; budget = b; media = m; places = p; steps = st;
       initMap(); initSheet(); initDayWheel(); renderBudget();
       const h = location.hash.match(/^#day(\d+)\/(\d+)/);
       if (h && trip[+h[1] - 1]) go(+h[1] - 1, Math.min(+h[2] - 1, trip[+h[1] - 1].stops.length - 1));

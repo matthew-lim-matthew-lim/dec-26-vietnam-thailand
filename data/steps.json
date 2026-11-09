@@ -1,0 +1,480 @@
+{
+ "Mekong boat trip": {
+  "label": "On the tour",
+  "steps": [
+   {
+    "t": "Vinh Trang Pagoda",
+    "d": "Many tours stop first at this My Tho pagoda, with a giant white Buddha and a laughing Buddha in the gardens.",
+    "pid": "ChIJta3nNcOvCjERoOKB8r_TatI"
+   },
+   {
+    "t": "Motorboat across the Mekong",
+    "d": "Cross the wide brown river past fish farms and the delta's islands.",
+    "pid": "ChIJF-i2aXalCjERI2uZb6b-8kQ"
+   },
+   {
+    "t": "Honey bee farm",
+    "d": "Honey tea with kumquat; the guide lets people hold a frame of live bees."
+   },
+   {
+    "t": "Fruit and folk music",
+    "d": "Seasonal fruit at a garden house while local musicians play southern folk songs (don ca tai tu)."
+   },
+   {
+    "t": "Sampan down a palm canal",
+    "d": "The highlight: a small rowing boat, steered by a local in a conical hat, glides down a narrow canal under water palms.",
+    "pid": "ChIJzd7ejLmvCjERrT9rmNiyXi8"
+   },
+   {
+    "t": "Coconut candy workshop",
+    "d": "Watch coconut candy being cooked, cut and wrapped by hand, with free tasting.",
+    "pid": "ChIJ33OXC3avCjERMRk4azNZ-Bs"
+   }
+  ]
+ },
+ "Bike or boat through the villages": {
+  "label": "On the tour",
+  "steps": [
+   {
+    "t": "Bike the canal lanes",
+    "d": "Easy, flat bikes along shady lanes past orchards, stilt houses and small bridges."
+   },
+   {
+    "t": "Or a horse cart / boat",
+    "d": "Some tours swap the bikes for a short horse-cart ride or another small boat."
+   },
+   {
+    "t": "Back to the bus",
+    "d": "Then the ride back to Saigon, about 2 hours."
+   }
+  ]
+ },
+ "Cu Chi Tunnels": {
+  "label": "On the tour",
+  "steps": [
+   {
+    "t": "Briefing and wartime film",
+    "d": "A short black-and-white film and a cutaway map of the three-level tunnel network.",
+    "pid": "ChIJQ2JhIpEzCzER45h9HsgvJAc"
+   },
+   {
+    "t": "The hidden trapdoor",
+    "d": "A guide reveals a tiny camouflaged entrance in the leaf litter; anyone can try squeezing in for a photo."
+   },
+   {
+    "t": "Booby traps",
+    "d": "Displays of the spike and swinging traps used against soldiers."
+   },
+   {
+    "t": "Destroyed M41 tank",
+    "d": "A US tank left where it was hit by a mine."
+   },
+   {
+    "t": "Crawl a tunnel",
+    "d": "A stretch widened for visitors, about 100 m, with exits every 20 m or so. Hot, dark and low, so it's fine to skip."
+   },
+   {
+    "t": "Underground kitchen and cassava",
+    "d": "See the smokeless kitchen and try steamed cassava dipped in peanut-sesame salt with tea."
+   },
+   {
+    "t": "Shooting range (optional)",
+    "d": "An extra-cost range with wartime rifles; it's loud across the whole site."
+   }
+  ]
+ },
+ "Grand Palace and Wat Phra Kaew": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "Temple of the Emerald Buddha",
+    "d": "Thailand's most sacred temple: a small jade Buddha high on a golden altar. No photos inside; shoes off.",
+    "pid": "ChIJ5Wl37g6Z4jARiP4itarBPDQ"
+   },
+   {
+    "t": "Ramakien murals",
+    "d": "The cloister around the temple is painted with 178 panels of the Thai Ramayana epic."
+   },
+   {
+    "t": "Golden chedi and giant guardians",
+    "d": "The gold-tiled Phra Si Rattana chedi and the towering demon guardians (yaksha) at the gates.",
+    "pid": "ChIJ8a9rJQCZ4jAR3idyYZRkxZo"
+   },
+   {
+    "t": "Chakri Maha Prasat",
+    "d": "The royal throne hall: a European-style building topped with Thai roofs.",
+    "pid": "ChIJNfNuJA-Z4jARGLI_yKuNzYs"
+   }
+  ]
+ },
+ "Wat Pho": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "The Reclining Buddha",
+    "d": "46 m long and covered in gold leaf, with mother-of-pearl soles.",
+    "pid": "ChIJmaPD7i6Z4jARf0QKa2FrGhc"
+   },
+   {
+    "t": "108 bronze bowls",
+    "d": "Buy a cup of coins (about 20 THB) and drop one in each bowl along the wall for luck."
+   },
+   {
+    "t": "The four great chedis",
+    "d": "Tall chedis covered in coloured ceramic tiles, one for each of the first four kings."
+   },
+   {
+    "t": "Quiet courtyards",
+    "d": "Rows of gilded Buddhas and Chinese stone statues; much calmer than the palace."
+   }
+  ]
+ },
+ "Wat Arun": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "Ferry across the river",
+    "d": "From Tha Tien pier, about 5 THB and 3 minutes.",
+    "pid": "ChIJ-eyyhHyZ4jARotCdwRuntM4"
+   },
+   {
+    "t": "The central prang",
+    "d": "The tower is covered in broken porcelain flowers; climb the steep steps to the first terraces.",
+    "pid": "ChIJaSv_6gaZ4jARnbiUVn6Z_YY"
+   },
+   {
+    "t": "Thai costume photos (optional)",
+    "d": "Shops by the gate rent traditional outfits for photos."
+   }
+  ]
+ },
+ "Wat Mahathat": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "Buddha head in the tree roots",
+    "d": "The famous stone head grown into a banyan tree. Crouch so heads stay lower than the Buddha's in photos.",
+    "pid": "ChIJCS2HIbR14jARB7TQIAjswM8"
+   },
+   {
+    "t": "Rows of headless Buddhas",
+    "d": "Lines of seated statues damaged when Ayutthaya fell in 1767."
+   },
+   {
+    "t": "Leaning brick prangs",
+    "d": "Walk among the collapsed towers of the old royal monastery."
+   }
+  ]
+ },
+ "Wat Phra Si Sanphet": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "Three great chedis",
+    "d": "The bell-shaped chedis lined up on the old royal palace grounds.",
+    "pid": "ChIJ4dTQxkZ04jARljZU5XA_yr0"
+   },
+   {
+    "t": "Wihan Phra Mongkhon Bophit",
+    "d": "Next door: a working temple with one of Thailand's largest bronze Buddhas.",
+    "pid": "ChIJ65OPxUB04jARtclWVsPCaFU"
+   }
+  ]
+ },
+ "Wat Chaiwatthanaram": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "Khmer-style central prang",
+    "d": "A tall prang ringed by smaller towers, on the river bank.",
+    "pid": "ChIJuRKQJBB04jARRP9leJCqh4E"
+   },
+   {
+    "t": "Cloister of Buddhas",
+    "d": "Rows of Buddha statues around the gallery walls."
+   },
+   {
+    "t": "Golden-hour light",
+    "d": "The bricks glow orange in the late afternoon; best photos from across the lawn."
+   }
+  ]
+ },
+ "Mae Klong Railway Market": {
+  "label": "What happens",
+  "steps": [
+   {
+    "t": "Find a spot by the track",
+    "d": "Arrive 20 minutes early and stand in a shop doorway or a café by the rails.",
+    "pid": "ChIJ10pbl47T4jAR7qFFA1HY2Ds"
+   },
+   {
+    "t": "The awnings fold back",
+    "d": "A bell rings, then vendors pull back their umbrellas and move baskets seconds before the train."
+   },
+   {
+    "t": "The train creeps through",
+    "d": "It passes inches from the produce, then everything goes back as if nothing happened."
+   },
+   {
+    "t": "It comes back",
+    "d": "The train turns around at the station and leaves 30 to 40 minutes later, so it can be seen twice."
+   }
+  ]
+ },
+ "Amphawa floating market": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "Canal-side walk",
+    "d": "Old wooden shophouses, coffee shops and small stalls on both banks.",
+    "pid": "ChIJW3z8Z7vV4jARB-7hOVZmvbM"
+   },
+   {
+    "t": "Food boats",
+    "d": "Grilled prawns, squid and noodles cooked on boats and handed up to the steps."
+   },
+   {
+    "t": "Canal boat ride (optional)",
+    "d": "A short boat ride along the canal before dark, about 50 to 100 THB each."
+   }
+  ]
+ },
+ "Firefly boat ride": {
+  "label": "On the boat",
+  "steps": [
+   {
+    "t": "Long-tail boat after dark",
+    "d": "About an hour along the Mae Klong river and canals."
+   },
+   {
+    "t": "Fireflies in the lamphu trees",
+    "d": "Thousands blink in the trees along the banks; best on a dark, still night."
+   }
+  ]
+ },
+ "Trang An boat trip": {
+  "label": "On the boat",
+  "steps": [
+   {
+    "t": "Pick a route",
+    "d": "There are three routes from the ticket hall, all about 2.5 to 3 hours; the rowers know them all.",
+    "pid": "ChIJL9TQ1GJ5NjERctWf-ezAU2Q"
+   },
+   {
+    "t": "Through the caves",
+    "d": "Duck low as the boat passes through limestone caves, some a few hundred metres long."
+   },
+   {
+    "t": "Island temples",
+    "d": "Stop to walk up to small temples on the water, such as Trinh and Tran temples."
+   },
+   {
+    "t": "Kong: Skull Island set",
+    "d": "Route 2 stops at the tribal-village film set from the movie."
+   }
+  ]
+ },
+ "Tam Coc boat ride": {
+  "label": "On the boat",
+  "steps": [
+   {
+    "t": "Rowed with the feet",
+    "d": "Local rowers paddle with their feet along the Ngo Dong river.",
+    "pid": "ChIJpWmYell6NjERCt9I1i9QHxU"
+   },
+   {
+    "t": "Paddy fields between karsts",
+    "d": "Flat fields and water between sheer limestone peaks."
+   },
+   {
+    "t": "Three caves",
+    "d": "Hang Ca, Hang Hai and Hang Ba; the first is the longest."
+   },
+   {
+    "t": "Turnaround and tip",
+    "d": "Snack sellers wait at the turnaround; it's fine to say no. Tip the rower about 50,000 VND at the end."
+   }
+  ]
+ },
+ "Bai Dinh Pagoda": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "Electric cart from the gate",
+    "d": "About 30,000 VND each way to the main gate."
+   },
+   {
+    "t": "Corridor of 500 arhats",
+    "d": "A long covered walkway lined with 500 stone statues, each with a different face.",
+    "pid": "ChIJU42tIrB-NjERhcIxUnHsSIs"
+   },
+   {
+    "t": "Bell tower",
+    "d": "Home to a giant bronze bell, with views over the valley."
+   },
+   {
+    "t": "Great bronze Buddhas",
+    "d": "The main halls hold huge bronze Buddhas, the biggest about 100 tonnes."
+   },
+   {
+    "t": "13-storey stupa (optional)",
+    "d": "A lift to the top for the view, at extra cost."
+   }
+  ]
+ },
+ "Hang Mua viewpoint": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "The stone stairs",
+    "d": "About 500 steep steps; go slowly and bring water.",
+    "pid": "ChIJZdqCQkZ6NjERoHfeAj-b6bs"
+   },
+   {
+    "t": "Dragon on the peak",
+    "d": "A stone dragon winds along the ridge, with the view over Tam Coc's river and fields."
+   },
+   {
+    "t": "Guan Yin statue",
+    "d": "A white statue on the second peak, a short climb from the dragon."
+   }
+  ]
+ },
+ "Bich Dong Pagoda": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "Lower pagoda",
+    "d": "At the foot of the cliff by a small lotus pond.",
+    "pid": "ChIJn60YcKl7NjERHlwGKcFB5Nk"
+   },
+   {
+    "t": "Cave to the middle pagoda",
+    "d": "Steps lead into a cave shrine, then out to the middle level."
+   },
+   {
+    "t": "Upper pagoda",
+    "d": "The top level has a quiet view over the fields."
+   }
+  ]
+ },
+ "Hoa Lu ancient capital": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "King Dinh Tien Hoang temple",
+    "d": "The main temple, with carved wooden halls and a stone dragon bed.",
+    "pid": "ChIJb0Y7QRN5NjER5x5tV30Zcws"
+   },
+   {
+    "t": "King Le Dai Hanh temple",
+    "d": "A smaller, quieter temple a short walk away."
+   },
+   {
+    "t": "Ma Yen mountain (optional)",
+    "d": "About 200 steps up to the king's tomb, with a view over the valley."
+   }
+  ]
+ },
+ "Van Long bamboo boat ride": {
+  "label": "On the boat",
+  "steps": [
+   {
+    "t": "Bamboo boats",
+    "d": "Local women row flat bamboo boats across a mirror-calm lagoon.",
+    "pid": "ChIJlw1rMATWNTERuya5CFiiugQ"
+   },
+   {
+    "t": "Into the caves",
+    "d": "The boat floats into small caves at the foot of the cliffs."
+   },
+   {
+    "t": "Look for langurs",
+    "d": "Rare Delacour's langurs sometimes sit on the rocks; the rower will point them out."
+   }
+  ]
+ },
+ "Sunset Town and Kiss Bridge": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "Mediterranean streets",
+    "d": "Pastel buildings, a clock tower and squares made for photos.",
+    "pid": "ChIJH_PX_b6VpzERKTtTpGV5YXk"
+   },
+   {
+    "t": "Kiss Bridge",
+    "d": "Two halves that almost meet over the sea; couples kiss at the gap at sunset.",
+    "pid": "ChIJG-HZ4ZaRpzERhjtO1_1kObg"
+   }
+  ]
+ },
+ "Kiss of the Sea show": {
+  "label": "What happens",
+  "steps": [
+   {
+    "t": "Take seats early",
+    "d": "Seating on the stands by the water opens about 20 minutes before.",
+    "pid": "ChIJtSQ7ywmVpzERvzagy4sWZus"
+   },
+   {
+    "t": "The show",
+    "d": "A Vietnamese love story told with water screens, fountains, lasers and fire, about 30 minutes."
+   },
+   {
+    "t": "Fireworks finale",
+    "d": "It usually ends with fireworks over the sea."
+   }
+  ]
+ },
+ "Vinpearl Safari": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "Open-zoo walk",
+    "d": "Paths past monkeys, flamingos, hippos and giraffes, many in open enclosures.",
+    "pid": "ChIJ2bp76JUfCDER2BAKZAkG66c"
+   },
+   {
+    "t": "Safari bus",
+    "d": "A bus drives through the big-animal zone with lions, tigers, bears and rhinos close by."
+   },
+   {
+    "t": "Animal shows and feeding",
+    "d": "Short shows and giraffe or elephant feeding at set times."
+   }
+  ]
+ },
+ "Ham Ninh fishing village": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "The long wooden pier",
+    "d": "A walk out over the sea, with the fishing boats moored alongside.",
+    "pid": "ChIJS4Ky0oiPpzERbE8mbGFjZ4k"
+   },
+   {
+    "t": "Seafood from the boats",
+    "d": "Pick crab, sea urchin or squid and have it cooked at a stilt restaurant."
+   },
+   {
+    "t": "Pearls and dried seafood",
+    "d": "Small shops sell local pearls and dried fish."
+   }
+  ]
+ },
+ "Sao Beach": {
+  "label": "What to see",
+  "steps": [
+   {
+    "t": "White sand",
+    "d": "One of the island's whitest beaches, with calm, clear water.",
+    "pid": "ChIJL4toWTGRpzERqGuxiUPhdLQ"
+   },
+   {
+    "t": "Beach swing and loungers",
+    "d": "Loungers at the beach clubs, free if you order food or drinks."
+   }
+  ]
+ }
+}
