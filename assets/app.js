@@ -5,24 +5,61 @@
   const SLEEP = ['saigon', 'saigon', 'saigon', 'phuquoc', 'phuquoc', 'phuquoc', 'phuquoc', 'phuquoc',
     'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok'];
   const BASES = [
-    { city: 'saigon', lat: 10.7769, lon: 106.7009, dates: '19–22 Dec', day: 0 },
-    { city: 'phuquoc', lat: 10.175, lon: 103.965, dates: '22–27 Dec', day: 3 },
-    { city: 'bangkok', lat: 13.725, lon: 100.515, dates: '27 Dec – 3 Jan', day: 8 },
+    { city: 'saigon', lat: 10.7769, lon: 106.7009, dates: '19–22 Dec', nights: 3, hotel: 'Hotel in District 1', day: 0 },
+    { city: 'phuquoc', lat: 10.175, lon: 103.965, dates: '22–27 Dec', nights: 5, hotel: 'Resort on Long Beach', day: 3 },
+    { city: 'bangkok', lat: 13.725, lon: 100.515, dates: '27 Dec – 3 Jan', nights: 7, hotel: 'Hotel in Bang Rak, by the river', day: 8 },
   ];
+  const MODES = {
+    w: { icon: '🚶', name: 'Walk' }, d: { icon: '🚕', name: 'Grab or taxi' }, t: { icon: '🚇', name: 'Train' },
+    b: { icon: '⛴️', name: 'Boat' }, s: { icon: '🛵', name: 'Scooter' }, f: { icon: '✈️', name: 'Flight' },
+  };
   const CAT_COLORS = ['#c2410c', '#0e7490', '#7c3aed', '#ca8a04', '#be185d', '#15803d', '#2563eb', '#9333ea', '#0f766e', '#64748b', '#b45309'];
 
   const $ = (s) => document.querySelector(s);
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const mobile = () => window.matchMedia('(max-width: 860px)').matches;
 
-  let trip = [], budget = null, day = null, stop = 0;
-  let map, layer, markers = new Map();
+  let trip = [], budget = null, media = {}, day = null, stop = 0;
+  let map, layer, arrows, legs = [], markers = new Map();
 
   function initMap() {
-    map = L.map('map', { zoomControl: true, scrollWheelZoom: true });
+    map = L.map('map', { zoomControl: !mobile(), scrollWheelZoom: true, tap: true });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19, attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
+    arrows = L.layerGroup().addTo(map);
     layer = L.layerGroup().addTo(map);
+    map.on('zoomend', drawArrows);
+  }
+
+  // Chevrons every ~24px along each leg, pointing from one stop to the next. Each leg is nudged a
+  // few pixels to the right of its direction so an out-and-back trip shows as two parallel trails.
+  function drawArrows() {
+    arrows.clearLayers();
+    const z = map.getZoom();
+    legs.forEach(({ a, b, color }) => {
+      const pa = map.project(a, z), pb = map.project(b, z);
+      const len = pa.distanceTo(pb);
+      if (len < 30) return;
+      const ux = (pb.x - pa.x) / len, uy = (pb.y - pa.y) / len;
+      const off = L.point(-uy * 6, ux * 6);
+      const ang = Math.atan2(uy, ux) * 180 / Math.PI;
+      const n = Math.max(1, Math.floor((len - 40) / 24));
+      const svg = `<svg width="14" height="14" viewBox="0 0 14 14" style="transform:translate(-50%,-50%) rotate(${ang}deg)"><path d="M4 2 L10 7 L4 12" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 2 L10 7 L4 12" fill="none" stroke="${color}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+      for (let k = 1; k <= n; k++) {
+        const t = (20 + (k - 0.5) * ((len - 40) / n)) / len;
+        const ll = map.unproject(pa.add(pb.subtract(pa).multiplyBy(t)).add(off), z);
+        L.marker(ll, { interactive: false, keyboard: false,
+          icon: L.divIcon({ className: 'pin-wrap', iconSize: [0, 0], html: `<div class="chev">${svg}</div>` }) }).addTo(arrows);
+      }
+    });
+  }
+
+  // Keep the dots clear of the bottom sheet on phones.
+  function fitPad() {
+    if (!mobile()) return { padding: [40, 40] };
+    const sheet = $('#panel').getBoundingClientRect().height;
+    return { paddingTopLeft: [30, 30], paddingBottomRight: [30, Math.min(sheet, window.innerHeight * 0.5) + 20] };
   }
 
   function dayLabel(d) {
@@ -43,27 +80,39 @@
     if (on) on.scrollIntoView({ block: 'nearest', inline: 'center' });
   }
 
-  function pinIcon(text, color, cls = '') {
-    return L.divIcon({ className: '', html: `<div class="pin ${cls}" style="background:${color}">${text}</div>`, iconSize: null, iconAnchor: [14, 14] });
+  function pinIcon(html, color, cls = '') {
+    return L.divIcon({ className: 'pin-wrap', html: `<div class="pin ${cls}" style="--c:${color}">${html}</div>`, iconSize: [0, 0] });
   }
 
   function renderOverview() {
     layer.clearLayers(); markers.clear();
     const pts = BASES.map((b) => [b.lat, b.lon]);
-    L.polyline(pts, { color: '#64748b', weight: 2, dashArray: '6 8' }).addTo(layer);
+    legs = [];
+    for (let i = 1; i < BASES.length; i++) {
+      const a = pts[i - 1], b = pts[i];
+      legs.push({ a, b, color: '#64748b' });
+      L.marker([(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], { icon: pinIcon('✈️', '#64748b', 'mode'), interactive: false }).addTo(layer);
+    }
     BASES.forEach((b) => {
       const c = CITY[b.city];
-      L.marker([b.lat, b.lon], { icon: pinIcon(`${c.name} · ${b.dates}`, c.color, 'big') })
+      L.marker([b.lat, b.lon], { icon: pinIcon(`🏨 ${c.name} · ${b.dates}`, c.color, 'big') })
         .on('click', () => go(b.day, 0)).addTo(layer);
     });
-    map.fitBounds(pts, { padding: [60, 60] });
-    $('#dayhead').innerHTML = `<h2>Whole trip</h2><p>Click a city to open its first day, or pick a day above. Matthew flies from Sydney and Amy from Hong Kong; they meet in Saigon on 19 Dec and both fly home direct from Bangkok on 3 Jan.</p>`;
-    $('#card').innerHTML = `<div class="body">${BASES.map((b, i) => {
+    map.fitBounds(pts, fitPad());
+    drawArrows();
+    $('#dayhead').innerHTML = `<h2>Whole trip</h2><p>Tap a city to open its first day, or pick a day above. Matthew flies from Sydney and Amy from Hong Kong; they meet in Saigon on 19 Dec and both fly home direct from Bangkok on 3 Jan.</p>`;
+    $('#card').innerHTML = `<div class="body">${BASES.map((b) => {
       const c = CITY[b.city];
-      const n = [3, 5, 7][i];
-      return `<p><span class="sw" style="background:${c.color}"></span><b>${c.name}</b>, ${b.dates} (${n} nights)</p>`;
-    }).join('')}<p class="muted">Use the arrow keys or the Next button to step through each day.</p></div>`;
-    $('#timeline').innerHTML = '';
+      return `<p class="base"><span class="hotelchip" style="--c:${c.color}">🏨</span><span><b>${c.name}</b>, ${b.dates} (${b.nights} nights)<br><small class="muted">${b.hotel}</small></span></p>`;
+    }).join('')}</div>
+      <div class="nav"><button class="next" data-go="next"><small>Start here</small>Day 1: ${esc(trip[0].title.split(': ')[1] || trip[0].title)} →</button></div>`;
+    $('#card').querySelector('[data-go]').addEventListener('click', () => go(0, 0));
+    $('#timeline').innerHTML = `<li class="legend">${Object.values(MODES).map((m) => `<span>${m.icon} ${m.name}</span>`).join('')}<span>🏨 Hotel</span></li>`;
+  }
+
+  function legMode(s) {
+    if (s.flight) return 'f';
+    return s.commute ? s.commute.mode : null;
   }
 
   function renderDay() {
@@ -76,43 +125,71 @@
     d.stops.forEach((s, i) => {
       if (s.lat == null) return;
       const key = `${s.lat},${s.lon}`;
-      if (!groups.has(key)) groups.set(key, { lat: s.lat, lon: s.lon, idx: [] });
-      groups.get(key).idx.push(i);
+      if (!groups.has(key)) groups.set(key, { lat: s.lat, lon: s.lon, idx: [], hotel: false });
+      const g = groups.get(key);
+      g.idx.push(i);
+      if (s.hotel) g.hotel = true;
     });
 
-    // Route line in visiting order; boat legs dashed.
+    // Route legs in visiting order, drawn as a trail of arrows with a travel-mode icon on each leg.
+    legs = [];
     let prev = null;
-    d.stops.forEach((s) => {
+    d.stops.forEach((s, i) => {
       if (s.lat == null) return;
       if (prev && (prev.lat !== s.lat || prev.lon !== s.lon)) {
-        const boat = s.commute && s.commute.mode === 'b';
-        L.polyline([[prev.lat, prev.lon], [s.lat, s.lon]], { color, weight: 4, opacity: 0.75, dashArray: boat ? '8 8' : null }).addTo(layer);
+        const m = legMode(s) || 'd';
+        const a = [prev.lat, prev.lon], b = [s.lat, s.lon];
+        legs.push({ a, b, color: m === 'f' ? '#64748b' : color });
+        const tip = s.commute ? `${s.commute.label} · ${s.commute.dur}` : MODES[m].name;
+        L.marker([(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], { icon: pinIcon(MODES[m].icon, color, 'mode'), title: tip, zIndexOffset: -100 })
+          .on('click', () => go(day, i)).addTo(layer);
       }
       prev = s;
     });
+    drawArrows();
 
     groups.forEach((g) => {
-      const label = g.idx.map((i) => d.stops[i].n).join(',');
-      const m = L.marker([g.lat, g.lon], { icon: pinIcon(label, color, g.idx.length > 1 ? 'wide' : ''), title: g.idx.map((i) => d.stops[i].what).join(' / ') });
+      const nums = g.idx.map((i) => d.stops[i].n).join(',');
+      const label = g.hotel ? `🏨<span>${nums}</span>` : nums;
+      const cls = [g.hotel ? 'hotel' : '', g.idx.length > 1 || g.hotel ? 'wide' : ''].join(' ');
+      const m = L.marker([g.lat, g.lon], { icon: pinIcon(label, color, cls), title: g.idx.map((i) => d.stops[i].what).join(' / ') });
       m.on('click', () => {
         const later = g.idx.find((i) => i > stop);
         const pick = g.idx.includes(stop) ? (later ?? g.idx[0]) : g.idx[0];
         go(day, pick);
       });
       m.addTo(layer);
-      g.idx.forEach((i) => markers.set(i, { m, label, g }));
+      g.idx.forEach((i) => markers.set(i, { m }));
     });
 
     const pts = [...groups.values()].map((g) => [g.lat, g.lon]);
-    if (pts.length > 1) map.fitBounds(pts, { padding: [40, 40], maxZoom: 15 });
+    if (pts.length > 1) map.fitBounds(pts, { ...fitPad(), maxZoom: 15 });
     else if (pts.length === 1) map.setView(pts[0], 14);
 
     $('#dayhead').innerHTML = `<h2>${esc(d.title)}</h2><p>${esc(d.sub)}</p>`;
     $('#timeline').innerHTML = d.stops.map((s, i) => {
-      const move = s.commute ? `<li class="move">${s.commute.icon} ${esc(s.commute.label)} · ${esc(s.commute.dur)}</li>` : '';
-      return `${move}<li><button class="stop" data-i="${i}"><span class="num" style="background:${color}">${s.n}</span><span class="t">${esc(s.time)}</span><span>${esc(s.what)}</span></button></li>`;
+      const lm = legMode(s);
+      const move = s.commute ? `<li class="move">${s.commute.icon} ${esc(s.commute.label)} · ${esc(s.commute.dur)}</li>`
+        : (lm === 'f' ? `<li class="move">✈️ Flight</li>` : '');
+      return `${move}<li><button class="stop" data-i="${i}"><span class="num" style="background:${color}">${s.hotel ? '🏨' : s.n}</span><span class="t">${esc(s.time)}</span><span>${esc(s.what)}</span></button></li>`;
     }).join('');
     $('#timeline').querySelectorAll('.stop').forEach((b) => b.addEventListener('click', () => go(day, +b.dataset.i)));
+  }
+
+  function gallery(s) {
+    const m = media[s.tag] || {};
+    const pics = [s.img, ...(m.photos || []).filter((p) => p !== s.img)];
+    return `<div class="gallery" aria-label="Photos">${pics.map((p, i) =>
+      `<img src="${esc(p)}" alt="${esc(s.what)} photo ${i + 1}" loading="lazy" onerror="this.remove()">`).join('')}</div>
+      ${pics.length > 1 ? `<div class="gcount">${pics.length} photos · swipe →</div>` : ''}`;
+  }
+
+  function videos(s) {
+    const v = (media[s.tag] || {}).videos || [];
+    if (!v.length) return s.tiktok ? `<a class="tt-more" href="${esc(s.tiktok)}" target="_blank" rel="noopener">🎬 Browse #${esc(s.tag)} on TikTok</a>` : '';
+    return `<details class="videos"><summary>🎬 Watch ${v.length} TikTok${v.length > 1 ? 's' : ''}</summary>
+      <div class="vids" data-ids="${v.map((x) => x.id).join(',')}"></div>
+      ${s.tiktok ? `<a class="tt-more" href="${esc(s.tiktok)}" target="_blank" rel="noopener">More on #${esc(s.tag)}</a>` : ''}</details>`;
   }
 
   function renderStop() {
@@ -131,34 +208,46 @@
       `<a href="${esc(s.map)}" target="_blank" rel="noopener">📍 Google Maps</a>`,
       s.commute && s.commute.dir ? `<a href="${esc(s.commute.dir)}" target="_blank" rel="noopener">🧭 Directions here</a>` : '',
       s.book ? `<a href="${esc(s.book)}" target="_blank" rel="noopener">🎟️ ${esc(s.bookLabel)}</a>` : '',
-      s.tiktok ? `<a href="${esc(s.tiktok)}" target="_blank" rel="noopener">🎬 #${esc(s.tag)} on TikTok</a>` : '',
     ].join('');
 
     let nextBtn;
     if (next) {
-      const how = next.commute ? `${next.commute.icon} ${esc(next.commute.label)} · ${esc(next.commute.dur)}` : 'Same place';
+      const lm = legMode(next);
+      const how = next.commute ? `${next.commute.icon} ${esc(next.commute.label)} · ${esc(next.commute.dur)}` : (lm === 'f' ? '✈️ Flight' : 'Same place');
       nextBtn = `<button class="next" data-go="next"><small>${how}</small>Next: ${next.n}. ${esc(next.what)} →</button>`;
     } else if (nextDay) {
-      nextBtn = `<button class="next" data-go="nextday"><small>End of the day</small>Next: ${esc(nextDay.title)} →</button>`;
+      nextBtn = `<button class="next" data-go="next"><small>End of the day</small>${esc(nextDay.title)} →</button>`;
     } else {
       nextBtn = `<button class="next" disabled><small>End of the trip</small>Home</button>`;
     }
 
     $('#card').innerHTML = `
-      <img src="${esc(s.img)}" alt="${esc(s.what)}" loading="lazy" onerror="this.style.display='none'">
-      <div class="body">
-        <div class="when" style="color:${color}">${s.n}. ${esc(s.time)}</div>
+      <div class="peek">
+        <div class="when" style="color:${color}">${s.hotel ? '🏨 ' : ''}${s.n}. ${esc(s.time)}</div>
         <h3>${esc(s.what)}</h3>
+      </div>
+      ${gallery(s)}
+      <div class="body">
         ${s.lat == null ? '<p class="offmap">Not shown on the map.</p>' : ''}
         ${s.details ? `<p class="details">${esc(s.details)}</p>` : ''}
         <dl class="facts">${facts.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl>
         <div class="links">${links}</div>
+        ${videos(s)}
       </div>
       <div class="nav">
         <button data-go="prev" ${stop === 0 && day === 0 ? 'disabled' : ''} aria-label="Previous stop">←</button>
         ${nextBtn}
       </div>`;
     $('#card').querySelectorAll('[data-go]').forEach((b) => b.addEventListener('click', () => step(b.dataset.go === 'prev' ? -1 : 1)));
+    const det = $('#card').querySelector('details.videos');
+    if (det) det.addEventListener('toggle', () => {
+      const box = det.querySelector('.vids');
+      if (det.open && !box.childElementCount) {
+        box.innerHTML = box.dataset.ids.split(',').map((id) =>
+          `<iframe src="https://www.tiktok.com/embed/v2/${id}" loading="lazy" allow="encrypted-media; fullscreen" allowfullscreen title="TikTok video"></iframe>`).join('');
+      }
+    });
+    $('#panel').scrollTop = 0;
 
     $('#timeline').querySelectorAll('.stop').forEach((b) => b.classList.toggle('on', +b.dataset.i === stop));
     document.querySelectorAll('.pin.on').forEach((p) => p.classList.remove('on'));
@@ -167,7 +256,15 @@
       const el = mk.m.getElement()?.querySelector('.pin');
       if (el) el.classList.add('on');
       mk.m.setZIndexOffset(1000);
-      if (!map.getBounds().pad(-0.1).contains(mk.m.getLatLng())) map.panTo(mk.m.getLatLng());
+      const ll = mk.m.getLatLng();
+      if (mobile()) {
+        // Centre the dot in the part of the map above the sheet.
+        const sheet = Math.min($('#panel').getBoundingClientRect().height, window.innerHeight * 0.5);
+        const p = map.latLngToContainerPoint(ll);
+        const size = map.getSize();
+        const visible = p.x > 30 && p.x < size.x - 30 && p.y > 30 && p.y < size.y - sheet - 30;
+        if (!visible) map.panBy(p.subtract(L.point(size.x / 2, (size.y - sheet) / 2)), { animate: true });
+      } else if (!map.getBounds().pad(-0.1).contains(ll)) map.panTo(ll);
     }
   }
 
@@ -191,6 +288,21 @@
     history.replaceState(null, '', day < 0 ? '#' : `#day${day + 1}/${stop + 1}`);
   }
 
+  // Bottom sheet on phones: tap or drag the handle to expand or shrink.
+  function initSheet() {
+    const panel = $('#panel'), handle = $('#handle');
+    const set = (open) => { panel.classList.toggle('open', open); handle.setAttribute('aria-expanded', open); };
+    handle.addEventListener('click', () => set(!panel.classList.contains('open')));
+    let y0 = null;
+    handle.addEventListener('touchstart', (e) => { y0 = e.touches[0].clientY; }, { passive: true });
+    handle.addEventListener('touchend', (e) => {
+      if (y0 == null) return;
+      const dy = e.changedTouches[0].clientY - y0;
+      if (Math.abs(dy) > 30) set(dy < 0);
+      y0 = null;
+    });
+  }
+
   function renderBudget() {
     if (!budget) return;
     const cats = [];
@@ -211,14 +323,12 @@
         <div class="donut" style="background:conic-gradient(${grad})" role="img" aria-label="Planned spend by category, total ${fmt(total)}">
           <div class="total"><div>${fmt(total)}<small>planned for two</small></div></div>
         </div>
-        <table><thead><tr><th>Category</th><th class="num">Planned</th><th class="num">Share</th></tr></thead><tbody>
+        <div class="tablewrap"><table><thead><tr><th>Category</th><th class="num">Planned</th><th class="num">Share</th></tr></thead><tbody>
           ${cats.map((c) => `<tr><td><span class="sw" style="background:${c.color}"></span>${esc(c.name)}</td><td class="num">${fmt(c.total)}</td><td class="num">${Math.round((c.total / total) * 100)}%</td></tr>`).join('')}
           <tr><th>Total</th><th class="num">${fmt(total)}</th><th></th></tr>
-        </tbody></table>
+        </tbody></table></div>
       </div>
-      <table><thead><tr><th>Item</th><th>Category</th><th class="num">Planned</th><th>Notes</th></tr></thead><tbody>
-        ${budget.items.map((it) => `<tr><td>${esc(it.item)}</td><td class="muted">${esc(it.category)}</td><td class="num">${fmt(it.planned)}</td><td class="muted">${esc(it.notes)}</td></tr>`).join('')}
-      </tbody></table>`;
+      <div class="items">${budget.items.map((it) => `<div class="item"><div><b>${esc(it.item)}</b><small class="muted">${esc(it.category)}${it.notes ? ' · ' + esc(it.notes) : ''}</small></div><span class="num">${fmt(it.planned)}</span></div>`).join('')}</div>`;
   }
 
   function setView(v) {
@@ -226,6 +336,7 @@
     $('#mapView').hidden = v !== 'map';
     $('#days').hidden = v !== 'map';
     $('#budgetView').hidden = v !== 'budget';
+    document.body.classList.toggle('budget-on', v === 'budget');
     if (v === 'map') map.invalidateSize();
   }
 
@@ -236,12 +347,12 @@
     if (e.key === 'ArrowLeft') step(-1);
   });
 
-  Promise.all([fetch('data/trip.json').then((r) => r.json()), fetch('data/budget.json').then((r) => r.json())])
-    .then(([t, b]) => {
-      trip = t; budget = b;
-      initMap(); renderBudget();
-      const m = location.hash.match(/^#day(\d+)\/(\d+)/);
-      if (m && trip[+m[1] - 1]) go(+m[1] - 1, Math.min(+m[2] - 1, trip[+m[1] - 1].stops.length - 1));
+  Promise.all(['trip', 'budget', 'media'].map((f) => fetch(`data/${f}.json`).then((r) => r.json())))
+    .then(([t, b, m]) => {
+      trip = t; budget = b; media = m;
+      initMap(); initSheet(); renderBudget();
+      const h = location.hash.match(/^#day(\d+)\/(\d+)/);
+      if (h && trip[+h[1] - 1]) go(+h[1] - 1, Math.min(+h[2] - 1, trip[+h[1] - 1].stops.length - 1));
       else go(-1, 0);
     })
     .catch((err) => { document.body.insertAdjacentHTML('beforeend', `<p style="padding:16px">Could not load the trip data: ${esc(err.message)}</p>`); });

@@ -6,10 +6,12 @@
   "stops": [
    {
     "n": 1,
-    "time": "05:00–14:00",
+    "time": "5 am – 2 pm",
+    "hotel": false,
+    "flight": true,
     "what": "Matthew: fly SYD to SGN",
     "dur": "about 9h flight",
-    "details": "Direct (Vietnam Airlines or Vietjet). A 09:00 Sydney departure is 05:00 here and lands around 14:00.",
+    "details": "Direct (Vietnam Airlines or Vietjet). A 9 am Sydney departure is 5 am here and lands around 2 pm.",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Ho_Chi_Minh_City_Skyline_(night).jpg/500px-Ho_Chi_Minh_City_Skyline_(night).jpg",
     "place": "Sydney airport",
     "lat": null,
@@ -25,10 +27,12 @@
    },
    {
     "n": 2,
-    "time": "08:45–14:00",
+    "time": "8:45 am – 2 pm",
+    "hotel": false,
+    "flight": true,
     "what": "Amy: fly HKG to SGN",
     "dur": "about 2h45 flight",
-    "details": "Airport Express to HKG, then about 2h45 flying. Choose a flight landing around 14:00 so you arrive together.",
+    "details": "Airport Express to HKG, then about 2h45 flying. Choose a flight landing around 2 pm so you arrive together.",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Hong_Kong_airport_terminal_1.jpg/500px-Hong_Kong_airport_terminal_1.jpg",
     "place": "HKG airport",
     "lat": null,
@@ -44,7 +48,9 @@
    },
    {
     "n": 3,
-    "time": "14:00–14:45",
+    "time": "2–2:45 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Meet at Tan Son Nhat",
     "dur": "45 min",
     "details": "Whoever lands first waits in arrivals. E-visa check, SIM or eSIM.",
@@ -63,7 +69,9 @@
    },
    {
     "n": 4,
-    "time": "15:20–16:35",
+    "time": "3:20–4:35 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Check in and late lunch",
     "dur": "1h 15m",
     "details": "Drop bags at the hotel, then pho somewhere busy and clean (Pho Hoa Pasteur).",
@@ -73,7 +81,7 @@
     "lon": 106.6896,
     "map": "https://www.google.com/maps/search/?api=1&query=Pho%20Hoa%20Pasteur%2C%20Ho%20Chi%20Minh%20City",
     "commute": {
-     "time": "14:45–15:20",
+     "time": "2:45–3:20 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Grab to Pho Hoa Pasteur (about 150,000–200,000 VND)",
@@ -90,7 +98,9 @@
    },
    {
     "n": 5,
-    "time": "16:50–17:35",
+    "time": "4:50–5:35 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Saigon Central Post Office",
     "dur": "45 min",
     "details": "French colonial post office; Book Street is next door.",
@@ -100,7 +110,7 @@
     "lon": 106.6999,
     "map": "https://www.google.com/maps/search/?api=1&query=Saigon%20Central%20Post%20Office",
     "commute": {
-     "time": "16:35–16:50",
+     "time": "4:35–4:50 pm",
      "mode": "w",
      "icon": "🚶",
      "label": "Walk",
@@ -108,7 +118,7 @@
      "from": "Pho Hoa Pasteur",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Pho%20Hoa%20Pasteur%2C%20Ho%20Chi%20Minh%20City&destination=Saigon%20Central%20Post%20Office&travelmode=walking"
     },
-    "hours": "About 07:00–19:00 daily",
+    "hours": "About 7 am – 7 pm daily",
     "cost": "Free",
     "book": null,
     "bookLabel": "No booking",
@@ -117,7 +127,9 @@
    },
    {
     "n": 6,
-    "time": "17:45–19:15",
+    "time": "5:45–7:15 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Nguyen Hue walking street",
     "dur": "1h 30m",
     "details": "Stroll as the lights come on; coffee in the apartment-block cafés at No. 42.",
@@ -127,7 +139,7 @@
     "lon": 106.7039,
     "map": "https://www.google.com/maps/search/?api=1&query=Nguyen%20Hue%20Walking%20Street%2C%20Ho%20Chi%20Minh%20City",
     "commute": {
-     "time": "17:35–17:45",
+     "time": "5:35–5:45 pm",
      "mode": "w",
      "icon": "🚶",
      "label": "Walk",
@@ -135,7 +147,7 @@
      "from": "Post Office",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Saigon%20Central%20Post%20Office&destination=Nguyen%20Hue%20Walking%20Street%2C%20Ho%20Chi%20Minh%20City&travelmode=walking"
     },
-    "hours": "Open all the time; liveliest after 17:00",
+    "hours": "Open all the time; liveliest after 5 pm",
     "cost": "Free",
     "book": null,
     "bookLabel": "No booking",
@@ -144,7 +156,9 @@
    },
    {
     "n": 7,
-    "time": "19:25–20:55",
+    "time": "7:25–8:55 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Dinner",
     "dur": "1h 30m",
     "details": "Vietnamese dinner at Secret Garden (rooftop, popular, clean).",
@@ -154,7 +168,7 @@
     "lon": 106.7005,
     "map": "https://www.google.com/maps/search/?api=1&query=Secret%20Garden%20Restaurant%2C%20158%20Pasteur%2C%20Ho%20Chi%20Minh%20City",
     "commute": {
-     "time": "19:15–19:25",
+     "time": "7:15–7:25 pm",
      "mode": "w",
      "icon": "🚶",
      "label": "Walk",
@@ -171,7 +185,9 @@
    },
    {
     "n": 8,
-    "time": "21:05–22:35",
+    "time": "9:05–10:35 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Rooftop drinks",
     "dur": "1h 30m",
     "details": "Saigon Saigon bar at the Caravelle for skyline views.",
@@ -181,7 +197,7 @@
     "lon": 106.7032,
     "map": "https://www.google.com/maps/search/?api=1&query=Saigon%20Saigon%20Rooftop%20Bar%2C%20Caravelle%20Hotel%2C%20Ho%20Chi%20Minh%20City",
     "commute": {
-     "time": "20:55–21:05",
+     "time": "8:55–9:05 pm",
      "mode": "w",
      "icon": "🚶",
      "label": "Walk",
@@ -189,7 +205,7 @@
      "from": "Secret Garden",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Secret%20Garden%20Restaurant%2C%20158%20Pasteur%2C%20Ho%20Chi%20Minh%20City&destination=Saigon%20Saigon%20Rooftop%20Bar%2C%20Caravelle%20Hotel%2C%20Ho%20Chi%20Minh%20City&travelmode=walking"
     },
-    "hours": "About 16:00–late",
+    "hours": "About 4 pm–late",
     "cost": "Free entry; cocktails about 200,000–300,000 VND (A$12–18)",
     "book": "https://www.caravellehotel.com/",
     "bookLabel": "Caravelle site",
@@ -205,7 +221,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "07:00–07:15",
+    "time": "7–7:15 am",
+    "hotel": true,
+    "flight": false,
     "what": "Tour pickup",
     "dur": "15 min",
     "details": "Small-group or private Mekong tour picks you up at the hotel.",
@@ -215,7 +233,7 @@
     "lon": 106.7009,
     "map": "https://www.google.com/maps/search/?api=1&query=District%201%2C%20Ho%20Chi%20Minh%20City",
     "commute": null,
-    "hours": "Tour runs about 07:00–17:00",
+    "hours": "Tour runs about 7 am – 5 pm",
     "cost": "Small-group tour about US$35–70 (A$55–110), lunch included",
     "book": "https://www.getyourguide.com/s/?q=Mekong%20Delta%20Ben%20Tre%20small%20group",
     "bookLabel": "GetYourGuide",
@@ -224,7 +242,9 @@
    },
    {
     "n": 2,
-    "time": "09:15–12:15",
+    "time": "9:15 am – 12:15 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Mekong boat trip",
     "dur": "3h",
     "details": "Sampan rides through coconut-palm canals, coconut-candy workshop, fruit orchard tasting.",
@@ -234,7 +254,7 @@
     "lon": 106.3759,
     "map": "https://www.google.com/maps/search/?api=1&query=Ben%20Tre%2C%20Vietnam",
     "commute": {
-     "time": "07:15–09:15",
+     "time": "7:15–9:15 am",
      "mode": "d",
      "icon": "🚕",
      "label": "Tour bus to Ben Tre (85 km)",
@@ -251,7 +271,9 @@
    },
    {
     "n": 3,
-    "time": "12:15–13:30",
+    "time": "12:15–1:30 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Lunch on the delta",
     "dur": "1h 15m",
     "details": "Elephant-ear fish and local dishes at a garden restaurant, all cooked fresh.",
@@ -270,7 +292,9 @@
    },
    {
     "n": 4,
-    "time": "13:30–14:45",
+    "time": "1:30–2:45 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Bike or boat through the villages",
     "dur": "1h 15m",
     "details": "Easy cycle along the canals.",
@@ -289,7 +313,9 @@
    },
    {
     "n": 5,
-    "time": "16:45–18:15",
+    "time": "4:45–6:15 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Back at the hotel",
     "dur": "1h 30m",
     "details": "Shower and rest.",
@@ -299,7 +325,7 @@
     "lon": 106.7009,
     "map": "https://www.google.com/maps/search/?api=1&query=District%201%2C%20Ho%20Chi%20Minh%20City",
     "commute": {
-     "time": "14:45–16:45",
+     "time": "2:45–4:45 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Tour bus back to District 1",
@@ -316,7 +342,9 @@
    },
    {
     "n": 6,
-    "time": "18:25–20:25",
+    "time": "6:25–8:25 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Banh mi and evening stroll",
     "dur": "2h",
     "details": "Banh Mi Huynh Hoa is busy and well known; take it back to the hotel or add a sit-down dinner nearby. You ride your own scooter on Phu Quoc instead (26 Dec).",
@@ -326,7 +354,7 @@
     "lon": 106.6925,
     "map": "https://www.google.com/maps/search/?api=1&query=Banh%20Mi%20Huynh%20Hoa%2C%2026%20Le%20Thi%20Rieng%2C%20Ho%20Chi%20Minh%20City",
     "commute": {
-     "time": "18:15–18:25",
+     "time": "6:15–6:25 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Grab",
@@ -334,7 +362,7 @@
      "from": "Hotel (District 1)",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=District%201%2C%20Ho%20Chi%20Minh%20City&destination=Banh%20Mi%20Huynh%20Hoa%2C%2026%20Le%20Thi%20Rieng%2C%20Ho%20Chi%20Minh%20City&travelmode=driving"
     },
-    "hours": "About 06:00–22:00 daily",
+    "hours": "About 6 am – 10 pm daily",
     "cost": "About 70,000 VND (A$4) per banh mi",
     "book": null,
     "bookLabel": "No booking",
@@ -350,7 +378,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "05:00–09:00",
+    "time": "5–9 am",
+    "hotel": true,
+    "flight": false,
     "what": "Matthew: a few meetings",
     "dur": "4h",
     "details": "Sydney morning calls from the hotel (9am Sydney is 5am here). Amy sleeps in.",
@@ -369,7 +399,9 @@
    },
    {
     "n": 2,
-    "time": "09:30–10:30",
+    "time": "9:30–10:30 am",
+    "hotel": true,
+    "flight": false,
     "what": "Late breakfast together",
     "dur": "1h",
     "details": "Hotel breakfast or egg coffee nearby.",
@@ -388,7 +420,9 @@
    },
    {
     "n": 3,
-    "time": "10:30–12:15",
+    "time": "10:30 am – 12:15 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Free time: café or spa",
     "dur": "1h 45m",
     "details": "Slow morning near the hotel.",
@@ -407,7 +441,9 @@
    },
    {
     "n": 4,
-    "time": "12:25–13:25",
+    "time": "12:25–1:25 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Lunch: com tam",
     "dur": "1h",
     "details": "Broken rice with grilled pork, a Saigon classic.",
@@ -417,7 +453,7 @@
     "lon": 106.6995,
     "map": "https://www.google.com/maps/search/?api=1&query=com%20tam%2C%20District%201%2C%20Ho%20Chi%20Minh%20City",
     "commute": {
-     "time": "12:15–12:25",
+     "time": "12:15–12:25 pm",
      "mode": "w",
      "icon": "🚶",
      "label": "Walk",
@@ -434,7 +470,9 @@
    },
    {
     "n": 5,
-    "time": "13:40–15:10",
+    "time": "1:40–3:10 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Independence Palace",
     "dur": "1h 30m",
     "details": "1960s palace frozen in time, with war-room bunkers underneath.",
@@ -444,7 +482,7 @@
     "lon": 106.6953,
     "map": "https://www.google.com/maps/search/?api=1&query=Independence%20Palace%2C%20Ho%20Chi%20Minh%20City",
     "commute": {
-     "time": "13:25–13:40",
+     "time": "1:25–1:40 pm",
      "mode": "w",
      "icon": "🚶",
      "label": "Walk",
@@ -452,7 +490,7 @@
      "from": "com tam spot",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=com%20tam%2C%20District%201%2C%20Ho%20Chi%20Minh%20City&destination=Independence%20Palace%2C%20Ho%20Chi%20Minh%20City&travelmode=walking"
     },
-    "hours": "08:00–16:30 daily (last entry about 16:00)",
+    "hours": "8 am – 4:30 pm daily (last entry about 4 pm)",
     "cost": "About 65,000 VND (A$4)",
     "book": "https://dinhdoclap.gov.vn/en/",
     "bookLabel": "Buy at the gate",
@@ -461,7 +499,9 @@
    },
    {
     "n": 6,
-    "time": "15:20–16:50",
+    "time": "3:20–4:50 pm",
+    "hotel": false,
+    "flight": false,
     "what": "War Remnants Museum",
     "dur": "1h 30m",
     "details": "Powerful and heavy.",
@@ -471,7 +511,7 @@
     "lon": 106.6922,
     "map": "https://www.google.com/maps/search/?api=1&query=War%20Remnants%20Museum%2C%20Ho%20Chi%20Minh%20City",
     "commute": {
-     "time": "15:10–15:20",
+     "time": "3:10–3:20 pm",
      "mode": "w",
      "icon": "🚶",
      "label": "Walk",
@@ -479,7 +519,7 @@
      "from": "Independence Palace",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Independence%20Palace%2C%20Ho%20Chi%20Minh%20City&destination=War%20Remnants%20Museum%2C%20Ho%20Chi%20Minh%20City&travelmode=walking"
     },
-    "hours": "07:30–17:30 daily",
+    "hours": "7:30 am – 5:30 pm daily",
     "cost": "About 40,000 VND (A$2.50)",
     "book": null,
     "bookLabel": "Buy at the gate",
@@ -488,7 +528,9 @@
    },
    {
     "n": 7,
-    "time": "17:00–18:15",
+    "time": "5–6:15 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Ben Thanh Market",
     "dur": "1h 15m",
     "details": "Browse the stalls as the night market sets up outside.",
@@ -498,7 +540,7 @@
     "lon": 106.698,
     "map": "https://www.google.com/maps/search/?api=1&query=Ben%20Thanh%20Market%2C%20Ho%20Chi%20Minh%20City",
     "commute": {
-     "time": "16:50–17:00",
+     "time": "4:50–5 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Grab",
@@ -506,7 +548,7 @@
      "from": "War Remnants Museum",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=War%20Remnants%20Museum%2C%20Ho%20Chi%20Minh%20City&destination=Ben%20Thanh%20Market%2C%20Ho%20Chi%20Minh%20City&travelmode=driving"
     },
-    "hours": "Market about 07:00–18:00; night market outside after 18:00",
+    "hours": "Market about 7 am – 6 pm; night market outside after 6 pm",
     "cost": "Free",
     "book": null,
     "bookLabel": "No booking",
@@ -515,7 +557,9 @@
    },
    {
     "n": 8,
-    "time": "18:25–19:55",
+    "time": "6:25–7:55 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Dinner and early night",
     "dur": "1h 30m",
     "details": "Near Nguyen Hue. Pack for Phu Quoc.",
@@ -525,7 +569,7 @@
     "lon": 106.7039,
     "map": "https://www.google.com/maps/search/?api=1&query=Nguyen%20Hue%20Walking%20Street%2C%20Ho%20Chi%20Minh%20City",
     "commute": {
-     "time": "18:15–18:25",
+     "time": "6:15–6:25 pm",
      "mode": "w",
      "icon": "🚶",
      "label": "Walk",
@@ -549,7 +593,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "05:00–09:00",
+    "time": "5–9 am",
+    "hotel": true,
+    "flight": false,
     "what": "Matthew: a few meetings",
     "dur": "4h",
     "details": "Sydney morning calls from the hotel. Amy sleeps in.",
@@ -568,7 +614,9 @@
    },
    {
     "n": 2,
-    "time": "09:30–10:30",
+    "time": "9:30–10:30 am",
+    "hotel": true,
+    "flight": false,
     "what": "Breakfast and check out",
     "dur": "1h",
     "details": "Leave bags at reception.",
@@ -587,7 +635,9 @@
    },
    {
     "n": 3,
-    "time": "10:40–11:55",
+    "time": "10:40–11:55 am",
+    "hotel": false,
+    "flight": false,
     "what": "Last coffee on Nguyen Hue",
     "dur": "1h 15m",
     "details": "",
@@ -597,7 +647,7 @@
     "lon": 106.7039,
     "map": "https://www.google.com/maps/search/?api=1&query=Nguyen%20Hue%20Walking%20Street%2C%20Ho%20Chi%20Minh%20City",
     "commute": {
-     "time": "10:30–10:40",
+     "time": "10:30–10:40 am",
      "mode": "w",
      "icon": "🚶",
      "label": "Walk",
@@ -614,7 +664,9 @@
    },
    {
     "n": 4,
-    "time": "12:30–14:00",
+    "time": "12:30–2 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Airport check-in",
     "dur": "1h 30m",
     "details": "Collect bags on the way. Domestic terminal.",
@@ -624,7 +676,7 @@
     "lon": 106.6588,
     "map": "https://www.google.com/maps/search/?api=1&query=Tan%20Son%20Nhat%20International%20Airport",
     "commute": {
-     "time": "11:55–12:30",
+     "time": "11:55 am – 12:30 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Grab to Tan Son Nhat",
@@ -641,7 +693,9 @@
    },
    {
     "n": 5,
-    "time": "14:00–15:00",
+    "time": "2–3 pm",
+    "hotel": false,
+    "flight": true,
     "what": "Fly SGN to PQC",
     "dur": "about 1h flight",
     "details": "About 1 hour.",
@@ -660,7 +714,9 @@
    },
    {
     "n": 6,
-    "time": "15:20–16:50",
+    "time": "3:20–4:50 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Check in at the resort, pool",
     "dur": "1h 30m",
     "details": "Pick a resort with a big room or villa and laundry service.",
@@ -670,7 +726,7 @@
     "lon": 103.965,
     "map": "https://www.google.com/maps/search/?api=1&query=Long%20Beach%2C%20Phu%20Quoc",
     "commute": {
-     "time": "15:00–15:20",
+     "time": "3–3:20 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Taxi or resort transfer",
@@ -687,7 +743,9 @@
    },
    {
     "n": 7,
-    "time": "16:50–18:05",
+    "time": "4:50–6:05 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Sunset on the beach",
     "dur": "1h 15m",
     "details": "Long Beach faces west for sunsets.",
@@ -697,7 +755,7 @@
     "lon": 103.965,
     "map": "https://www.google.com/maps/search/?api=1&query=Long%20Beach%2C%20Phu%20Quoc",
     "commute": null,
-    "hours": "Sunset about 17:45",
+    "hours": "Sunset about 5:45 pm",
     "cost": "Free",
     "book": null,
     "bookLabel": "No booking",
@@ -706,7 +764,9 @@
    },
    {
     "n": 8,
-    "time": "19:00–20:30",
+    "time": "7–8:30 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Dinner at the resort",
     "dur": "1h 30m",
     "details": "Easy first night.",
@@ -732,7 +792,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "07:30–07:40",
+    "time": "7:30–7:40 am",
+    "hotel": true,
+    "flight": false,
     "what": "Tour pickup",
     "dur": "10 min",
     "details": "Southern islands speedboat tour.",
@@ -742,7 +804,7 @@
     "lon": 103.965,
     "map": "https://www.google.com/maps/search/?api=1&query=Long%20Beach%2C%20Phu%20Quoc",
     "commute": null,
-    "hours": "Tour runs about 07:30–16:30",
+    "hours": "Tour runs about 7:30 am – 4:30 pm",
     "cost": "Speedboat 4-islands tour about US$30–60 (A$45–95); check if the cable car is included",
     "book": "https://www.getyourguide.com/s/?q=Phu%20Quoc%204%20islands%20snorkeling",
     "bookLabel": "GetYourGuide",
@@ -751,7 +813,9 @@
    },
    {
     "n": 2,
-    "time": "08:20–08:40",
+    "time": "8:20–8:40 am",
+    "hotel": false,
+    "flight": false,
     "what": "Board at An Thoi port",
     "dur": "20 min",
     "details": "",
@@ -761,7 +825,7 @@
     "lon": 104.008,
     "map": "https://www.google.com/maps/search/?api=1&query=An%20Thoi%20Port%2C%20Phu%20Quoc",
     "commute": {
-     "time": "07:40–08:20",
+     "time": "7:40–8:20 am",
      "mode": "d",
      "icon": "🚕",
      "label": "Tour minibus south",
@@ -778,7 +842,9 @@
    },
    {
     "n": 3,
-    "time": "09:05–11:35",
+    "time": "9:05–11:35 am",
+    "hotel": false,
+    "flight": false,
     "what": "Snorkelling stops",
     "dur": "2h 30m",
     "details": "Two or three stops in clear water around the An Thoi islands.",
@@ -788,7 +854,7 @@
     "lon": 104.03,
     "map": "https://www.google.com/maps/search/?api=1&query=May%20Rut%20Island%2C%20Phu%20Quoc",
     "commute": {
-     "time": "08:40–09:05",
+     "time": "8:40–9:05 am",
      "mode": "b",
      "icon": "⛴️",
      "label": "Speedboat to the islands",
@@ -805,7 +871,9 @@
    },
    {
     "n": 4,
-    "time": "11:35–12:50",
+    "time": "11:35 am – 12:50 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Seafood lunch on the island",
     "dur": "1h 15m",
     "details": "Usually included.",
@@ -824,7 +892,9 @@
    },
    {
     "n": 5,
-    "time": "13:20–15:50",
+    "time": "1:20–3:50 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Hon Thom cable car",
     "dur": "2h 30m",
     "details": "About 8 km over the sea, 15 min each way, plus time on Hon Thom.",
@@ -834,7 +904,7 @@
     "lon": 104.011,
     "map": "https://www.google.com/maps/search/?api=1&query=Hon%20Thom%20Cable%20Car%20Station%2C%20An%20Thoi%2C%20Phu%20Quoc",
     "commute": {
-     "time": "12:50–13:20",
+     "time": "12:50–1:20 pm",
      "mode": "b",
      "icon": "⛴️",
      "label": "Boat back to An Thoi, short drive",
@@ -842,7 +912,7 @@
      "from": "May Rut Island",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=May%20Rut%20Island%2C%20Phu%20Quoc&destination=Hon%20Thom%20Cable%20Car%20Station%2C%20An%20Thoi%2C%20Phu%20Quoc"
     },
-    "hours": "Cable car about 09:00–17:30 (check last ride back)",
+    "hours": "Cable car about 9 am – 5:30 pm (check last ride back)",
     "cost": "About 600,000–700,000 VND (A$35–45) incl. Hon Thom park; often bundled in the tour",
     "book": "https://sunworld.vn/en/hon-thom",
     "bookLabel": "Sun World",
@@ -851,7 +921,9 @@
    },
    {
     "n": 6,
-    "time": "16:30–18:30",
+    "time": "4:30–6:30 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Back at the resort, pool",
     "dur": "2h",
     "details": "",
@@ -861,7 +933,7 @@
     "lon": 103.965,
     "map": "https://www.google.com/maps/search/?api=1&query=Long%20Beach%2C%20Phu%20Quoc",
     "commute": {
-     "time": "15:50–16:30",
+     "time": "3:50–4:30 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Taxi",
@@ -878,7 +950,9 @@
    },
    {
     "n": 7,
-    "time": "19:00–20:30",
+    "time": "7–8:30 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Dinner by the beach",
     "dur": "1h 30m",
     "details": "",
@@ -904,7 +978,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "08:30–09:45",
+    "time": "8:30–9:45 am",
+    "hotel": true,
+    "flight": false,
     "what": "Slow breakfast",
     "dur": "1h 15m",
     "details": "No alarms today.",
@@ -923,7 +999,9 @@
    },
    {
     "n": 2,
-    "time": "09:45–10:15",
+    "time": "9:45–10:15 am",
+    "hotel": false,
+    "flight": false,
     "what": "Pick up the rental scooter",
     "dur": "30 min",
     "details": "Rent one 125cc automatic for 3 days (24–26 Dec) from the resort desk or a shop on Tran Hung Dao. Check brakes, lights, tyres and the passenger footpegs, get two helmets with visors, and take photos of any scratches first.",
@@ -933,7 +1011,7 @@
     "lon": 103.965,
     "map": "https://www.google.com/maps/search/?api=1&query=scooter%20rental%2C%20Long%20Beach%2C%20Phu%20Quoc",
     "commute": null,
-    "hours": "Shops about 07:00–20:00",
+    "hours": "Shops about 7 am – 8 pm",
     "cost": "About 150,000–200,000 VND (A$9–12) a day, so about A$30–36 for 3 days, plus fuel",
     "book": null,
     "bookLabel": "Ask at the resort",
@@ -942,7 +1020,9 @@
    },
    {
     "n": 3,
-    "time": "11:00–13:30",
+    "time": "11 am – 1:30 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Sao Beach",
     "dur": "2h 30m",
     "details": "White sand and calm water on the southeast coast.",
@@ -952,7 +1032,7 @@
     "lon": 104.0359,
     "map": "https://www.google.com/maps/search/?api=1&query=Sao%20Beach%2C%20Phu%20Quoc",
     "commute": {
-     "time": "10:15–11:00",
+     "time": "10:15–11 am",
      "mode": "s",
      "icon": "🛵",
      "label": "Scooter two-up (25 km, main road south)",
@@ -969,7 +1049,9 @@
    },
    {
     "n": 4,
-    "time": "13:30–14:45",
+    "time": "1:30–2:45 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Lunch at a beach shack",
     "dur": "1h 15m",
     "details": "",
@@ -988,7 +1070,9 @@
    },
    {
     "n": 5,
-    "time": "15:30–17:30",
+    "time": "3:30–5:30 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Resort: pool and nap",
     "dur": "2h",
     "details": "Leave the scooter at the resort tonight.",
@@ -998,7 +1082,7 @@
     "lon": 103.965,
     "map": "https://www.google.com/maps/search/?api=1&query=Long%20Beach%2C%20Phu%20Quoc",
     "commute": {
-     "time": "14:45–15:30",
+     "time": "2:45–3:30 pm",
      "mode": "s",
      "icon": "🛵",
      "label": "Scooter back",
@@ -1015,7 +1099,9 @@
    },
    {
     "n": 6,
-    "time": "18:05–20:05",
+    "time": "6:05–8:05 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Sunset Town and Kiss Bridge",
     "dur": "2h",
     "details": "Mediterranean-style town with the Kiss Bridge for sunset.",
@@ -1025,7 +1111,7 @@
     "lon": 104.005,
     "map": "https://www.google.com/maps/search/?api=1&query=Kiss%20Bridge%2C%20Sunset%20Town%2C%20Phu%20Quoc",
     "commute": {
-     "time": "17:30–18:05",
+     "time": "5:30–6:05 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Taxi south (dark ride home and drinks, so no scooter)",
@@ -1033,7 +1119,7 @@
      "from": "Resort (Long Beach)",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Long%20Beach%2C%20Phu%20Quoc&destination=Kiss%20Bridge%2C%20Sunset%20Town%2C%20Phu%20Quoc&travelmode=driving"
     },
-    "hours": "Open all the time; Kiss of the Sea show about 20:30 most nights",
+    "hours": "Open all the time; Kiss of the Sea show about 8:30 pm most nights",
     "cost": "Free to walk; show about 500,000+ VND (A$30)",
     "book": "https://sunworld.vn/en/hon-thom",
     "bookLabel": "Sun World (show)",
@@ -1042,7 +1128,9 @@
    },
    {
     "n": 7,
-    "time": "20:05–22:05",
+    "time": "8:05–10:05 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Christmas Eve dinner",
     "dur": "2h",
     "details": "A regular sit-down restaurant in Sunset Town, not a festive set menu. Book ahead.",
@@ -1052,7 +1140,7 @@
     "lon": 104.005,
     "map": "https://www.google.com/maps/search/?api=1&query=Kiss%20Bridge%2C%20Sunset%20Town%2C%20Phu%20Quoc",
     "commute": null,
-    "hours": "Book a 19:30-ish table",
+    "hours": "Book a 7:30 pm-ish table",
     "cost": "About A$30–60 each",
     "book": null,
     "bookLabel": "Book with the restaurant or resort",
@@ -1068,7 +1156,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "09:00–10:30",
+    "time": "9–10:30 am",
+    "hotel": true,
+    "flight": false,
     "what": "Christmas breakfast",
     "dur": "1h 30m",
     "details": "Most resorts do a special spread.",
@@ -1087,7 +1177,9 @@
    },
    {
     "n": 2,
-    "time": "10:30–13:00",
+    "time": "10:30 am – 1 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Pool and beach",
     "dur": "2h 30m",
     "details": "Totally free morning.",
@@ -1106,7 +1198,9 @@
    },
    {
     "n": 3,
-    "time": "13:00–14:30",
+    "time": "1–2:30 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Lunch at the resort",
     "dur": "1h 30m",
     "details": "Or ride the scooter to a beach café nearby.",
@@ -1125,7 +1219,9 @@
    },
    {
     "n": 4,
-    "time": "15:00–16:30",
+    "time": "3–4:30 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Free afternoon",
     "dur": "1h 30m",
     "details": "Pool, beach or a nap, or an easy scooter loop along the coast road at Ong Lang.",
@@ -1144,7 +1240,9 @@
    },
    {
     "n": 5,
-    "time": "18:00–19:15",
+    "time": "6–7:15 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Sunset drinks",
     "dur": "1h 15m",
     "details": "On the beach.",
@@ -1163,7 +1261,9 @@
    },
    {
     "n": 6,
-    "time": "19:30–21:30",
+    "time": "7:30–9:30 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Christmas dinner",
     "dur": "2h",
     "details": "A good restaurant near the resort instead of the pricey festive buffet. Book ahead.",
@@ -1173,7 +1273,7 @@
     "lon": 103.965,
     "map": "https://www.google.com/maps/search/?api=1&query=Long%20Beach%2C%20Phu%20Quoc",
     "commute": null,
-    "hours": "From about 19:00",
+    "hours": "From about 7 pm",
     "cost": "About A$30–60 each",
     "book": null,
     "bookLabel": "Book with the restaurant",
@@ -1189,7 +1289,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "08:00–08:15",
+    "time": "8–8:15 am",
+    "hotel": false,
+    "flight": false,
     "what": "Fuel up and set off",
     "dur": "15 min",
     "details": "Fill the tank (about 50,000 VND) and put water and sunscreen under the seat.",
@@ -1208,7 +1310,9 @@
    },
    {
     "n": 2,
-    "time": "09:00–12:00",
+    "time": "9 am – 12 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Vinpearl Safari",
     "dur": "3h",
     "details": "Open-range safari park. Leave the scooter in the car park.",
@@ -1218,7 +1322,7 @@
     "lon": 103.891,
     "map": "https://www.google.com/maps/search/?api=1&query=Vinpearl%20Safari%20Phu%20Quoc",
     "commute": {
-     "time": "08:15–09:00",
+     "time": "8:15–9 am",
      "mode": "s",
      "icon": "🛵",
      "label": "Scooter two-up north (30 km, main road)",
@@ -1226,7 +1330,7 @@
      "from": "scooter shop",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=scooter%20rental%2C%20Long%20Beach%2C%20Phu%20Quoc&destination=Vinpearl%20Safari%20Phu%20Quoc&travelmode=driving"
     },
-    "hours": "09:00–16:00 daily",
+    "hours": "9 am – 4 pm daily",
     "cost": "About 650,000 VND (A$40); combo with VinWonders costs more",
     "book": "https://vinwonders.com/en/vinpearl-safari-phu-quoc/",
     "bookLabel": "VinWonders",
@@ -1235,7 +1339,9 @@
    },
    {
     "n": 3,
-    "time": "12:10–13:25",
+    "time": "12:10–1:25 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Lunch at Grand World",
     "dur": "1h 15m",
     "details": "",
@@ -1245,7 +1351,7 @@
     "lon": 103.858,
     "map": "https://www.google.com/maps/search/?api=1&query=Grand%20World%20Phu%20Quoc",
     "commute": {
-     "time": "12:00–12:10",
+     "time": "12–12:10 pm",
      "mode": "s",
      "icon": "🛵",
      "label": "Scooter",
@@ -1262,7 +1368,9 @@
    },
    {
     "n": 4,
-    "time": "13:45–14:30",
+    "time": "1:45–2:30 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Pepper farm",
     "dur": "45 min",
     "details": "Short stop and tasting; Phu Quoc is famous for pepper.",
@@ -1272,7 +1380,7 @@
     "lon": 103.95,
     "map": "https://www.google.com/maps/search/?api=1&query=pepper%20farm%2C%20Phu%20Quoc",
     "commute": {
-     "time": "13:25–13:45",
+     "time": "1:25–1:45 pm",
      "mode": "s",
      "icon": "🛵",
      "label": "Scooter",
@@ -1280,7 +1388,7 @@
      "from": "Grand World",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Grand%20World%20Phu%20Quoc&destination=pepper%20farm%2C%20Phu%20Quoc&travelmode=driving"
     },
-    "hours": "About 08:00–17:00",
+    "hours": "About 8 am – 5 pm",
     "cost": "Free; buy pepper if you like",
     "book": null,
     "bookLabel": "No booking",
@@ -1289,7 +1397,9 @@
    },
    {
     "n": 5,
-    "time": "15:00–16:30",
+    "time": "3–4:30 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Starfish Beach (Rach Vem)",
     "dur": "1h 30m",
     "details": "Shallow water with starfish; look, don't lift. The last stretch is a quieter rural road.",
@@ -1299,7 +1409,7 @@
     "lon": 103.957,
     "map": "https://www.google.com/maps/search/?api=1&query=Rach%20Vem%20Starfish%20Beach%2C%20Phu%20Quoc",
     "commute": {
-     "time": "14:30–15:00",
+     "time": "2:30–3 pm",
      "mode": "s",
      "icon": "🛵",
      "label": "Scooter",
@@ -1316,7 +1426,9 @@
    },
    {
     "n": 6,
-    "time": "17:10–18:10",
+    "time": "5:10–6:10 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Back at the resort",
     "dur": "1h",
     "details": "Shower and change. Return the scooter tonight or before checkout tomorrow.",
@@ -1326,7 +1438,7 @@
     "lon": 103.965,
     "map": "https://www.google.com/maps/search/?api=1&query=Long%20Beach%2C%20Phu%20Quoc",
     "commute": {
-     "time": "16:30–17:10",
+     "time": "4:30–5:10 pm",
      "mode": "s",
      "icon": "🛵",
      "label": "Scooter back, before dark",
@@ -1343,7 +1455,9 @@
    },
    {
     "n": 7,
-    "time": "18:25–20:25",
+    "time": "6:25–8:25 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Dinh Cau night market",
     "dur": "2h",
     "details": "Seafood grilled to order. Pick busy stalls with hot, fresh food.",
@@ -1353,7 +1467,7 @@
     "lon": 103.96,
     "map": "https://www.google.com/maps/search/?api=1&query=Dinh%20Cau%20Night%20Market%2C%20Duong%20Dong%2C%20Phu%20Quoc",
     "commute": {
-     "time": "18:10–18:25",
+     "time": "6:10–6:25 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Taxi (don't ride after drinks)",
@@ -1361,7 +1475,7 @@
      "from": "Resort (Long Beach)",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Long%20Beach%2C%20Phu%20Quoc&destination=Dinh%20Cau%20Night%20Market%2C%20Duong%20Dong%2C%20Phu%20Quoc&travelmode=driving"
     },
-    "hours": "About 17:00–23:00",
+    "hours": "About 5–11 pm",
     "cost": "Free entry; seafood about A$15–30 each",
     "book": null,
     "bookLabel": "No booking",
@@ -1377,7 +1491,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "08:30–10:30",
+    "time": "8:30–10:30 am",
+    "hotel": true,
+    "flight": false,
     "what": "Breakfast, last swim, check out",
     "dur": "2h",
     "details": "Thailand Digital Arrival Card should already be done.",
@@ -1396,7 +1512,9 @@
    },
    {
     "n": 2,
-    "time": "10:50–12:00",
+    "time": "10:50 am – 12 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Airport check-in",
     "dur": "1h 10m",
     "details": "",
@@ -1406,7 +1524,7 @@
     "lon": 103.9931,
     "map": "https://www.google.com/maps/search/?api=1&query=Phu%20Quoc%20International%20Airport",
     "commute": {
-     "time": "10:30–10:50",
+     "time": "10:30–10:50 am",
      "mode": "d",
      "icon": "🚕",
      "label": "Taxi",
@@ -1423,7 +1541,9 @@
    },
    {
     "n": 3,
-    "time": "12:00–13:15",
+    "time": "12–1:15 pm",
+    "hotel": false,
+    "flight": true,
     "what": "Fly PQC to BKK",
     "dur": "about 1h15 flight",
     "details": "Direct if scheduled, otherwise via Saigon. Same time zone.",
@@ -1442,7 +1562,9 @@
    },
    {
     "n": 4,
-    "time": "13:15–14:00",
+    "time": "1:15–2 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Immigration and bags",
     "dur": "45 min",
     "details": "",
@@ -1461,7 +1583,9 @@
    },
    {
     "n": 5,
-    "time": "14:50–15:35",
+    "time": "2:50–3:35 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Check in at the hotel",
     "dur": "45 min",
     "details": "",
@@ -1471,7 +1595,7 @@
     "lon": 100.515,
     "map": "https://www.google.com/maps/search/?api=1&query=Bang%20Rak%2C%20Bangkok",
     "commute": {
-     "time": "14:00–14:50",
+     "time": "2–2:50 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Grab or taxi",
@@ -1488,7 +1612,9 @@
    },
    {
     "n": 6,
-    "time": "16:30–17:30",
+    "time": "4:30–5:30 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Rest at the hotel",
     "dur": "1h",
     "details": "Unpack and unwind after the flight.",
@@ -1507,7 +1633,9 @@
    },
    {
     "n": 7,
-    "time": "17:30–18:45",
+    "time": "5:30–6:45 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Dinner",
     "dur": "1h 15m",
     "details": "Pad thai and mango sticky rice nearby.",
@@ -1533,7 +1661,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "08:30–11:00",
+    "time": "8:30–11 am",
+    "hotel": false,
+    "flight": false,
     "what": "Grand Palace and Wat Phra Kaew",
     "dur": "2h 30m",
     "details": "Go at opening. Covered shoulders and knees.",
@@ -1543,7 +1673,7 @@
     "lon": 100.4913,
     "map": "https://www.google.com/maps/search/?api=1&query=Grand%20Palace%2C%20Bangkok",
     "commute": {
-     "time": "08:05–08:30",
+     "time": "8:05–8:30 am",
      "mode": "b",
      "icon": "⛴️",
      "label": "Chao Phraya Express Boat to Tha Chang",
@@ -1551,7 +1681,7 @@
      "from": "Hotel (Bang Rak)",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Bang%20Rak%2C%20Bangkok&destination=Grand%20Palace%2C%20Bangkok"
     },
-    "hours": "08:30–15:30 daily (ticket office closes 15:30)",
+    "hours": "8:30 am – 3:30 pm daily (ticket office closes 3:30 pm)",
     "cost": "500 THB (A$22)",
     "book": "https://www.royalgrandpalace.th/en/home",
     "bookLabel": "Official site",
@@ -1560,7 +1690,9 @@
    },
    {
     "n": 2,
-    "time": "11:10–12:25",
+    "time": "11:10 am – 12:25 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Wat Pho",
     "dur": "1h 15m",
     "details": "The 46 m reclining Buddha.",
@@ -1570,7 +1702,7 @@
     "lon": 100.493,
     "map": "https://www.google.com/maps/search/?api=1&query=Wat%20Pho%2C%20Bangkok",
     "commute": {
-     "time": "11:00–11:10",
+     "time": "11–11:10 am",
      "mode": "w",
      "icon": "🚶",
      "label": "Walk",
@@ -1578,7 +1710,7 @@
      "from": "Grand Palace",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Grand%20Palace%2C%20Bangkok&destination=Wat%20Pho%2C%20Bangkok&travelmode=walking"
     },
-    "hours": "08:00–18:30 daily",
+    "hours": "8 am – 6:30 pm daily",
     "cost": "300 THB (A$14)",
     "book": "https://www.watpho.com/",
     "bookLabel": "Buy at the gate",
@@ -1587,7 +1719,9 @@
    },
    {
     "n": 3,
-    "time": "12:30–13:30",
+    "time": "12:30–1:30 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Lunch near Tha Tien pier",
     "dur": "1h",
     "details": "",
@@ -1597,7 +1731,7 @@
     "lon": 100.4905,
     "map": "https://www.google.com/maps/search/?api=1&query=Tha%20Tien%20Pier%2C%20Bangkok",
     "commute": {
-     "time": "12:25–12:30",
+     "time": "12:25–12:30 pm",
      "mode": "w",
      "icon": "🚶",
      "label": "Walk",
@@ -1614,7 +1748,9 @@
    },
    {
     "n": 4,
-    "time": "13:35–14:35",
+    "time": "1:35–2:35 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Wat Arun",
     "dur": "1h",
     "details": "Climb the steep prang for river views.",
@@ -1624,7 +1760,7 @@
     "lon": 100.4888,
     "map": "https://www.google.com/maps/search/?api=1&query=Wat%20Arun%2C%20Bangkok",
     "commute": {
-     "time": "13:30–13:35",
+     "time": "1:30–1:35 pm",
      "mode": "b",
      "icon": "⛴️",
      "label": "Cross-river ferry",
@@ -1632,7 +1768,7 @@
      "from": "Tha Tien",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Tha%20Tien%20Pier%2C%20Bangkok&destination=Wat%20Arun%2C%20Bangkok"
     },
-    "hours": "08:00–18:00 daily",
+    "hours": "8 am – 6 pm daily",
     "cost": "200 THB (A$9)",
     "book": null,
     "bookLabel": "Buy at the gate",
@@ -1641,7 +1777,9 @@
    },
    {
     "n": 5,
-    "time": "15:05–17:35",
+    "time": "3:05–5:35 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Hotel break",
     "dur": "2h 30m",
     "details": "Rest through the hottest part of the day.",
@@ -1651,7 +1789,7 @@
     "lon": 100.515,
     "map": "https://www.google.com/maps/search/?api=1&query=Bang%20Rak%2C%20Bangkok",
     "commute": {
-     "time": "14:35–15:05",
+     "time": "2:35–3:05 pm",
      "mode": "b",
      "icon": "⛴️",
      "label": "Ferry and express boat back",
@@ -1668,7 +1806,9 @@
    },
    {
     "n": 6,
-    "time": "17:50–20:20",
+    "time": "5:50–8:20 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Chinatown (Yaowarat)",
     "dur": "2h 30m",
     "details": "Street food after dark, then mango sticky rice.",
@@ -1678,7 +1818,7 @@
     "lon": 100.5094,
     "map": "https://www.google.com/maps/search/?api=1&query=Yaowarat%20Road%2C%20Bangkok",
     "commute": {
-     "time": "17:35–17:50",
+     "time": "5:35–5:50 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Grab",
@@ -1686,7 +1826,7 @@
      "from": "Hotel (Bang Rak)",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Bang%20Rak%2C%20Bangkok&destination=Yaowarat%20Road%2C%20Bangkok&travelmode=driving"
     },
-    "hours": "Street food about 17:00–midnight (quieter on Mondays)",
+    "hours": "Street food about 5 pm–midnight (quieter on Mondays)",
     "cost": "Free; food about 300–600 THB each",
     "book": null,
     "bookLabel": "No booking",
@@ -1702,7 +1842,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "09:00–10:00",
+    "time": "9–10 am",
+    "hotel": false,
+    "flight": false,
     "what": "Wat Mahathat",
     "dur": "1h",
     "details": "The Buddha head in the tree roots.",
@@ -1712,7 +1854,7 @@
     "lon": 100.5676,
     "map": "https://www.google.com/maps/search/?api=1&query=Wat%20Mahathat%2C%20Ayutthaya",
     "commute": {
-     "time": "07:30–09:00",
+     "time": "7:30–9 am",
      "mode": "d",
      "icon": "🚕",
      "label": "Private driver to Ayutthaya (80 km)",
@@ -1720,7 +1862,7 @@
      "from": "Hotel (Bang Rak)",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Bang%20Rak%2C%20Bangkok&destination=Wat%20Mahathat%2C%20Ayutthaya&travelmode=driving"
     },
-    "hours": "08:00–18:00 daily",
+    "hours": "8 am – 6 pm daily",
     "cost": "50 THB (A$2)",
     "book": "https://www.getyourguide.com/s/?q=Ayutthaya%20private%20day%20trip",
     "bookLabel": "Driver: GetYourGuide",
@@ -1729,7 +1871,9 @@
    },
    {
     "n": 2,
-    "time": "10:10–11:10",
+    "time": "10:10–11:10 am",
+    "hotel": false,
+    "flight": false,
     "what": "Wat Phra Si Sanphet",
     "dur": "1h",
     "details": "Three restored chedis, the old royal temple.",
@@ -1739,7 +1883,7 @@
     "lon": 100.5585,
     "map": "https://www.google.com/maps/search/?api=1&query=Wat%20Phra%20Si%20Sanphet%2C%20Ayutthaya",
     "commute": {
-     "time": "10:00–10:10",
+     "time": "10–10:10 am",
      "mode": "w",
      "icon": "🚶",
      "label": "Walk or tuk-tuk",
@@ -1747,7 +1891,7 @@
      "from": "Wat Mahathat",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Wat%20Mahathat%2C%20Ayutthaya&destination=Wat%20Phra%20Si%20Sanphet%2C%20Ayutthaya&travelmode=walking"
     },
-    "hours": "08:00–18:00 daily",
+    "hours": "8 am – 6 pm daily",
     "cost": "50 THB (A$2)",
     "book": null,
     "bookLabel": "Buy at the gate",
@@ -1756,7 +1900,9 @@
    },
    {
     "n": 3,
-    "time": "11:20–12:35",
+    "time": "11:20 am – 12:35 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Lunch: boat noodles",
     "dur": "1h 15m",
     "details": "A local speciality.",
@@ -1766,7 +1912,7 @@
     "lon": 100.564,
     "map": "https://www.google.com/maps/search/?api=1&query=boat%20noodles%2C%20Ayutthaya",
     "commute": {
-     "time": "11:10–11:20",
+     "time": "11:10–11:20 am",
      "mode": "d",
      "icon": "🚕",
      "label": "Tuk-tuk",
@@ -1783,7 +1929,9 @@
    },
    {
     "n": 4,
-    "time": "12:35–14:20",
+    "time": "12:35–2:20 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Café break in the shade",
     "dur": "1h 45m",
     "details": "",
@@ -1802,7 +1950,9 @@
    },
    {
     "n": 5,
-    "time": "14:35–16:20",
+    "time": "2:35–4:20 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Wat Chaiwatthanaram",
     "dur": "1h 45m",
     "details": "Best in the late afternoon light.",
@@ -1812,7 +1962,7 @@
     "lon": 100.5418,
     "map": "https://www.google.com/maps/search/?api=1&query=Wat%20Chaiwatthanaram%2C%20Ayutthaya",
     "commute": {
-     "time": "14:20–14:35",
+     "time": "2:20–2:35 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Tuk-tuk",
@@ -1820,7 +1970,7 @@
      "from": "boat noodles",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=boat%20noodles%2C%20Ayutthaya&destination=Wat%20Chaiwatthanaram%2C%20Ayutthaya&travelmode=driving"
     },
-    "hours": "08:00–18:00 daily",
+    "hours": "8 am – 6 pm daily",
     "cost": "50 THB (A$2)",
     "book": null,
     "bookLabel": "Buy at the gate",
@@ -1829,7 +1979,9 @@
    },
    {
     "n": 6,
-    "time": "18:05–20:05",
+    "time": "6:05–8:05 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Back at the hotel, easy dinner nearby",
     "dur": "2h",
     "details": "",
@@ -1839,7 +1991,7 @@
     "lon": 100.515,
     "map": "https://www.google.com/maps/search/?api=1&query=Bang%20Rak%2C%20Bangkok",
     "commute": {
-     "time": "16:20–18:05",
+     "time": "4:20–6:05 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Driver back to Bangkok",
@@ -1863,7 +2015,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "09:00–10:15",
+    "time": "9–10:15 am",
+    "hotel": false,
+    "flight": false,
     "what": "Lumphini Park",
     "dur": "1h 15m",
     "details": "Morning walk; watch the monitor lizards.",
@@ -1873,7 +2027,7 @@
     "lon": 100.5414,
     "map": "https://www.google.com/maps/search/?api=1&query=Lumphini%20Park%2C%20Bangkok",
     "commute": {
-     "time": "08:45–09:00",
+     "time": "8:45–9 am",
      "mode": "t",
      "icon": "🚇",
      "label": "MRT or Grab",
@@ -1881,7 +2035,7 @@
      "from": "Hotel (Bang Rak)",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Bang%20Rak%2C%20Bangkok&destination=Lumphini%20Park%2C%20Bangkok&travelmode=transit"
     },
-    "hours": "About 04:30–21:00 daily",
+    "hours": "About 4:30 am – 9 pm daily",
     "cost": "Free",
     "book": null,
     "bookLabel": "No booking",
@@ -1890,7 +2044,9 @@
    },
    {
     "n": 2,
-    "time": "10:35–11:50",
+    "time": "10:35–11:50 am",
+    "hotel": false,
+    "flight": false,
     "what": "Jim Thompson House",
     "dur": "1h 15m",
     "details": "Teak houses and silk; guided tours run all day.",
@@ -1900,7 +2056,7 @@
     "lon": 100.5283,
     "map": "https://www.google.com/maps/search/?api=1&query=Jim%20Thompson%20House%2C%20Bangkok",
     "commute": {
-     "time": "10:15–10:35",
+     "time": "10:15–10:35 am",
      "mode": "t",
      "icon": "🚇",
      "label": "BTS Sala Daeng to National Stadium",
@@ -1908,7 +2064,7 @@
      "from": "Lumphini Park",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Lumphini%20Park%2C%20Bangkok&destination=Jim%20Thompson%20House%2C%20Bangkok&travelmode=transit"
     },
-    "hours": "10:00–18:00 daily, guided tours only",
+    "hours": "10 am – 6 pm daily, guided tours only",
     "cost": "200 THB (A$9)",
     "book": "https://www.jimthompsonhouse.org/",
     "bookLabel": "Official site",
@@ -1917,7 +2073,9 @@
    },
    {
     "n": 3,
-    "time": "12:00–13:15",
+    "time": "12–1:15 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Lunch at Siam Paragon",
     "dur": "1h 15m",
     "details": "Great food hall.",
@@ -1927,7 +2085,7 @@
     "lon": 100.5347,
     "map": "https://www.google.com/maps/search/?api=1&query=Siam%20Paragon%2C%20Bangkok",
     "commute": {
-     "time": "11:50–12:00",
+     "time": "11:50 am – 12 pm",
      "mode": "w",
      "icon": "🚶",
      "label": "Walk",
@@ -1944,7 +2102,9 @@
    },
    {
     "n": 4,
-    "time": "13:50–16:50",
+    "time": "1:50–4:50 pm",
+    "hotel": false,
+    "flight": false,
     "what": "ICONSIAM",
     "dur": "3h",
     "details": "Riverside mall with an indoor floating market.",
@@ -1954,7 +2114,7 @@
     "lon": 100.5101,
     "map": "https://www.google.com/maps/search/?api=1&query=ICONSIAM%2C%20Bangkok",
     "commute": {
-     "time": "13:15–13:50",
+     "time": "1:15–1:50 pm",
      "mode": "t",
      "icon": "🚇",
      "label": "BTS to Saphan Taksin, then free shuttle boat",
@@ -1962,7 +2122,7 @@
      "from": "Siam Paragon",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Siam%20Paragon%2C%20Bangkok&destination=ICONSIAM%2C%20Bangkok&travelmode=transit"
     },
-    "hours": "10:00–22:00 daily",
+    "hours": "10 am – 10 pm daily",
     "cost": "Free",
     "book": null,
     "bookLabel": "No booking",
@@ -1971,17 +2131,19 @@
    },
    {
     "n": 5,
-    "time": "17:00–18:30",
+    "time": "5–6:30 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Sunset drinks at Three Sixty",
     "dur": "1h 30m",
-    "details": "Rooftop lounge on the 32nd floor of the Millennium Hilton, right by ICONSIAM. River views at sunset (about 17:50).",
+    "details": "Rooftop lounge on the 32nd floor of the Millennium Hilton, right by ICONSIAM. River views at sunset (about 5:50 pm).",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Chao_Phraya_and_The_Hilton_Hotel_(7997316754).jpg/500px-Chao_Phraya_and_The_Hilton_Hotel_(7997316754).jpg",
     "place": "Three Sixty bar",
     "lat": 13.7256,
     "lon": 100.5104,
     "map": "https://www.google.com/maps/search/?api=1&query=Three%20Sixty%20Rooftop%20Lounge%2C%20Millennium%20Hilton%20Bangkok",
     "commute": {
-     "time": "16:50–17:00",
+     "time": "4:50–5 pm",
      "mode": "w",
      "icon": "🚶",
      "label": "Walk",
@@ -1989,7 +2151,7 @@
      "from": "ICONSIAM",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=ICONSIAM%2C%20Bangkok&destination=Three%20Sixty%20Rooftop%20Lounge%2C%20Millennium%20Hilton%20Bangkok&travelmode=walking"
     },
-    "hours": "About 17:00–01:00",
+    "hours": "About 5 pm – 1 am",
     "cost": "No entry fee; cocktails about 400–550 THB (A$18–25)",
     "book": null,
     "bookLabel": "Walk in",
@@ -1998,7 +2160,9 @@
    },
    {
     "n": 6,
-    "time": "19:00–21:00",
+    "time": "7–9 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Dinner at Asiatique",
     "dur": "2h",
     "details": "Riverside night market and sit-down restaurants.",
@@ -2008,7 +2172,7 @@
     "lon": 100.503,
     "map": "https://www.google.com/maps/search/?api=1&query=Asiatique%20The%20Riverfront%2C%20Bangkok",
     "commute": {
-     "time": "18:30–19:00",
+     "time": "6:30–7 pm",
      "mode": "b",
      "icon": "⛴️",
      "label": "Hilton boat to Sathorn pier, then free Asiatique shuttle boat",
@@ -2016,7 +2180,7 @@
      "from": "Three Sixty bar",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Three%20Sixty%20Rooftop%20Lounge%2C%20Millennium%20Hilton%20Bangkok&destination=Asiatique%20The%20Riverfront%2C%20Bangkok"
     },
-    "hours": "About 16:00–midnight",
+    "hours": "About 4 pm–midnight",
     "cost": "Free entry",
     "book": null,
     "bookLabel": "No booking",
@@ -2032,7 +2196,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "10:00–12:00",
+    "time": "10 am – 12 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Slow morning",
     "dur": "2h",
     "details": "Sleep in; it's a late night.",
@@ -2051,7 +2217,9 @@
    },
    {
     "n": 2,
-    "time": "12:00–13:00",
+    "time": "12–1 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Lunch near the hotel",
     "dur": "1h",
     "details": "",
@@ -2070,7 +2238,9 @@
    },
    {
     "n": 3,
-    "time": "13:00–18:30",
+    "time": "1–6:30 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Pool, nap and get ready",
     "dur": "5h 30m",
     "details": "Free afternoon at the hotel before the late night.",
@@ -2089,17 +2259,19 @@
    },
    {
     "n": 4,
-    "time": "19:30–00:30",
+    "time": "7:30 pm – 12:30 am",
+    "hotel": false,
+    "flight": false,
     "what": "NYE riverside dinner and midnight fireworks",
     "dur": "5h",
-    "details": "Dinner at a riverside restaurant near ICONSIAM (book ahead), then watch one of Bangkok's biggest fireworks shows from the riverfront for free. Get a spot by about 21:00; it gets very crowded.",
+    "details": "Dinner at a riverside restaurant near ICONSIAM (book ahead), then watch one of Bangkok's biggest fireworks shows from the riverfront for free. Get a spot by about 9 pm; it gets very crowded.",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Panorama_of_Chao_Phraya_River_from_Iconsiam_at_night,_Bangkok.jpg/500px-Panorama_of_Chao_Phraya_River_from_Iconsiam_at_night,_Bangkok.jpg",
     "place": "ICONSIAM",
     "lat": 13.7266,
     "lon": 100.5101,
     "map": "https://www.google.com/maps/search/?api=1&query=ICONSIAM%2C%20Bangkok",
     "commute": {
-     "time": "19:00–19:30",
+     "time": "7–7:30 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Grab to ICONSIAM (leave early, roads close)",
@@ -2107,7 +2279,7 @@
      "from": "Hotel (Bang Rak)",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Bang%20Rak%2C%20Bangkok&destination=ICONSIAM%2C%20Bangkok&travelmode=driving"
     },
-    "hours": "Fireworks at midnight; be in place by about 21:00",
+    "hours": "Fireworks at midnight; be in place by about 9 pm",
     "cost": "Fireworks free; dinner about A$40–80 each",
     "book": null,
     "bookLabel": "Book the restaurant ahead",
@@ -2123,7 +2295,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "10:30–12:30",
+    "time": "10:30 am – 12:30 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Sleep in and brunch",
     "dur": "2h",
     "details": "Late night, so no plans before lunch.",
@@ -2142,7 +2316,9 @@
    },
    {
     "n": 2,
-    "time": "12:30–15:00",
+    "time": "12:30–3 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Pool and nap",
     "dur": "2h 30m",
     "details": "",
@@ -2161,7 +2337,9 @@
    },
    {
     "n": 3,
-    "time": "16:00–17:30",
+    "time": "4–5:30 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Golden Mount (Wat Saket)",
     "dur": "1h 30m",
     "details": "Gentle climb of about 300 steps to a golden chedi with views over old Bangkok. Lovely late in the day.",
@@ -2171,7 +2349,7 @@
     "lon": 100.5066,
     "map": "https://www.google.com/maps/search/?api=1&query=Wat%20Saket%20Golden%20Mount%2C%20Bangkok",
     "commute": {
-     "time": "15:35–16:00",
+     "time": "3:35–4 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Grab",
@@ -2179,7 +2357,7 @@
      "from": "Hotel (Bang Rak)",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Bang%20Rak%2C%20Bangkok&destination=Wat%20Saket%20Golden%20Mount%2C%20Bangkok&travelmode=driving"
     },
-    "hours": "About 07:00–19:00 daily",
+    "hours": "About 7 am – 7 pm daily",
     "cost": "100 THB (A$4.50)",
     "book": null,
     "bookLabel": "Buy at the gate",
@@ -2188,7 +2366,9 @@
    },
    {
     "n": 4,
-    "time": "17:55–19:25",
+    "time": "5:55–7:25 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Dinner near the hotel",
     "dur": "1h 30m",
     "details": "",
@@ -2198,7 +2378,7 @@
     "lon": 100.515,
     "map": "https://www.google.com/maps/search/?api=1&query=Bang%20Rak%2C%20Bangkok",
     "commute": {
-     "time": "17:30–17:55",
+     "time": "5:30–5:55 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Grab back",
@@ -2222,7 +2402,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "09:00–11:30",
+    "time": "9–11:30 am",
+    "hotel": false,
+    "flight": false,
     "what": "Chatuchak Weekend Market",
     "dur": "2h 30m",
     "details": "Saturdays and Sundays only. Go in the morning while it's cooler and pick a few sections.",
@@ -2232,7 +2414,7 @@
     "lon": 100.5505,
     "map": "https://www.google.com/maps/search/?api=1&query=Chatuchak%20Weekend%20Market%2C%20Bangkok",
     "commute": {
-     "time": "08:25–09:00",
+     "time": "8:25–9 am",
      "mode": "t",
      "icon": "🚇",
      "label": "BTS or MRT",
@@ -2240,7 +2422,7 @@
      "from": "Hotel (Bang Rak)",
      "dir": "https://www.google.com/maps/dir/?api=1&origin=Bang%20Rak%2C%20Bangkok&destination=Chatuchak%20Weekend%20Market%2C%20Bangkok&travelmode=transit"
     },
-    "hours": "Sat and Sun about 09:00–18:00",
+    "hours": "Sat and Sun about 9 am – 6 pm",
     "cost": "Free",
     "book": null,
     "bookLabel": "No booking",
@@ -2249,7 +2431,9 @@
    },
    {
     "n": 2,
-    "time": "11:30–12:30",
+    "time": "11:30 am – 12:30 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Lunch at the market",
     "dur": "1h",
     "details": "Sit-down cafés inside the market.",
@@ -2268,7 +2452,9 @@
    },
    {
     "n": 3,
-    "time": "13:10–16:40",
+    "time": "1:10–4:40 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Pool, rest and pack",
     "dur": "3h 30m",
     "details": "",
@@ -2278,7 +2464,7 @@
     "lon": 100.515,
     "map": "https://www.google.com/maps/search/?api=1&query=Bang%20Rak%2C%20Bangkok",
     "commute": {
-     "time": "12:30–13:10",
+     "time": "12:30–1:10 pm",
      "mode": "t",
      "icon": "🚇",
      "label": "MRT back",
@@ -2295,7 +2481,9 @@
    },
    {
     "n": 4,
-    "time": "19:00–21:00",
+    "time": "7–9 pm",
+    "hotel": true,
+    "flight": false,
     "what": "Farewell dinner by the river",
     "dur": "2h",
     "details": "A nice riverside restaurant to finish the trip.",
@@ -2321,7 +2509,9 @@
   "stops": [
    {
     "n": 1,
-    "time": "09:00–10:30",
+    "time": "9–10:30 am",
+    "hotel": true,
+    "flight": false,
     "what": "Slow breakfast and check out",
     "dur": "1h 30m",
     "details": "",
@@ -2340,7 +2530,9 @@
    },
    {
     "n": 2,
-    "time": "11:20–12:50",
+    "time": "11:20 am – 12:50 pm",
+    "hotel": false,
+    "flight": false,
     "what": "Airport check-in",
     "dur": "1h 30m",
     "details": "",
@@ -2350,7 +2542,7 @@
     "lon": 100.7501,
     "map": "https://www.google.com/maps/search/?api=1&query=Suvarnabhumi%20Airport%2C%20Bangkok",
     "commute": {
-     "time": "10:30–11:20",
+     "time": "10:30–11:20 am",
      "mode": "d",
      "icon": "🚕",
      "label": "Grab to Suvarnabhumi",
@@ -2367,10 +2559,12 @@
    },
    {
     "n": 3,
-    "time": "13:30–16:10",
+    "time": "1:30–4:10 pm",
+    "hotel": false,
+    "flight": true,
     "what": "Amy: fly BKK to HKG",
     "dur": "about 2h40 flight",
-    "details": "Direct, about 2h40. A 13:30 flight lands around 17:10 Hong Kong time.",
+    "details": "Direct, about 2h40. A 1:30 pm flight lands around 5:10 pm Hong Kong time.",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Hong_Kong_airport_terminal_1.jpg/500px-Hong_Kong_airport_terminal_1.jpg",
     "place": "HKG airport",
     "lat": null,
@@ -2386,10 +2580,12 @@
    },
    {
     "n": 4,
-    "time": "14:00–23:00",
+    "time": "2–11 pm",
+    "hotel": false,
+    "flight": true,
     "what": "Matthew: fly BKK to SYD",
     "dur": "about 9h flight",
-    "details": "Direct (Thai Airways or Qantas), about 9 hours. A 14:00 flight lands around 03:00 Monday Sydney time; an evening flight lands around 08:00, which is tight before work.",
+    "details": "Direct (Thai Airways or Qantas), about 9 hours. A 2 pm flight lands around 3 am Monday Sydney time; an evening flight lands around 8 am, which is tight before work.",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Suvarnabhumi_Airport_Terminal_Building_Departures_Level.jpg/500px-Suvarnabhumi_Airport_Terminal_Building_Departures_Level.jpg",
     "place": "Sydney airport",
     "lat": null,

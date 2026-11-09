@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vietnam and Thailand trip</title>
 <meta name="description" content="Matthew and Amy's trip plan, 19 December 2026 to 3 January 2027: Saigon, Phu Quoc and Bangkok.">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
@@ -25,6 +25,7 @@
 <main id="mapView" class="mapview">
   <div id="map" aria-label="Map of the day's stops"></div>
   <aside class="panel" id="panel">
+    <button class="handle" id="handle" aria-label="Expand or collapse details" aria-expanded="false"><span></span></button>
     <div class="dayhead" id="dayhead"></div>
     <article class="card" id="card"></article>
     <ol class="timeline" id="timeline"></ol>
