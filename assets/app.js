@@ -20,13 +20,14 @@
   const mobile = () => window.matchMedia('(max-width: 860px)').matches;
 
   let trip = [], budget = null, media = {}, day = null, stop = 0;
-  let map, layer, arrows, legs = [], markers = new Map();
+  let map, layer, ghosts, arrows, legs = [], markers = new Map();
 
   function initMap() {
     map = L.map('map', { zoomControl: !mobile(), scrollWheelZoom: true, tap: true });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19, attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
+    ghosts = L.layerGroup().addTo(map);
     arrows = L.layerGroup().addTo(map);
     layer = L.layerGroup().addTo(map);
     map.on('zoomend', drawArrows);
@@ -86,6 +87,7 @@
 
   function renderOverview() {
     layer.clearLayers(); markers.clear();
+    renderGhosts(-1);
     const pts = BASES.map((b) => [b.lat, b.lon]);
     legs = [];
     for (let i = 1; i < BASES.length; i++) {
@@ -115,10 +117,42 @@
     return s.commute ? s.commute.mode : null;
   }
 
+  // Every other day's stops, faded, so the rest of the trip stays in view. Tap one to jump to that day.
+  function renderGhosts(skipDay) {
+    ghosts.clearLayers();
+    const here = new Set(skipDay >= 0 ? trip[skipDay].stops.filter((s) => s.lat != null).map((s) => `${s.lat},${s.lon}`) : []);
+    const places = new Map();
+    trip.forEach((d, di) => {
+      if (di === skipDay) return;
+      const color = CITY[SLEEP[di]].color;
+      let prev = null;
+      d.stops.forEach((s, si) => {
+        if (s.lat == null) return;
+        if (prev && (prev.lat !== s.lat || prev.lon !== s.lon) && !s.flight) {
+          L.polyline([[prev.lat, prev.lon], [s.lat, s.lon]], { color, weight: 2, opacity: 0.25, dashArray: '2 6', interactive: false }).addTo(ghosts);
+        }
+        prev = s;
+        const key = `${s.lat},${s.lon}`;
+        if (here.has(key)) return;
+        if (!places.has(key)) places.set(key, { lat: s.lat, lon: s.lon, color, hotel: s.hotel, days: [], first: [di, si], names: new Set() });
+        const g = places.get(key);
+        if (!g.days.includes(di + 1)) g.days.push(di + 1);
+        g.names.add(s.what);
+        if (s.hotel) g.hotel = true;
+      });
+    });
+    places.forEach((g) => {
+      const label = (g.hotel ? '🏨 ' : '') + 'D' + (g.days.length > 3 ? `${g.days[0]}–${g.days[g.days.length - 1]}` : g.days.join(','));
+      L.marker([g.lat, g.lon], { icon: pinIcon(label, g.color, 'ghost'), zIndexOffset: -500, title: `Day ${g.days.join(', ')}: ${[...g.names].join(' / ')}` })
+        .on('click', () => go(g.first[0], g.first[1])).addTo(ghosts);
+    });
+  }
+
   function renderDay() {
     const d = trip[day];
     const color = CITY[SLEEP[day]].color;
     layer.clearLayers(); markers.clear();
+    renderGhosts(day);
 
     // One marker per place; a place visited more than once lists every stop number.
     const groups = new Map();
