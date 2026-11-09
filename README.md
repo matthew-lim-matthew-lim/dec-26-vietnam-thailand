@@ -12,7 +12,8 @@ Links like `#day6/3` open a specific day and stop.
 - `index.html`, `assets/` – the site (plain HTML, CSS and JavaScript, with Leaflet and OpenStreetMap for the map).
 - `data/trip.json` – every day and stop. Edit this to change the plan.
 - `data/budget.json` – the planned budget items.
-- `data/media.json` – extra Wikimedia Commons photos and TikTok video IDs for each place, keyed by its TikTok tag.
+- `data/media.json` – TikTok video IDs for each place, keyed by its TikTok tag.
+- `data/places.json` – the Google Maps place ID for each real stop, keyed by the stop's `place`. The site loads up to six photos per place from the Places API (New) in the browser. The key in `assets/app.js` is restricted to the github.io domain, so photos don't show when the site runs locally.
 
 The Google Sheet "December 2026 Vietnam" has the same plan and tracks actual spending.
 

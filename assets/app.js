@@ -19,7 +19,9 @@
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const mobile = () => window.matchMedia('(max-width: 860px)').matches;
 
-  let trip = [], budget = null, media = {}, day = null, stop = 0;
+  let trip = [], budget = null, media = {}, places = {}, day = null, stop = 0;
+  // Google Maps Platform key. It only works on matthew-lim-matthew-lim.github.io (referrer restricted).
+  const GKEY = 'AIzaSyC22mrrewNOFmwmXCY0waUHCl3sQ32IcR4';
   let map, layer, ghosts, arrows, legs = [], markers = new Map();
 
   function initMap() {
@@ -216,12 +218,47 @@
   }
 
   function gallery(s) {
-    // Only photos of this actual place; stops like meals and hotel time get none.
-    const pics = (media[s.tag] || {}).photos || [];
-    if (!pics.length) return '';
-    return `<div class="gallery" aria-label="Photos">${pics.map((p, i) =>
-      `<img src="${esc(p)}" alt="${esc(s.what)} photo ${i + 1}" loading="lazy" onerror="this.remove()">`).join('')}</div>
-      ${pics.length > 1 ? `<div class="gcount">${pics.length} photos · swipe →</div>` : ''}`;
+    // Real Google Maps photos of this place. Meals at generic spots, hotels and flights get none.
+    const p = places[s.place];
+    if (!p || s.hotel || s.flight) return '';
+    return `<div class="gallery" data-pid="${esc(p.id)}" aria-label="Photos of ${esc(p.name)}"><div class="gph"></div><div class="gph"></div></div>
+      <div class="gcount">Loading photos from Google Maps…</div>`;
+  }
+
+  async function placePhotos(id) {
+    const ck = `ph:${id}`;
+    try {
+      const c = JSON.parse(localStorage.getItem(ck) || 'null');
+      if (c && Date.now() - c.t < 12 * 3600e3) return c.p;
+    } catch (e) { /* storage unavailable */ }
+    const r = await fetch(`https://places.googleapis.com/v1/places/${id}?fields=photos&key=${GKEY}`);
+    if (!r.ok) throw new Error(r.status);
+    const j = await r.json();
+    const p = (j.photos || []).slice(0, 6).map((x) => ({
+      name: x.name,
+      by: (x.authorAttributions || []).map((a) => ({ n: a.displayName, u: a.uri })),
+    }));
+    try { localStorage.setItem(ck, JSON.stringify({ t: Date.now(), p })); } catch (e) { /* ignore */ }
+    return p;
+  }
+
+  async function fillGallery() {
+    const g = $('#card .gallery[data-pid]');
+    if (!g) return;
+    const count = g.nextElementSibling;
+    try {
+      const pics = await placePhotos(g.dataset.pid);
+      if (!g.isConnected) return;
+      if (!pics.length) { g.remove(); count.remove(); return; }
+      const w = Math.min(1200, Math.round(Math.min(window.innerWidth, 420) * (window.devicePixelRatio || 1)));
+      g.innerHTML = pics.map((p, i) => `<figure>
+        <img src="https://places.googleapis.com/v1/${esc(p.name)}/media?maxWidthPx=${w}&key=${GKEY}" alt="Photo ${i + 1}" loading="${i < 2 ? 'eager' : 'lazy'}" onerror="this.parentNode.remove()">
+        ${p.by.length ? `<figcaption>${p.by.map((a) => `<a href="${esc(a.u)}" target="_blank" rel="noopener">${esc(a.n)}</a>`).join(', ')}</figcaption>` : ''}
+      </figure>`).join('');
+      count.textContent = `${pics.length} photos from Google Maps${pics.length > 1 ? ' · swipe →' : ''}`;
+    } catch (e) {
+      if (g.isConnected) { g.remove(); count.remove(); }
+    }
   }
 
   function videos(s) {
@@ -287,6 +324,7 @@
           `<iframe src="https://www.tiktok.com/embed/v2/${id}" loading="lazy" allow="encrypted-media; fullscreen" allowfullscreen title="TikTok video"></iframe>`).join('');
       }
     });
+    fillGallery();
     $('#panel').scrollTop = 0;
 
     $('#timeline').querySelectorAll('.stop').forEach((b) => b.classList.toggle('on', +b.dataset.i === stop));
@@ -387,9 +425,9 @@
     if (e.key === 'ArrowLeft') step(-1);
   });
 
-  Promise.all(['trip', 'budget', 'media'].map((f) => fetch(`data/${f}.json`).then((r) => r.json())))
-    .then(([t, b, m]) => {
-      trip = t; budget = b; media = m;
+  Promise.all(['trip', 'budget', 'media', 'places'].map((f) => fetch(`data/${f}.json`).then((r) => r.json())))
+    .then(([t, b, m, p]) => {
+      trip = t; budget = b; media = m; places = p;
       initMap(); initSheet(); renderBudget();
       const h = location.hash.match(/^#day(\d+)\/(\d+)/);
       if (h && trip[+h[1] - 1]) go(+h[1] - 1, Math.min(+h[2] - 1, trip[+h[1] - 1].stops.length - 1));

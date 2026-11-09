@@ -49,8 +49,13 @@ button{font:inherit;color:inherit;cursor:pointer}
 .peek h3{margin:2px 0 0;font-size:1.12rem;line-height:1.25}
 .gallery{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .gallery::-webkit-scrollbar{display:none}
-.gallery img{flex:0 0 86%;height:200px;object-fit:cover;border-radius:10px;scroll-snap-align:center;background:var(--line)}
-.gallery img:only-child{flex-basis:100%}
+.gallery figure,.gallery .gph{flex:0 0 86%;height:200px;margin:0;position:relative;border-radius:10px;overflow:hidden;scroll-snap-align:center;background:var(--line)}
+.gallery figure:only-child{flex-basis:100%}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 8px 5px;font-size:.68rem;background:linear-gradient(transparent,#0009);color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gallery figcaption a{color:#fff;text-decoration:none}
+.gph{animation:gpulse 1.2s ease-in-out infinite alternate}
+@keyframes gpulse{to{opacity:.5}}
 .gcount{font-size:.72rem;color:var(--muted);padding:4px 14px 0}
 .card .body{padding:10px 14px 12px}
 .card .details{margin:0 0 10px;font-size:.92rem;line-height:1.45}
@@ -134,7 +139,7 @@ td.num,th.num,.num{text-align:right;font-variant-numeric:tabular-nums}
   .handle span{display:block;width:42px;height:5px;border-radius:3px;background:var(--line);margin:0 auto}
   .dayhead h2{font-size:.98rem}
   .dayhead p{font-size:.8rem;margin-bottom:8px}
-  .gallery img{height:170px}
+  .gallery figure,.gallery .gph{height:170px}
   .card{margin-bottom:12px}
   .timeline .stop{grid-template-columns:28px 104px 1fr;font-size:.85rem}
   .bgrid{grid-template-columns:1fr}
