@@ -146,9 +146,9 @@
       if (lane < 0) { lane = lanes.length; lanes.push(0); }
       lanes[lane] = sp[1];
       const a = Math.max(0, sp[0]), b = Math.min(24, sp[1]);
-      return `<button class="blk${st.hotel ? ' h' : ''}${st.flight ? ' f' : ''}" data-i="${i}" data-lane="${lane}"
-        style="left:${pc(a)};width:calc(${pc(b - a)} - 1px);--c:${color}" title="${esc(st.time)} · ${esc(st.what)}"
-        aria-label="${esc(st.time)}: ${esc(st.what)}"><span>${st.flight ? '✈️' : st.hotel ? '🏨' : st.n}</span></button>`;
+      return `<button class="blk${st.hotel ? ' h' : ''}${st.flight ? ' f' : ''}${st.tour ? ' tour' : ''}" data-i="${i}" data-lane="${lane}"
+        style="left:${pc(a)};width:calc(${pc(b - a)} - 1px);--c:${color}" title="${esc(st.time)} · ${esc(plain(st))}"
+        aria-label="${esc(st.time)}: ${esc(plain(st))}"><span>${st.flight ? '✈️' : st.hotel ? '🏨' : st.n}</span></button>`;
     }).join('');
     const two = lanes.length > 1;
     bar.innerHTML = `<div class="now"><span></span></div><div class="sky${two ? ' two' : ''}" style="background:${sky}">${blocks}</div>
@@ -260,7 +260,7 @@
       const nums = g.idx.map((i) => d.stops[i].n).join(',');
       const label = g.hotel ? `🏨<span>${nums}</span>` : nums;
       const cls = [g.hotel ? 'hotel' : '', g.idx.length > 1 || g.hotel ? 'wide' : ''].join(' ');
-      const m = L.marker([g.lat, g.lon], { icon: pinIcon(label, color, cls), title: g.idx.map((i) => d.stops[i].what).join(' / ') });
+      const m = L.marker([g.lat, g.lon], { icon: pinIcon(label, color, cls), title: g.idx.map((i) => plain(d.stops[i])).join(' / ') });
       m.on('click', () => {
         const later = g.idx.find((i) => i > stop);
         const pick = g.idx.includes(stop) ? (later ?? g.idx[0]) : g.idx[0];
@@ -280,7 +280,7 @@
       const lm = legMode(s);
       const move = s.commute ? `<li class="move">${s.commute.icon} ${esc(s.commute.label)} · ${esc(s.commute.dur)}</li>`
         : (lm === 'f' ? `<li class="move">✈️ Flight</li>` : '');
-      return `${move}<li><button class="stop" data-i="${i}"><span class="num" style="background:${color}">${s.hotel ? '🏨' : s.n}</span><span class="t">${esc(s.time)}</span><span>${esc(s.what)}</span></button></li>`;
+      return `${move}<li><button class="stop${s.tour ? ' tour' : ''}" data-i="${i}"><span class="num" style="background:${color}">${s.hotel ? '🏨' : s.n}</span><span class="t">${esc(s.time)}</span><span>${label(s)}</span></button></li>`;
     }).join('');
     $('#timeline').querySelectorAll('.stop').forEach((b) => b.addEventListener('click', () => go(day, +b.dataset.i)));
   }
@@ -330,6 +330,10 @@
   }
 
   // Step-by-step breakdown for tours and big sights (data/steps.json, keyed by stop name).
+  // Guided tours and boat trips get a "Tour:" label and their own look everywhere they appear.
+  const plain = (s) => (s.tour ? `Tour: ${s.what}` : s.what);
+  const label = (s) => (s.tour ? `<span class="tourtag">Tour:</span> ${esc(s.what)}` : esc(s.what));
+
   function stepList(s) {
     const st = steps[s.what];
     if (!st) return '';
@@ -379,7 +383,7 @@
     if (next) {
       const lm = legMode(next);
       const how = next.commute ? `${next.commute.icon} ${esc(next.commute.label)} · ${esc(next.commute.dur)}` : (lm === 'f' ? '✈️ Flight' : 'Same place');
-      nextBtn = `<button class="next" data-go="next"><small>${how}</small>Next: ${next.n}. ${esc(next.what)} →</button>`;
+      nextBtn = `<button class="next" data-go="next"><small>${how}</small>Next: ${next.n}. ${label(next)} →</button>`;
     } else if (nextDay) {
       nextBtn = `<button class="next" data-go="next"><small>End of the day</small>${esc(nextDay.title)} →</button>`;
     } else {
@@ -389,7 +393,7 @@
     $('#card').innerHTML = `
       <div class="peek">
         <div class="when" style="color:${color}">${s.hotel ? '🏨 ' : ''}${s.n}. ${esc(s.time)}</div>
-        <h3>${esc(s.what)}</h3>
+        <h3>${label(s)}</h3>
       </div>
       ${gallery(s)}
       <div class="body">
@@ -561,6 +565,7 @@
   Promise.all([`trip${sfx}`, `budget${sfx}`, 'media', 'places', 'steps'].map((f) => fetch(`data/${f}.json`).then((r) => r.json())))
     .then(([t, b, m, p, st]) => {
       trip = t; budget = b; media = m; places = p; steps = st;
+      trip.forEach((d) => d.stops.forEach((x) => { x.tour = /tour|boat/i.test((steps[x.what] || {}).label || ''); }));
       initMap(); initSheet(); initDayWheel(); renderBudget();
       const h = location.hash.match(/^#day(\d+)\/(\d+)/);
       if (h && trip[+h[1] - 1]) go(+h[1] - 1, Math.min(+h[2] - 1, trip[+h[1] - 1].stops.length - 1));
