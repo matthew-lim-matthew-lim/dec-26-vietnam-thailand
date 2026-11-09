@@ -177,6 +177,7 @@
     map.fitBounds(pts, fitPad());
     drawArrows();
     $('#dayhead').innerHTML = `<h2>Whole trip</h2><p>Tap a city to open its first day, or pick a day above. Matthew flies from Sydney and Amy from Hong Kong; they meet in Saigon on 19 Dec and both fly home direct from Bangkok on 3 Jan.</p>`;
+    $('#card').classList.remove('tour');
     $('#card').innerHTML = `<div class="body">${BASES.map((b) => {
       const c = CITY[b.city];
       return `<p class="base"><span class="hotelchip" style="--c:${c.color}">🏨</span><span><b>${c.name}</b>, ${b.dates} (${b.nights} nights)<br><small class="muted">${b.hotel}</small></span></p>`;
@@ -390,6 +391,7 @@
       nextBtn = `<button class="next" disabled><small>End of the trip</small>Home</button>`;
     }
 
+    $('#card').classList.toggle('tour', !!s.tour);
     $('#card').innerHTML = `
       <div class="peek">
         <div class="when" style="color:${color}">${s.hotel ? '🏨 ' : ''}${s.n}. ${esc(s.time)}</div>

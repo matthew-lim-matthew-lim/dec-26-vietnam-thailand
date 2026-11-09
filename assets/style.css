@@ -206,6 +206,7 @@ td.num,th.num,.num{text-align:right;font-variant-numeric:tabular-nums}
 .timeline .stop.tour.on{background:#fef3c7}
 .blk.tour{background-image:repeating-linear-gradient(135deg,#ffffff38 0 4px,transparent 4px 8px)}
 .card .peek h3 .tourtag{font-size:.7em}
+.card.tour{border-color:#f59e0b;box-shadow:0 0 0 1px #f59e0b55}
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]) .tourtag{background:#451a03;color:#fcd34d;border-color:#b45309}
   :root:not([data-theme="light"]) .timeline .stop.tour{background:#2a1d0a}
