@@ -29,7 +29,7 @@
   {
    "category": "Flights",
    "planned": 200,
-   "item": "Saigon to Phu Quoc for two, Tue 22 Dec",
+   "item": "Saigon to Phu Quoc for two, Wed 23 Dec",
    "notes": ""
   },
   {
@@ -40,14 +40,14 @@
   },
   {
    "category": "Accommodation",
-   "planned": 360,
-   "item": "Saigon, District 1: 3 nights (19 to 22 Dec)",
+   "planned": 480,
+   "item": "Saigon, District 1: 4 nights (19 to 23 Dec)",
    "notes": "About A$120 a night"
   },
   {
    "category": "Accommodation",
-   "planned": 750,
-   "item": "Phu Quoc resort: 5 nights (22 to 27 Dec)",
+   "planned": 600,
+   "item": "Phu Quoc resort: 4 nights (23 to 27 Dec)",
    "notes": "About A$150 a night, good 4-star"
   },
   {
@@ -88,9 +88,9 @@
   },
   {
    "category": "Activities and tours",
-   "planned": 220,
-   "item": "Islands tour and Hon Thom cable car, Wed 23 Dec",
-   "notes": ""
+   "planned": 100,
+   "item": "Cu Chi Tunnels half-day tour, Tue 22 Dec",
+   "notes": "Afternoon group tour, entry included"
   },
   {
    "category": "Activities and tours",

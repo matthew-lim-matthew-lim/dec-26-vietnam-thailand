@@ -2,11 +2,11 @@
 (() => {
   const CITY = { saigon: { name: 'Saigon', color: '#c2410c' }, phuquoc: { name: 'Phu Quoc', color: '#0e7490' }, bangkok: { name: 'Bangkok', color: '#7c3aed' } };
   // Where each night is spent (index = day number - 1).
-  const SLEEP = ['saigon', 'saigon', 'saigon', 'phuquoc', 'phuquoc', 'phuquoc', 'phuquoc', 'phuquoc',
+  const SLEEP = ['saigon', 'saigon', 'saigon', 'saigon', 'phuquoc', 'phuquoc', 'phuquoc', 'phuquoc',
     'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok'];
   const BASES = [
-    { city: 'saigon', lat: 10.7769, lon: 106.7009, dates: '19–22 Dec', nights: 3, hotel: 'Hotel in District 1', day: 0 },
-    { city: 'phuquoc', lat: 10.175, lon: 103.965, dates: '22–27 Dec', nights: 5, hotel: 'Resort on Long Beach', day: 3 },
+    { city: 'saigon', lat: 10.7769, lon: 106.7009, dates: '19–23 Dec', nights: 4, hotel: 'Hotel in District 1', day: 0 },
+    { city: 'phuquoc', lat: 10.175, lon: 103.965, dates: '23–27 Dec', nights: 4, hotel: 'Resort on Long Beach', day: 4 },
     { city: 'bangkok', lat: 13.725, lon: 100.515, dates: '27 Dec – 3 Jan', nights: 7, hotel: 'Hotel in Bang Rak, by the river', day: 8 },
   ];
   const MODES = {
@@ -424,6 +424,16 @@
     history.replaceState(null, '', day < 0 ? '#' : `#day${day + 1}/${stop + 1}`);
   }
 
+  // Let a normal mouse wheel scroll the day picker sideways.
+  function initDayWheel() {
+    const el = $('#days');
+    el.addEventListener('wheel', (e) => {
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX) || el.scrollWidth <= el.clientWidth) return;
+      e.preventDefault();
+      el.scrollLeft += e.deltaY * (e.deltaMode === 1 ? 32 : 1);
+    }, { passive: false });
+  }
+
   // Bottom sheet on phones: tap or drag the handle to expand or shrink.
   function initSheet() {
     const panel = $('#panel'), handle = $('#handle');
@@ -486,7 +496,7 @@
   Promise.all(['trip', 'budget', 'media', 'places'].map((f) => fetch(`data/${f}.json`).then((r) => r.json())))
     .then(([t, b, m, p]) => {
       trip = t; budget = b; media = m; places = p;
-      initMap(); initSheet(); renderBudget();
+      initMap(); initSheet(); initDayWheel(); renderBudget();
       const h = location.hash.match(/^#day(\d+)\/(\d+)/);
       if (h && trip[+h[1] - 1]) go(+h[1] - 1, Math.min(+h[2] - 1, trip[+h[1] - 1].stops.length - 1));
       else go(-1, 0);
