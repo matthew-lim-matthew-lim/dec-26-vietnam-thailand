@@ -1,12 +1,12 @@
 // Trip site: click a dot on the map to see that stop, then step to the next one.
 (() => {
-  const CITY = { saigon: { name: 'Saigon', color: '#c2410c' }, phuquoc: { name: 'Phu Quoc', color: '#0e7490' }, bangkok: { name: 'Bangkok', color: '#7c3aed' } };
+  const CITY = { saigon: { name: 'Saigon', color: '#c2410c' }, ninhbinh: { name: 'Ninh Binh', color: '#0e7490' }, bangkok: { name: 'Bangkok', color: '#7c3aed' } };
   // Where each night is spent (index = day number - 1).
-  const SLEEP = ['saigon', 'saigon', 'saigon', 'saigon', 'phuquoc', 'phuquoc', 'phuquoc', 'phuquoc',
+  const SLEEP = ['saigon', 'saigon', 'saigon', 'saigon', 'ninhbinh', 'ninhbinh', 'ninhbinh', 'ninhbinh',
     'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok', 'bangkok'];
   const BASES = [
     { city: 'saigon', lat: 10.7769, lon: 106.7009, dates: '19–23 Dec', nights: 4, hotel: 'Hotel in District 1', day: 0 },
-    { city: 'phuquoc', lat: 10.175, lon: 103.965, dates: '23–27 Dec', nights: 4, hotel: 'Resort on Long Beach', day: 4 },
+    { city: 'ninhbinh', lat: 20.2155, lon: 105.937, dates: '23–27 Dec', nights: 4, hotel: 'Riverside resort in Tam Coc', day: 4 },
     { city: 'bangkok', lat: 13.725, lon: 100.515, dates: '27 Dec – 3 Jan', nights: 7, hotel: 'Hotel in Bang Rak, by the river', day: 8 },
   ];
   const MODES = {
@@ -14,7 +14,7 @@
     b: { icon: '⛴️', name: 'Boat' }, s: { icon: '🛵', name: 'Scooter' }, f: { icon: '✈️', name: 'Flight' },
   };
   // Late-December sunrise and sunset (hours) for each city, for the day bar.
-  const SUN = { saigon: [6.1, 17.6], phuquoc: [6.25, 17.85], bangkok: [6.6, 18.0] };
+  const SUN = { saigon: [6.1, 17.6], ninhbinh: [6.5, 17.3], bangkok: [6.6, 18.0] };
   const CAT_COLORS = ['#c2410c', '#0e7490', '#7c3aed', '#ca8a04', '#be185d', '#15803d', '#2563eb', '#9333ea', '#0f766e', '#64748b', '#b45309'];
 
   const $ = (s) => document.querySelector(s);

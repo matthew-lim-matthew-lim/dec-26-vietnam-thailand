@@ -28,15 +28,15 @@
   },
   {
    "category": "Flights",
-   "planned": 200,
-   "item": "Saigon to Phu Quoc for two, Wed 23 Dec",
-   "notes": ""
+   "planned": 250,
+   "item": "Saigon to Hanoi for two, Wed 23 Dec",
+   "notes": "About 2 hours 10 min"
   },
   {
    "category": "Flights",
-   "planned": 500,
-   "item": "Phu Quoc to Bangkok for two, Sun 27 Dec",
-   "notes": "Direct if scheduled, otherwise via Saigon"
+   "planned": 400,
+   "item": "Hanoi to Bangkok for two, Sun 27 Dec",
+   "notes": "Direct, about 2 hours"
   },
   {
    "category": "Accommodation",
@@ -46,9 +46,9 @@
   },
   {
    "category": "Accommodation",
-   "planned": 600,
-   "item": "Phu Quoc resort: 4 nights (23 to 27 Dec)",
-   "notes": "About A$150 a night, good 4-star"
+   "planned": 440,
+   "item": "Ninh Binh, Tam Coc riverside resort: 4 nights (23 to 27 Dec)",
+   "notes": "About A$110 a night"
   },
   {
    "category": "Accommodation",
@@ -95,20 +95,20 @@
   {
    "category": "Activities and tours",
    "planned": 40,
-   "item": "Scooter rental (3 days) and fuel, Phu Quoc, 24 to 26 Dec",
+   "item": "Scooter rental (3 days) and fuel, Ninh Binh, 24 to 26 Dec",
    "notes": "One scooter, Matthew rides with Amy on the back"
   },
   {
    "category": "Activities and tours",
-   "planned": 70,
-   "item": "Kiss of the Sea show, Thu 24 Dec",
-   "notes": "Two seats, book ahead"
+   "planned": 100,
+   "item": "Ninh Binh boats and entries, 24 to 26 Dec",
+   "notes": "Trang An, Tam Coc, Van Long, Hang Mua, Bai Dinh, Hoa Lu"
   },
   {
-   "category": "Activities and tours",
-   "planned": 80,
-   "item": "Vinpearl Safari, Sat 26 Dec",
-   "notes": ""
+   "category": "Local transport",
+   "planned": 170,
+   "item": "Private car Hanoi airport to Tam Coc and back, 23 and 27 Dec",
+   "notes": "About 2 hours each way"
   },
   {
    "category": "Activities and tours",

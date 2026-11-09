@@ -1,6 +1,6 @@
 # Vietnam and Thailand, Dec 2026
 
-Trip site for Matthew and Amy, 19 December 2026 to 3 January 2027: Saigon, Phu Quoc and Bangkok.
+Trip site for Matthew and Amy, 19 December 2026 to 3 January 2027: Saigon, Ninh Binh and Bangkok.
 
 - **Trip map**: pick a day, click a numbered dot to see that stop (time, photo, opening hours, cost, booking and TikTok links), then press **Next** or the right arrow key to follow the day in order. Arrows (›) on the map show the direction of travel, with an icon for how you get there (🚶 🚕 🚇 ⛴️ 🛵 ✈️); 🏨 marks the hotel. On a phone the details sit in a sheet you can drag up. A dot with several numbers is a place visited more than once; clicking it again steps through those visits.
 - **Budget**: planned spend by category, in Australian dollars, for both travellers.
