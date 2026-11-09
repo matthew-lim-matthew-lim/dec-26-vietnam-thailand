@@ -177,8 +177,9 @@
   }
 
   function gallery(s) {
-    const m = media[s.tag] || {};
-    const pics = [s.img, ...(m.photos || []).filter((p) => p !== s.img)];
+    // Only photos of this actual place; stops like meals and hotel time get none.
+    const pics = (media[s.tag] || {}).photos || [];
+    if (!pics.length) return '';
     return `<div class="gallery" aria-label="Photos">${pics.map((p, i) =>
       `<img src="${esc(p)}" alt="${esc(s.what)} photo ${i + 1}" loading="lazy" onerror="this.remove()">`).join('')}</div>
       ${pics.length > 1 ? `<div class="gcount">${pics.length} photos · swipe →</div>` : ''}`;

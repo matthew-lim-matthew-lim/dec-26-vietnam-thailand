@@ -26,4 +26,4 @@ Then open http://localhost:8000. Opening `index.html` directly from disk will no
 
 ## Publishing
 
-`.github/workflows/pages.yml` deploys the site to GitHub Pages on every push to `main`. In the repository's Settings → Pages, set **Source** to **GitHub Actions** once.
+`.github/workflows/jekyll-gh-pages.yml` deploys the site to GitHub Pages on every push to `main` (Settings → Pages → Source must be **GitHub Actions**).
