@@ -16,11 +16,12 @@
   </div>
   <div class="stay" role="group" aria-label="23–27 Dec">
     <span>23–27 Dec</span>
-    <button data-stay="phuquoc">🏝️ Phu Quoc</button>
-    <button data-stay="ninhbinh">⛰️ Ninh Binh</button>
+    <button data-stay="phuquoc"><span class="em">🏝️ </span>Phu Quoc</button>
+    <button data-stay="ninhbinh"><span class="em">⛰️ </span>Ninh Binh</button>
   </div>
   <nav class="views" aria-label="View">
-    <button data-view="map" class="on">Trip map</button>
+    <button data-view="map" class="on"><span class="wide">Trip map</span><span class="narrow">Map</span></button>
+    <button data-view="spots"><span class="wide">TikTok spots</span><span class="narrow">TikTok</span></button>
     <button data-view="budget">Budget</button>
   </nav>
 </header>
@@ -38,6 +39,7 @@
   </aside>
 </main>
 
+<main id="spotsView" class="budget spots" hidden></main>
 <main id="budgetView" class="budget" hidden></main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>

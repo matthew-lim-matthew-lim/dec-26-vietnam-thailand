@@ -1,0 +1,338 @@
+{
+ "saigon": [
+  {
+   "name": "The Cafe Apartment",
+   "why": "An old apartment block on Nguyen Hue with a different café in almost every flat, lit up floor by floor at night.",
+   "tag": "thecafeapartment",
+   "maps": "https://maps.google.com/?cid=16513907379818685863&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJP4LyNAAvdTERp2XLe0QvLeU",
+   "what": "The Cafe Apartment at night"
+  },
+  {
+   "name": "Tan Dinh pink church",
+   "why": "A bubblegum-pink 1870s church; the classic Saigon photo.",
+   "tag": "tandinhchurch",
+   "maps": "https://maps.google.com/?cid=8699547463492745602&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJZ_ShIDMvdTERgrkibFMAu3g",
+   "what": "Tan Dinh pink church"
+  },
+  {
+   "name": "Nguyen Hue walking street",
+   "why": "Saigon's big pedestrian boulevard, busy with music and lights after dark.",
+   "tag": "nguyenhue",
+   "maps": "https://maps.google.com/?cid=6132188362022812283&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJd6g1QgAvdTERe3onVtPoGVU",
+   "what": "Nguyen Hue walking street"
+  },
+  {
+   "name": "Saigon Central Post Office",
+   "why": "French colonial hall with painted maps and a big portrait of Ho Chi Minh.",
+   "tag": "saigoncentralpostoffice",
+   "maps": "https://maps.google.com/?cid=12752177036863445938&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJRxocgI4udTERspsje3PV-LA",
+   "what": "Saigon Central Post Office"
+  },
+  {
+   "name": "Thien Hau Temple",
+   "why": "Giant spiral incense coils hanging from the roof, filling the temple with smoke and light.",
+   "tag": "thienhautemple",
+   "maps": "https://maps.google.com/?cid=2624174615134138519&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJU5jx0_YudTERl_Cqs-jwaiQ",
+   "what": "Cholon: Thien Hau Temple and Binh Tay Market"
+  },
+  {
+   "name": "Banh Mi Huynh Hoa",
+   "why": "Saigon's most famous banh mi, stuffed thick with pork and pâté.",
+   "tag": "banhmihuynhhoa",
+   "maps": "https://maps.google.com/?cid=7665333571196675420&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJ9bBIK5ovdTERXOUNNEW8YGo",
+   "what": "Banh mi and evening stroll"
+  },
+  {
+   "name": "Ben Thanh Market",
+   "why": "The big central market; the night market sets up outside at dusk.",
+   "tag": "benthanhmarket",
+   "maps": "https://maps.google.com/?cid=10190288580948819760&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJTeYpMT8vdTERMH8sUnkta40",
+   "what": "Ben Thanh Market"
+  },
+  {
+   "name": "Cu Chi Tunnels",
+   "why": "Crawling the wartime tunnels and the tiny hidden trapdoor.",
+   "tag": "cuchitunnels",
+   "maps": "https://www.google.com/maps/place/?q=place_id:ChIJQ2JhIpEzCzER45h9HsgvJAc",
+   "pid": "ChIJQ2JhIpEzCzER45h9HsgvJAc",
+   "what": "Cu Chi Tunnels"
+  },
+  {
+   "name": "Bui Vien walking street",
+   "why": "The neon backpacker street with bars spilling onto the road and loud music.",
+   "tag": "buivien",
+   "maps": "https://maps.google.com/?cid=17419937820716483494&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJCdzLBRYvdTERpsMyNScNwPE",
+   "note": "Not in the plan: loud and boozy late at night. A 10-minute walk from a District 1 hotel for a quick look any evening."
+  },
+  {
+   "name": "Landmark 81 SkyView",
+   "why": "Glass-floored viewing deck at the top of Vietnam's tallest tower.",
+   "tag": "landmark81",
+   "maps": "https://maps.google.com/?cid=3939612233067731661&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJEQnz-MIndTERzRrJ-HNQrDY",
+   "note": "Not in the plan: about A$30 each, and the rooftop bar on 19 Dec has a similar view."
+  }
+ ],
+ "phuquoc": [
+  {
+   "name": "Kiss Bridge",
+   "why": "Two halves of a bridge that almost meet over the sea; couples kiss at the gap at sunset.",
+   "tag": "kissbridge",
+   "maps": "https://maps.google.com/?cid=13274752418052979590&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJG-HZ4ZaRpzERhjtO1_1kObg",
+   "what": "Sunset Town and Kiss Bridge"
+  },
+  {
+   "name": "Kiss of the Sea show",
+   "why": "Night show on the water with fountains, lasers and fireworks.",
+   "tag": "kissofthesea",
+   "maps": "https://maps.google.com/?cid=16962269836210091711&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJtSQ7ywmVpzERvzagy4sWZus",
+   "what": "Kiss of the Sea show"
+  },
+  {
+   "name": "Sao Beach",
+   "why": "Powder-white sand and calm, clear water.",
+   "tag": "saobeach",
+   "maps": "https://maps.google.com/?cid=13003265704314629032&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJL4toWTGRpzERqGuxiUPhdLQ",
+   "what": "Sao Beach"
+  },
+  {
+   "name": "Grand World",
+   "why": "A mini-Venice of canals, gondolas and colourful buildings.",
+   "tag": "grandworldphuquoc",
+   "maps": "https://maps.google.com/?cid=13982151150946223454&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJbUZGsQEfCDERXgX4I2SUCsI",
+   "what": "Lunch at Grand World"
+  },
+  {
+   "name": "Starfish Beach",
+   "why": "Shallow water with starfish on the sand.",
+   "tag": "phuquocstarfish",
+   "maps": "https://maps.google.com/?cid=16839162199301194799&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJlddLY8chCDERL4SIdM24sOk",
+   "what": "Starfish Beach (Rach Vem)"
+  },
+  {
+   "name": "Dinh Cau night market",
+   "why": "Seafood grilled to order by the harbour.",
+   "tag": "phuquocnightmarket",
+   "maps": "https://maps.google.com/?cid=14297459752237185512&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJn_OoioaMpzER6LmKuuTHasY",
+   "what": "Dinh Cau night market"
+  },
+  {
+   "name": "Ham Ninh fishing village",
+   "why": "Stilt houses and a long wooden pier out over the sea.",
+   "tag": "hamninh",
+   "maps": "https://maps.google.com/?cid=9900991575874752364&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJS4Ky0oiPpzERbE8mbGFjZ4k",
+   "what": "Ham Ninh fishing village"
+  },
+  {
+   "name": "Hon Thom cable car",
+   "why": "One of the world's longest sea cable cars, 7.9 km over the islands.",
+   "tag": "honthom",
+   "maps": "https://maps.google.com/?cid=14413419425568023553&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJvxdKNoKWpzERAWSyG5rABsg",
+   "note": "Not in the plan: about A$40–50 each. Would fit the free morning on 25 Dec."
+  }
+ ],
+ "ninhbinh": [
+  {
+   "name": "Hang Mua viewpoint",
+   "why": "A stone dragon on the peak above the rice fields; the Ninh Binh shot.",
+   "tag": "hangmua",
+   "maps": "https://www.google.com/maps/place/?q=place_id:ChIJZdqCQkZ6NjERoHfeAj-b6bs",
+   "what": "Hang Mua viewpoint",
+   "pid": "ChIJZdqCQkZ6NjERoHfeAj-b6bs"
+  },
+  {
+   "name": "Trang An",
+   "why": "Rowing boats through limestone caves and past island temples.",
+   "tag": "trangan",
+   "maps": "https://maps.google.com/?cid=397237484823564798&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJn9cZWcp7NjER_tFgRmNFgwU",
+   "what": "Trang An boat trip"
+  },
+  {
+   "name": "Tam Coc",
+   "why": "Rowers paddling with their feet through caves between the karsts.",
+   "tag": "tamcoc",
+   "maps": "https://maps.google.com/?cid=1522023365463301898&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJpWmYell6NjERCt9I1i9QHxU",
+   "what": "Tam Coc boat ride"
+  },
+  {
+   "name": "Tuyet Tinh Coc and Am Tien cave",
+   "why": "A hidden green lagoon under the cliffs with a cave pagoda through the rock.",
+   "tag": "tuyettinhcoc",
+   "maps": "https://www.google.com/maps/place/?q=place_id:ChIJn0yaEgB5NjER4lKTHUAbD1E",
+   "pid": "ChIJn0yaEgB5NjER4lKTHUAbD1E",
+   "what": "Tuyet Tinh Coc and Am Tien cave"
+  },
+  {
+   "name": "Bai Dinh Pagoda",
+   "why": "Vietnam's biggest Buddhist complex, with a corridor of 500 stone arhats.",
+   "tag": "baidinhpagoda",
+   "maps": "https://maps.google.com/?cid=10036531741049602693&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJU42tIrB-NjERhcIxUnHsSIs",
+   "what": "Bai Dinh Pagoda"
+  },
+  {
+   "name": "Bich Dong Pagoda",
+   "why": "A three-level pagoda built into a cliff.",
+   "tag": "bichdong",
+   "maps": "https://maps.google.com/?cid=15700746498793167902&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJn60YcKl7NjERHlwGKcFB5Nk",
+   "what": "Bich Dong Pagoda"
+  },
+  {
+   "name": "Van Long",
+   "why": "Bamboo boats across a mirror-calm lagoon.",
+   "tag": "vanlong",
+   "maps": "https://maps.google.com/?cid=340763220807067323&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJlw1rMATWNTERuya5CFiiugQ",
+   "what": "Van Long bamboo boat ride"
+  },
+  {
+   "name": "Hoa Lu ancient capital",
+   "why": "Temples of Vietnam's 10th-century kings.",
+   "tag": "hoalu",
+   "maps": "https://maps.google.com/?cid=825031182867308263&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJb0Y7QRN5NjER5x5tV30Zcws",
+   "what": "Hoa Lu ancient capital"
+  }
+ ],
+ "bangkok": [
+  {
+   "name": "Grand Palace and the Emerald Buddha",
+   "why": "Gold-covered spires and the country's most sacred temple.",
+   "tag": "grandpalace",
+   "maps": "https://maps.google.com/?cid=3056950040631135297&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJPzZsMU6Z4jARQUzvk913bCo",
+   "what": "Grand Palace and Wat Phra Kaew"
+  },
+  {
+   "name": "Wat Arun",
+   "why": "The porcelain-covered riverside temple, best from across the river at dusk.",
+   "tag": "watarun",
+   "maps": "https://maps.google.com/?cid=9727099538087655581&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJaSv_6gaZ4jARnbiUVn6Z_YY",
+   "what": "Wat Arun"
+  },
+  {
+   "name": "Wat Pho",
+   "why": "The 46 m golden reclining Buddha.",
+   "tag": "watpho",
+   "maps": "https://maps.google.com/?cid=9076048512320389678&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJgcxFcQWZ4jARLsIR9Qia9H0",
+   "what": "Wat Pho"
+  },
+  {
+   "name": "Mae Klong Railway Market",
+   "why": "Stalls fold back seconds before a train creeps through the market.",
+   "tag": "maeklongrailwaymarket",
+   "maps": "https://maps.google.com/?cid=4312434485666095598&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJ10pbl47T4jAR7qFFA1HY2Ds",
+   "what": "Mae Klong Railway Market"
+  },
+  {
+   "name": "Jodd Fairs",
+   "why": "The most-filmed night market, with the giant volcano pork ribs.",
+   "tag": "joddfairs",
+   "maps": "https://maps.google.com/?cid=192428079199292255&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJk31AdLKf4jARXwt8iVGkqwI",
+   "what": "Jodd Fairs night market"
+  },
+  {
+   "name": "Chinatown (Yaowarat)",
+   "why": "Neon signs and street food on Yaowarat Road after dark.",
+   "tag": "yaowarat",
+   "maps": "https://maps.google.com/?cid=6369365766619019010&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJ95Nh9yGZ4jARAjfcG2uIZFg",
+   "what": "Chinatown (Yaowarat)"
+  },
+  {
+   "name": "Wat Paknam",
+   "why": "A glass pagoda with a jade Buddha under a ceiling painted with the universe.",
+   "tag": "watpaknam",
+   "maps": "https://maps.google.com/?cid=1209476392033675019&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJvwXXwEWY4jARC2dj117syBA",
+   "what": "Wat Paknam"
+  },
+  {
+   "name": "ICONSIAM",
+   "why": "Riverside mega-mall with an indoor floating market; NYE fireworks out front.",
+   "tag": "iconsiam",
+   "maps": "https://maps.google.com/?cid=1612497051803357940&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJFRjwgc2Z4jAR9JIadoa9YBY",
+   "what": "ICONSIAM"
+  },
+  {
+   "name": "Talat Noi",
+   "why": "Old riverside lanes with street art, crumbling shophouses and stacks of car parts.",
+   "tag": "talatnoi",
+   "maps": "https://maps.google.com/?cid=288512617207728880&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJzeH7rdiY4jAR8IriXbIAAQQ",
+   "what": "Talat Noi"
+  },
+  {
+   "name": "Chatuchak Weekend Market",
+   "why": "Over 10,000 stalls; coconut ice cream and vintage finds.",
+   "tag": "chatuchak",
+   "maps": "https://maps.google.com/?cid=10516346959717498187&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJ3fiD6BSc4jARS324hNeR8ZE",
+   "what": "Chatuchak Weekend Market"
+  },
+  {
+   "name": "Golden Mount",
+   "why": "Golden chedi on a hill with a view over the old city at sunset.",
+   "tag": "goldenmount",
+   "maps": "https://maps.google.com/?cid=10094722561517961364&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJP-MtN12Z4jARlEBmga-oF4w",
+   "what": "Golden Mount (Wat Saket)"
+  },
+  {
+   "name": "Lumphini Park lizards",
+   "why": "Huge monitor lizards wandering around the lakes.",
+   "tag": "lumphinipark",
+   "maps": "https://maps.google.com/?cid=12394383396962920758&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJG7BL7Saf4jARNmn5AQiyAaw",
+   "what": "Lumphini Park"
+  },
+  {
+   "name": "Amphawa fireflies",
+   "why": "Long-tail boats along the canals to see fireflies in the trees.",
+   "tag": "amphawa",
+   "maps": "https://maps.google.com/?cid=12951620623911742983&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJW3z8Z7vV4jARB-7hOVZmvbM",
+   "what": "Firefly boat ride"
+  },
+  {
+   "name": "Mahanakhon SkyWalk",
+   "why": "A glass floor 314 m above the city.",
+   "tag": "mahanakhonskywalk",
+   "maps": "https://maps.google.com/?cid=5665740806921291380&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJGzV2mdKY4jARdIb62T7BoE4",
+   "note": "Not in the plan: about A$45 each, and Three Sixty on 30 Dec covers the sunset view."
+  },
+  {
+   "name": "Jay Fai",
+   "why": "The Michelin-starred street-food cook in ski goggles, famous for her crab omelette.",
+   "tag": "jayfai",
+   "maps": "https://maps.google.com/?cid=15540702247320146498&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgBIAA",
+   "pid": "ChIJaxq89xaZ4jARQtKhE1uqq9c",
+   "note": "Not in the plan: queues of 2–4 hours and about A$50 a dish."
+  }
+ ]
+}

@@ -420,12 +420,12 @@
    },
    {
     "n": 3,
-    "time": "10:30 am – 12:15 pm",
+    "time": "10:30–11:30 am",
     "hotel": true,
     "flight": false,
-    "what": "Free time: café or spa",
-    "dur": "1h 45m",
-    "details": "Slow morning near the hotel.",
+    "what": "Slow coffee near the hotel",
+    "dur": "1h",
+    "details": "An easy morning before the afternoon sights.",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Nguyen_Hue_Pedestrian_Boulevard_(37163950285).jpg/500px-Nguyen_Hue_Pedestrian_Boulevard_(37163950285).jpg",
     "place": "Hotel (District 1)",
     "lat": 10.7769,
@@ -441,6 +441,35 @@
    },
    {
     "n": 4,
+    "time": "11:40 am – 12:15 pm",
+    "hotel": false,
+    "flight": false,
+    "what": "Tan Dinh pink church",
+    "dur": "35 min",
+    "details": "The bubblegum-pink 1870s church on Hai Ba Trung, one of Saigon's most photographed spots. Photos from across the street; go inside only if the gate is open.",
+    "img": null,
+    "place": "Tan Dinh Church",
+    "lat": 10.7887,
+    "lon": 106.6907,
+    "map": "https://www.google.com/maps/search/?api=1&query=Tan%20Dinh%20Church%2C%20Ho%20Chi%20Minh%20City",
+    "commute": {
+     "time": "11:30–11:40 am",
+     "mode": "d",
+     "icon": "🚕",
+     "label": "Grab",
+     "dur": "10 min",
+     "from": "Hotel (District 1)",
+     "dir": "https://www.google.com/maps/dir/?api=1&origin=District%201%2C%20Ho%20Chi%20Minh%20City&destination=Tan%20Dinh%20Church%2C%20Ho%20Chi%20Minh%20City&travelmode=driving"
+    },
+    "hours": "Gates often closed on Mondays; the pink front is the photo, from across the street",
+    "cost": "Free",
+    "book": null,
+    "bookLabel": "No booking",
+    "tiktok": "https://www.tiktok.com/tag/tandinhchurch",
+    "tag": "tandinhchurch"
+   },
+   {
+    "n": 5,
     "time": "12:25–1:25 pm",
     "hotel": false,
     "flight": false,
@@ -454,12 +483,12 @@
     "map": "https://www.google.com/maps/search/?api=1&query=com%20tam%2C%20District%201%2C%20Ho%20Chi%20Minh%20City",
     "commute": {
      "time": "12:15–12:25 pm",
-     "mode": "w",
-     "icon": "🚶",
-     "label": "Walk",
+     "mode": "d",
+     "icon": "🚕",
+     "label": "Grab",
      "dur": "10 min",
-     "from": "Hotel (District 1)",
-     "dir": "https://www.google.com/maps/dir/?api=1&origin=District%201%2C%20Ho%20Chi%20Minh%20City&destination=com%20tam%2C%20District%201%2C%20Ho%20Chi%20Minh%20City&travelmode=walking"
+     "from": "Tan Dinh Church",
+     "dir": "https://www.google.com/maps/dir/?api=1&origin=Tan%20Dinh%20Church%2C%20Ho%20Chi%20Minh%20City&destination=com%20tam%2C%20District%201%2C%20Ho%20Chi%20Minh%20City&travelmode=driving"
     },
     "hours": "",
     "cost": "",
@@ -469,7 +498,7 @@
     "tag": null
    },
    {
-    "n": 5,
+    "n": 6,
     "time": "1:40–3:10 pm",
     "hotel": false,
     "flight": false,
@@ -498,7 +527,7 @@
     "tag": "independencepalace"
    },
    {
-    "n": 6,
+    "n": 7,
     "time": "3:20–4:50 pm",
     "hotel": false,
     "flight": false,
@@ -527,7 +556,7 @@
     "tag": "warremnantsmuseum"
    },
    {
-    "n": 7,
+    "n": 8,
     "time": "5–6:15 pm",
     "hotel": false,
     "flight": false,
@@ -556,7 +585,7 @@
     "tag": "benthanhmarket"
    },
    {
-    "n": 8,
+    "n": 9,
     "time": "6:25–7:55 pm",
     "hotel": false,
     "flight": false,
@@ -585,7 +614,7 @@
     "tag": null
    },
    {
-    "n": 9,
+    "n": 10,
     "time": "8–9 pm",
     "hotel": false,
     "flight": false,
@@ -1474,11 +1503,40 @@
    },
    {
     "n": 5,
-    "time": "2:10–4:40 pm",
+    "time": "2:10–3:10 pm",
+    "hotel": false,
+    "flight": false,
+    "what": "Tuyet Tinh Coc and Am Tien cave",
+    "dur": "1h",
+    "details": "A hidden lagoon of clear green water under the cliffs, with a cave pagoda (Am Tien) through a tunnel in the rock. Very popular on TikTok and still quiet in the afternoon.",
+    "img": null,
+    "place": "Tuyet Tinh Coc",
+    "lat": 20.2795,
+    "lon": 105.9159,
+    "map": "https://www.google.com/maps/search/?api=1&query=Tuyet%20Tinh%20Coc%2C%20Ninh%20Binh",
+    "commute": {
+     "time": "1:35–2:10 pm",
+     "mode": "s",
+     "icon": "🛵",
+     "label": "Scooter",
+     "dur": "35 min",
+     "from": "Van Long",
+     "dir": "https://www.google.com/maps/dir/?api=1&origin=Van%20Long%20Nature%20Reserve%2C%20Ninh%20Binh&destination=Tuyet%20Tinh%20Coc%2C%20Ninh%20Binh&travelmode=driving"
+    },
+    "hours": "About 7 am – 5:30 pm daily",
+    "cost": "Small entry fee, about 20,000–50,000 VND (A$1–3)",
+    "book": null,
+    "bookLabel": "Pay at the gate",
+    "tiktok": "https://www.tiktok.com/tag/tuyettinhcoc",
+    "tag": "tuyettinhcoc"
+   },
+   {
+    "n": 6,
+    "time": "3:35–5:05 pm",
     "hotel": false,
     "flight": false,
     "what": "Back at the resort",
-    "dur": "2h 30m",
+    "dur": "1h 30m",
     "details": "Return the scooter, then pool and rest.",
     "img": null,
     "place": "Resort (Tam Coc)",
@@ -1486,13 +1544,13 @@
     "lon": 105.937,
     "map": "https://www.google.com/maps/search/?api=1&query=Tam%20Coc%2C%20Ninh%20Binh",
     "commute": {
-     "time": "1:35–2:10 pm",
+     "time": "3:10–3:35 pm",
      "mode": "s",
      "icon": "🛵",
      "label": "Scooter back",
-     "dur": "35 min",
-     "from": "Van Long",
-     "dir": "https://www.google.com/maps/dir/?api=1&origin=Van%20Long%20Nature%20Reserve%2C%20Ninh%20Binh&destination=Tam%20Coc%2C%20Ninh%20Binh&travelmode=driving"
+     "dur": "25 min",
+     "from": "Tuyet Tinh Coc",
+     "dir": "https://www.google.com/maps/dir/?api=1&origin=Tuyet%20Tinh%20Coc%2C%20Ninh%20Binh&destination=Tam%20Coc%2C%20Ninh%20Binh&travelmode=driving"
     },
     "hours": "",
     "cost": "",
@@ -1502,7 +1560,7 @@
     "tag": null
    },
    {
-    "n": 6,
+    "n": 7,
     "time": "7–8:30 pm",
     "hotel": false,
     "flight": false,
@@ -2056,12 +2114,12 @@
    },
    {
     "n": 6,
-    "time": "6:05–8:05 pm",
+    "time": "6:05–7:20 pm",
     "hotel": true,
     "flight": false,
-    "what": "Back at the hotel, easy dinner nearby",
-    "dur": "2h",
-    "details": "",
+    "what": "Back at the hotel",
+    "dur": "1h 15m",
+    "details": "Shower and a rest after the day out.",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Bangkok_skyline,_Bangkok,_Thailand.jpg/500px-Bangkok_skyline,_Bangkok,_Thailand.jpg",
     "place": "Hotel (Bang Rak)",
     "lat": 13.725,
@@ -2082,6 +2140,35 @@
     "bookLabel": "",
     "tiktok": null,
     "tag": null
+   },
+   {
+    "n": 7,
+    "time": "7:50–9:50 pm",
+    "hotel": false,
+    "flight": false,
+    "what": "Jodd Fairs night market",
+    "dur": "2h",
+    "details": "Bangkok's most-filmed night market: rows of lit-up tents, the giant volcano pork ribs and seafood cooked to order. Pick busy stalls cooking to order; the Esplanade mall nearby has sit-down restaurants too.",
+    "img": null,
+    "place": "Jodd Fairs",
+    "lat": 13.7679,
+    "lon": 100.5712,
+    "map": "https://www.google.com/maps/search/?api=1&query=Jodd%20Fairs%20Ratchada%2C%20Bangkok",
+    "commute": {
+     "time": "7:20–7:50 pm",
+     "mode": "t",
+     "icon": "🚇",
+     "label": "MRT to Thailand Cultural Centre",
+     "dur": "30 min",
+     "from": "Hotel (Bang Rak)",
+     "dir": "https://www.google.com/maps/dir/?api=1&origin=Bang%20Rak%2C%20Bangkok&destination=Jodd%20Fairs%20Ratchada%2C%20Bangkok&travelmode=transit"
+    },
+    "hours": "About 5 pm – 1 am daily",
+    "cost": "Free entry; dishes about 100–300 THB (A$4–13)",
+    "book": null,
+    "bookLabel": "No booking",
+    "tiktok": "https://www.tiktok.com/tag/joddfairs",
+    "tag": "joddfairs"
    }
   ]
  },

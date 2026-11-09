@@ -34,7 +34,7 @@
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const mobile = () => window.matchMedia('(max-width: 860px)').matches;
 
-  let trip = [], budget = null, media = {}, places = {}, steps = {}, day = null, stop = 0;
+  let trip = [], budget = null, media = {}, places = {}, steps = {}, spots = {}, day = null, stop = 0;
   // Google Maps Platform key. It only works on matthew-lim-matthew-lim.github.io (referrer restricted).
   const GKEY = 'AIzaSyC22mrrewNOFmwmXCY0waUHCl3sQ32IcR4';
   let map, layer, ghosts, arrows, legs = [], markers = new Map();
@@ -532,12 +532,65 @@
       <div class="items">${budget.items.map((it) => `<div class="item"><div><b>${esc(it.item)}</b><small class="muted">${esc(it.category)}${it.notes ? ' · ' + esc(it.notes) : ''}</small></div><span class="num">${fmt(it.planned)}</span></div>`).join('')}</div>`;
   }
 
+  // "Popular on TikTok" page: the most-posted spots in each city, and where each sits in the plan.
+  function renderSpots() {
+    const where = (what) => {
+      for (let d = 0; d < trip.length; d++) {
+        const i = trip[d].stops.findIndex((x) => x.what === what);
+        if (i >= 0) return { d, i, s: trip[d].stops[i] };
+      }
+      return null;
+    };
+    const cities = ['saigon', STAY, 'bangkok'];
+    const all = cities.flatMap((c) => spots[c] || []);
+    const inPlan = all.filter((x) => x.what && where(x.what)).length;
+    $('#spotsView').innerHTML = `
+      <h2>Popular on TikTok</h2>
+      <p class="note">The most-posted spots in each place on this trip. ${inPlan} of ${all.length} are already in the plan; tap one to jump to it on the map.</p>
+      ${cities.map((c) => {
+        const name = c === STAY ? STAYS[STAY].name : CITY[c].name;
+        const color = CITY[c === STAY ? 'mid' : c].color;
+        return `<section class="spotcity"><h3><span class="dot" style="background:${color}"></span>${esc(name)}</h3><div class="spotgrid">
+        ${(spots[c] || []).map((x) => {
+          const w = x.what && where(x.what);
+          const plan = w
+            ? `<button class="inplan" data-d="${w.d}" data-i="${w.i}" style="--c:${color}">✓ Day ${w.d + 1} · ${esc(w.s.time)} →</button>`
+            : `<p class="notplan">${esc(x.note || 'Not in the plan yet.')}</p>`;
+          return `<article class="spot${w ? '' : ' out'}">
+            <div class="sphoto"${x.pid ? ` data-spid="${esc(x.pid)}"` : ''}></div>
+            <div class="sbody"><h4>${esc(x.name)}</h4><p>${esc(x.why)}</p>${plan}
+              <div class="links"><a class="chip" href="${esc(x.maps)}" target="_blank" rel="noopener">📍 Google Maps</a>
+              <a class="chip" href="https://www.tiktok.com/tag/${esc(x.tag)}" target="_blank" rel="noopener">🎬 #${esc(x.tag)}</a></div></div>
+          </article>`;
+        }).join('')}</div></section>`;
+      }).join('')}`;
+    $('#spotsView').querySelectorAll('.inplan').forEach((b) => b.addEventListener('click', () => {
+      setView('map'); go(+b.dataset.d, +b.dataset.i);
+    }));
+  }
+
+  let spotsFilled = false;
+  function fillSpotPhotos() {
+    if (spotsFilled) return;
+    spotsFilled = true;
+    const w = Math.round(Math.min(480, window.innerWidth) * (window.devicePixelRatio || 1));
+    $('#spotsView').querySelectorAll('.sphoto[data-spid]').forEach(async (el) => {
+      try {
+        const [p] = await placePhotos(el.dataset.spid);
+        if (!p) return;
+        el.innerHTML = `<img src="https://places.googleapis.com/v1/${esc(p.name)}/media?maxWidthPx=${w}&key=${GKEY}" alt="" loading="lazy" onerror="this.remove()">`;
+      } catch (e) { /* keep the blank tile */ }
+    });
+  }
+
   function setView(v) {
     document.querySelectorAll('.views button').forEach((b) => b.classList.toggle('on', b.dataset.view === v));
     $('#mapView').hidden = v !== 'map';
     $('#days').hidden = v !== 'map';
     $('#budgetView').hidden = v !== 'budget';
-    document.body.classList.toggle('budget-on', v === 'budget');
+    $('#spotsView').hidden = v !== 'spots';
+    document.body.classList.toggle('budget-on', v === 'budget' || v === 'spots');
+    if (v === 'spots') { fillSpotPhotos(); window.scrollTo(0, 0); }
     if (v === 'map') map.invalidateSize();
   }
 
@@ -564,11 +617,11 @@
   initStay();
 
   const sfx = STAYS[STAY].suffix;
-  Promise.all([`trip${sfx}`, `budget${sfx}`, 'media', 'places', 'steps'].map((f) => fetch(`data/${f}.json`).then((r) => r.json())))
-    .then(([t, b, m, p, st]) => {
-      trip = t; budget = b; media = m; places = p; steps = st;
+  Promise.all([`trip${sfx}`, `budget${sfx}`, 'media', 'places', 'steps', 'tiktok'].map((f) => fetch(`data/${f}.json`).then((r) => r.json())))
+    .then(([t, b, m, p, st, tk]) => {
+      trip = t; budget = b; media = m; places = p; steps = st; spots = tk;
       trip.forEach((d) => d.stops.forEach((x) => { x.tour = /tour|boat/i.test((steps[x.what] || {}).label || ''); }));
-      initMap(); initSheet(); initDayWheel(); renderBudget();
+      initMap(); initSheet(); initDayWheel(); renderBudget(); renderSpots();
       const h = location.hash.match(/^#day(\d+)\/(\d+)/);
       if (h && trip[+h[1] - 1]) go(+h[1] - 1, Math.min(+h[2] - 1, trip[+h[1] - 1].stops.length - 1));
       else go(-1, 0);
