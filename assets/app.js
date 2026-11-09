@@ -43,15 +43,20 @@
       const len = pa.distanceTo(pb);
       if (len < 30) return;
       const ux = (pb.x - pa.x) / len, uy = (pb.y - pa.y) / len;
-      const off = L.point(-uy * 6, ux * 6);
+      const off = L.point(-uy * 7, ux * 7);
       const ang = Math.atan2(uy, ux) * 180 / Math.PI;
-      const n = Math.max(1, Math.floor((len - 40) / 24));
-      const svg = `<svg width="14" height="14" viewBox="0 0 14 14" style="transform:translate(-50%,-50%) rotate(${ang}deg)"><path d="M4 2 L10 7 L4 12" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 2 L10 7 L4 12" fill="none" stroke="${color}" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+      // Solid line under the arrows, nudged by the same offset.
+      L.polyline([map.unproject(pa.add(off), z), map.unproject(pb.add(off), z)],
+        { color, weight: 8, opacity: 0.85, lineCap: 'round', interactive: false }).addTo(arrows);
+      const n = Math.max(1, Math.floor((len - 40) / 22));
+      // Each chevron is a tiny white polyline in the same layer as the line, so they always line up.
+      const u = L.point(ux, uy), v = L.point(-uy, ux);
+      const P = (pt) => map.unproject(pt, z);
       for (let k = 1; k <= n; k++) {
         const t = (20 + (k - 0.5) * ((len - 40) / n)) / len;
-        const ll = map.unproject(pa.add(pb.subtract(pa).multiplyBy(t)).add(off), z);
-        L.marker(ll, { interactive: false, keyboard: false,
-          icon: L.divIcon({ className: 'pin-wrap', iconSize: [0, 0], html: `<div class="chev">${svg}</div>` }) }).addTo(arrows);
+        const c = pa.add(pb.subtract(pa).multiplyBy(t)).add(off);
+        L.polyline([P(c.subtract(u.multiplyBy(3)).add(v.multiplyBy(3.5))), P(c.add(u.multiplyBy(2))), P(c.subtract(u.multiplyBy(3)).subtract(v.multiplyBy(3.5)))],
+          { color: '#fff', weight: 2.5, opacity: 1, lineCap: 'round', lineJoin: 'round', interactive: false }).addTo(arrows);
       }
     });
   }
