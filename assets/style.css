@@ -111,7 +111,9 @@ button{font:inherit;color:inherit;cursor:pointer}
 .timeline .stop.on{background:var(--accent-soft)}
 .timeline .num{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:.75rem;font-weight:700}
 .timeline .t{color:var(--muted);font-variant-numeric:tabular-nums;font-size:.78rem}
-.timeline .move{font-size:.78rem;color:var(--muted);padding:2px 6px 2px 42px}
+.timeline .move{display:block;width:100%;text-align:left;border:0;background:none;font-size:.78rem;color:var(--muted);padding:5px 6px 5px 42px;border-radius:8px;cursor:pointer}
+.timeline .move:hover{background:var(--bg);color:var(--ink)}
+.timeline .move.on{background:var(--accent-soft);color:var(--ink);font-weight:600;box-shadow:inset 3px 0 0 var(--accent)}
 .timeline .legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.82rem;color:var(--muted);padding:4px}
 
 /* Map pins */

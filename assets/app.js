@@ -26,7 +26,7 @@
   let trip = [], book = null, budget = null, media = {}, places = {}, steps = {}, spots = {}, day = null, stop = 0;
   // Google Maps Platform key. It only works on matthew-lim-matthew-lim.github.io (referrer restricted).
   const GKEY = 'AIzaSyC22mrrewNOFmwmXCY0waUHCl3sQ32IcR4';
-  let map, layer, ghosts, arrows, legs = [], markers = new Map();
+  let map, layer, ghosts, arrows, legs = [], markers = new Map(), legMarkers = new Map(), selLeg = null;
 
   function initMap() {
     map = L.map('map', { zoomControl: !mobile(), scrollWheelZoom: true, tap: true });
@@ -44,7 +44,8 @@
   function drawArrows() {
     arrows.clearLayers();
     const z = map.getZoom();
-    legs.forEach(({ a, b, color }) => {
+    legs.forEach(({ a, b, color, i }) => {
+      const sel = selLeg === i, dim = selLeg != null && !sel;
       const pa = map.project(a, z), pb = map.project(b, z);
       const len = pa.distanceTo(pb);
       if (len < 30) return;
@@ -52,8 +53,9 @@
       const off = L.point(-uy * 7, ux * 7);
       const ang = Math.atan2(uy, ux) * 180 / Math.PI;
       // Solid line under the arrows, nudged by the same offset.
-      L.polyline([map.unproject(pa.add(off), z), map.unproject(pb.add(off), z)],
-        { color, weight: 8, opacity: 0.85, lineCap: 'round', interactive: false }).addTo(arrows);
+      const ends = [map.unproject(pa.add(off), z), map.unproject(pb.add(off), z)];
+      if (sel) L.polyline(ends, { color: '#111827', weight: 15, opacity: 0.9, lineCap: 'round', interactive: false }).addTo(arrows);
+      L.polyline(ends, { color, weight: sel ? 10 : 8, opacity: dim ? 0.3 : 0.85, lineCap: 'round', interactive: false }).addTo(arrows);
       const n = Math.max(1, Math.floor((len - 40) / 22));
       // Each chevron is a tiny white polyline in the same layer as the line, so they always line up.
       const u = L.point(ux, uy), v = L.point(-uy, ux);
@@ -62,7 +64,7 @@
         const t = (20 + (k - 0.5) * ((len - 40) / n)) / len;
         const c = pa.add(pb.subtract(pa).multiplyBy(t)).add(off);
         L.polyline([P(c.subtract(u.multiplyBy(3)).add(v.multiplyBy(3.5))), P(c.add(u.multiplyBy(2))), P(c.subtract(u.multiplyBy(3)).subtract(v.multiplyBy(3.5)))],
-          { color: '#fff', weight: 2.5, opacity: 1, lineCap: 'round', lineJoin: 'round', interactive: false }).addTo(arrows);
+          { color: '#fff', weight: 2.5, opacity: dim ? 0.4 : 1, lineCap: 'round', lineJoin: 'round', interactive: false }).addTo(arrows);
       }
     });
   }
@@ -149,7 +151,7 @@
 
   function renderOverview() {
     $('#daybar').hidden = true;
-    layer.clearLayers(); markers.clear();
+    layer.clearLayers(); markers.clear(); legMarkers.clear();
     renderGhosts(-1);
     const pts = BASES.map((b) => [b.lat, b.lon]);
     legs = [];
@@ -215,7 +217,7 @@
   function renderDay() {
     const d = trip[day];
     const color = CITY[SLEEP[day]].color;
-    layer.clearLayers(); markers.clear();
+    layer.clearLayers(); markers.clear(); legMarkers.clear();
     renderGhosts(day);
 
     // One marker per place; a place visited more than once lists every stop number.
@@ -237,10 +239,11 @@
       if (prev && (prev.lat !== s.lat || prev.lon !== s.lon)) {
         const m = legMode(s) || 'd';
         const a = [prev.lat, prev.lon], b = [s.lat, s.lon];
-        legs.push({ a, b, color: m === 'f' ? '#64748b' : color });
+        legs.push({ a, b, i, color: m === 'f' ? '#64748b' : color });
         const tip = s.commute ? `${s.commute.label} · ${s.commute.dur}` : MODES[m].name;
-        L.marker([(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], { icon: pinIcon(MODES[m].icon, color, 'mode'), title: tip, zIndexOffset: -100 })
-          .on('click', () => go(day, i)).addTo(layer);
+        const lm = L.marker([(a[0] + b[0]) / 2, (a[1] + b[1]) / 2], { icon: pinIcon(MODES[m].icon, color, 'mode'), title: tip, zIndexOffset: -100 })
+          .on('click', () => (s.commute ? goLeg(i) : go(day, i))).addTo(layer);
+        legMarkers.set(i, lm);
       }
       prev = s;
     });
@@ -268,11 +271,13 @@
     renderBar(d);
     $('#timeline').innerHTML = d.stops.map((s, i) => {
       const lm = legMode(s);
-      const move = s.commute ? `<li class="move">${s.commute.icon} ${esc(s.commute.label)} · ${esc(s.commute.dur)}</li>`
-        : (lm === 'f' ? `<li class="move">✈️ Flight</li>` : '');
+      const move = s.commute ? `<li><button class="move" data-leg="${i}">${s.commute.icon} ${esc(s.commute.label)} · ${esc(s.commute.dur)}</button></li>`
+        : (lm === 'f' ? `<li><button class="move" data-fl="${i}">✈️ Flight</button></li>` : '');
       return `${move}<li><button class="stop${s.tour ? ' tour' : ''}" data-i="${i}"><span class="num" style="background:${color}">${s.hotel ? '🏨' : s.n}</span><span class="t">${esc(s.time)}</span><span>${label(s)}</span></button></li>`;
     }).join('');
     $('#timeline').querySelectorAll('.stop').forEach((b) => b.addEventListener('click', () => go(day, +b.dataset.i)));
+    $('#timeline').querySelectorAll('.move[data-leg]').forEach((b) => b.addEventListener('click', () => goLeg(+b.dataset.leg)));
+    $('#timeline').querySelectorAll('.move[data-fl]').forEach((b) => b.addEventListener('click', () => go(day, +b.dataset.fl)));
   }
 
   function gallery(s) {
@@ -414,20 +419,7 @@
     // timeline row doesn't throw you back up.
     if (!mobile()) $('#panel').scrollTop = 0;
     $('#daybar').querySelectorAll('.blk').forEach((b) => b.classList.toggle('on', +b.dataset.i === stop));
-    // Label the selected stop's time above its block, kept inside the bar's width.
-    const now = $('#daybar .now span'), sp = span(s.time);
-    if (now) {
-      now.parentNode.hidden = !sp;
-      if (sp) {
-        const mid = (Math.max(0, sp[0]) + Math.min(24, sp[1])) / 2 / 24 * 100;
-        now.textContent = s.time;
-        now.style.left = `${mid}%`;
-        requestAnimationFrame(() => {
-          const w = now.parentNode.clientWidth, half = now.offsetWidth / 2, x = mid / 100 * w;
-          now.style.left = `${Math.min(w - half, Math.max(half, x))}px`;
-        });
-      }
-    }
+    setNow(s.time);
 
     $('#timeline').querySelectorAll('.stop').forEach((b) => b.classList.toggle('on', +b.dataset.i === stop));
     document.querySelectorAll('.pin.on').forEach((p) => p.classList.remove('on'));
@@ -448,6 +440,59 @@
     }
   }
 
+  // Label a time above the day bar, kept inside the bar's width.
+  function setNow(time) {
+    const now = $('#daybar .now span'), sp = span(time);
+    if (!now) return;
+    now.parentNode.hidden = !sp;
+    if (!sp) return;
+    const mid = (Math.max(0, sp[0]) + Math.min(24, sp[1])) / 2 / 24 * 100;
+    now.textContent = time;
+    now.style.left = `${mid}%`;
+    requestAnimationFrame(() => {
+      const w = now.parentNode.clientWidth, half = now.offsetWidth / 2, x = mid / 100 * w;
+      now.style.left = `${Math.min(w - half, Math.max(half, x))}px`;
+    });
+  }
+
+  // A travel leg (the commute into stop i): highlight it in the list and on the map, and show its card.
+  function goLeg(i) {
+    const d = trip[day], s = d.stops[i], c = s.commute, from = d.stops[i - 1];
+    const color = CITY[SLEEP[day]].color;
+    selLeg = i;
+    $('#card').classList.remove('tour');
+    $('#card').innerHTML = `
+      <div class="peek">
+        <div class="when" style="color:${color}">${c.icon} ${esc(c.time)}</div>
+        <h3>${esc(c.label)}</h3>
+      </div>
+      <div class="body">
+        <dl class="facts">${[['How long', c.dur], ['From', c.from || (from && from.place)], ['To', s.place], ['How', (MODES[c.mode] || {}).name]]
+          .filter((f) => f[1]).map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl>
+        <div class="links">${c.dir ? `<a href="${esc(c.dir)}" target="_blank" rel="noopener">🧭 Directions in Google Maps</a>` : ''}</div>
+      </div>
+      <div class="nav">
+        <button data-to="${i - 1}" ${from ? '' : 'disabled'} aria-label="Previous stop">←</button>
+        <button class="next" data-to="${i}"><small>Arrive</small>${s.n}. ${label(s)} →</button>
+      </div>`;
+    $('#card').querySelectorAll('[data-to]').forEach((b) => b.addEventListener('click', () => go(day, +b.dataset.to)));
+    if (!mobile()) $('#panel').scrollTop = 0;
+    $('#daybar').querySelectorAll('.blk').forEach((b) => b.classList.remove('on'));
+    setNow(c.time);
+    $('#timeline').querySelectorAll('.stop').forEach((b) => b.classList.remove('on'));
+    $('#timeline').querySelectorAll('.move').forEach((b) => b.classList.toggle('on', +b.dataset.leg === i));
+    document.querySelectorAll('.pin.on').forEach((p) => p.classList.remove('on'));
+    drawArrows();
+    const lm = legMarkers.get(i);
+    if (lm) {
+      lm.getElement()?.querySelector('.pin')?.classList.add('on');
+      lm.setZIndexOffset(1000);
+      const leg = legs.find((l) => l.i === i);
+      map.fitBounds([leg.a, leg.b], { ...fitPad(), maxZoom: 16 });
+    }
+    history.replaceState(null, '', `#day${day + 1}/${i + 1}/leg`);
+  }
+
   function step(dir) {
     if (day < 0) { if (dir > 0) go(0, 0); return; }
     const n = trip[day].stops.length;
@@ -462,9 +507,18 @@
 
   function go(d, s) {
     const dayChanged = d !== day;
+    const hadLeg = selLeg != null;
+    selLeg = null;
     day = d; stop = s;
     if (dayChanged) { renderDays(); day < 0 ? renderOverview() : renderDay(); }
-    if (day >= 0) renderStop();
+    if (day >= 0) {
+      if (hadLeg && !dayChanged) {
+        drawArrows();
+        legMarkers.forEach((m) => m.setZIndexOffset(-100));
+        $('#timeline').querySelectorAll('.move.on').forEach((b) => b.classList.remove('on'));
+      }
+      renderStop();
+    }
     history.replaceState(null, '', day < 0 ? '#' : `#day${day + 1}/${stop + 1}`);
   }
 
@@ -653,9 +707,13 @@
       trip = t; budget = b; media = m; places = p; steps = st; spots = tk; book = bk;
       trip.forEach((d) => d.stops.forEach((x) => { x.tour = /tour|boat/i.test((steps[x.what] || {}).label || ''); }));
       initMap(); initSheet(); initDayWheel(); renderBudget(); renderSpots(); renderBook();
-      const h = location.hash.match(/^#day(\d+)\/(\d+)/);
+      const h = location.hash.match(/^#day(\d+)\/(\d+)(\/leg)?/);
       if (location.hash === '#book') setView('book');
-      if (h && trip[+h[1] - 1]) go(+h[1] - 1, Math.min(+h[2] - 1, trip[+h[1] - 1].stops.length - 1));
+      if (h && trip[+h[1] - 1]) {
+        const di = +h[1] - 1, si = Math.min(+h[2] - 1, trip[di].stops.length - 1);
+        go(di, si);
+        if (h[3] && trip[di].stops[si].commute) goLeg(si);
+      }
       else go(-1, 0);
     })
     .catch((err) => { document.body.insertAdjacentHTML('beforeend', `<p style="padding:16px">Could not load the trip data: ${esc(err.message)}</p>`); });
