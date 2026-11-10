@@ -23,7 +23,7 @@
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const mobile = () => window.matchMedia('(max-width: 860px)').matches;
 
-  let trip = [], budget = null, media = {}, places = {}, steps = {}, spots = {}, day = null, stop = 0;
+  let trip = [], book = null, budget = null, media = {}, places = {}, steps = {}, spots = {}, day = null, stop = 0;
   // Google Maps Platform key. It only works on matthew-lim-matthew-lim.github.io (referrer restricted).
   const GKEY = 'AIzaSyC22mrrewNOFmwmXCY0waUHCl3sQ32IcR4';
   let map, layer, ghosts, arrows, legs = [], markers = new Map();
@@ -521,6 +521,62 @@
       <div class="items">${budget.items.map((it) => `<div class="item"><div><b>${esc(it.item)}</b><small class="muted">${esc(it.category)}${it.notes ? ' · ' + esc(it.notes) : ''}</small></div><span class="num">${fmt(it.planned)}</span></div>`).join('')}</div>`;
   }
 
+  // "To book" page: everything that needs booking, with status for each person, estimates and links.
+  let bookFilter = 'todo';
+  function renderBook() {
+    if (!book) return;
+    const fmt = (n) => 'A$' + n.toLocaleString('en-AU');
+    const URG = { now: ['Book now', 'now'], soon: ['Book soon', 'soon'], later: ['Closer to the time', 'later'] };
+    // Each item has one status, or one per person; turn both into a list of slots.
+    const slots = (it) => typeof it.status === 'string'
+      ? [{ who: it.who || 'Matthew and Amy', st: it.status, price: it.price }]
+      : Object.keys(it.status).map((w) => ({ who: w, st: it.status[w], price: (it.price || {})[w] || 0 }));
+    const all = book.sections.flatMap((s) => s.items);
+    const sl = all.flatMap(slots);
+    const done = sl.filter((x) => x.st === 'booked');
+    const left = sl.filter((x) => x.st !== 'booked');
+    const leftCost = left.reduce((a, x) => a + (x.price || 0), 0);
+    const doneCost = done.reduce((a, x) => a + (x.price || 0), 0);
+    const card = (it) => {
+      const ss = slots(it);
+      const allDone = ss.every((x) => x.st === 'booked');
+      if (bookFilter === 'todo' && allDone) return '';
+      const [ul, uc] = URG[it.urgency] || URG.later;
+      const pills = ss.map((x) => `<span class="bpill ${x.st === 'booked' ? 'ok' : ''}">${x.st === 'booked' ? '✓' : '○'} ${esc(x.who)} · ${x.st === 'booked' ? 'booked' : 'to book'}${x.price ? ' · ' + (x.st === 'booked' ? '' : '~') + fmt(x.price) : ''}</span>`).join('');
+      const opts = (it.options || []).length ? `<div class="bopts"><small class="muted">Shortlist (about, for all nights)</small>${it.options.map((o) => `
+        <div class="bopt"><div><b>${esc(o.name)}</b><small class="muted">${esc(o.note)}</small>
+          <div class="links">${o.links.map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('')}</div></div>
+          <span class="num">~${fmt(o.price)}</span></div>`).join('')}</div>` : '';
+      const links = (it.links || []).map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('');
+      const plan = it.day ? `<button class="inplan" data-d="${it.day - 1}">Day ${it.day} in the plan →</button>` : '';
+      return `<article class="bcard${allDone ? ' done' : ''}">
+        <div class="bhead"><div><h4>${esc(it.title)}</h4><small class="muted">${esc(it.date)}</small></div>
+          ${allDone ? '<span class="burg ok">All booked</span>' : `<span class="burg ${uc}">${ul}</span>`}</div>
+        <div class="bpills">${pills}</div>
+        ${it.notes ? `<p>${esc(it.notes)}</p>` : ''}${opts}
+        ${links || plan ? `<div class="links">${links}${plan}</div>` : ''}</article>`;
+    };
+    $('#bookView').innerHTML = `
+      <h2>To book</h2>
+      <p class="note">${esc(book.note)}</p>
+      <div class="bsum">
+        <div><b>${done.length} of ${sl.length}</b><small>booked</small></div>
+        <div><b>${fmt(doneCost)}</b><small>spent on bookings</small></div>
+        <div><b>~${fmt(leftCost)}</b><small>still to book</small></div>
+      </div>
+      <div class="bfilter" role="group" aria-label="Show">
+        <button data-f="todo" class="${bookFilter === 'todo' ? 'on' : ''}">Still to book</button>
+        <button data-f="all" class="${bookFilter === 'all' ? 'on' : ''}">Everything</button>
+      </div>
+      ${book.sections.map((s) => {
+        const cards = s.items.map(card).join('');
+        return cards ? `<section class="bsec"><h3>${esc(s.title)}</h3><div class="bgrid2">${cards}</div></section>` : '';
+      }).join('')}
+      <section class="bsec"><h3>No need to book</h3><ul class="nobook">${book.nobook.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>`;
+    $('#bookView').querySelectorAll('.bfilter button').forEach((b) => b.addEventListener('click', () => { bookFilter = b.dataset.f; renderBook(); }));
+    $('#bookView').querySelectorAll('.inplan').forEach((b) => b.addEventListener('click', () => { setView('map'); go(+b.dataset.d, 0); }));
+  }
+
   // "Popular on TikTok" page: the most-posted spots in each city, and where each sits in the plan.
   function renderSpots() {
     const where = (what) => {
@@ -577,7 +633,9 @@
     $('#days').hidden = v !== 'map';
     $('#budgetView').hidden = v !== 'budget';
     $('#spotsView').hidden = v !== 'spots';
-    document.body.classList.toggle('budget-on', v === 'budget' || v === 'spots');
+    $('#bookView').hidden = v !== 'book';
+    document.body.classList.toggle('budget-on', v === 'budget' || v === 'spots' || v === 'book');
+    if (v === 'book') window.scrollTo(0, 0);
     if (v === 'spots') { fillSpotPhotos(); window.scrollTo(0, 0); }
     if (v === 'map') map.invalidateSize();
   }
@@ -590,12 +648,13 @@
   });
 
 
-  Promise.all(['trip', 'budget', 'media', 'places', 'steps', 'tiktok'].map((f) => fetch(`data/${f}.json`).then((r) => r.json())))
-    .then(([t, b, m, p, st, tk]) => {
-      trip = t; budget = b; media = m; places = p; steps = st; spots = tk;
+  Promise.all(['trip', 'budget', 'media', 'places', 'steps', 'tiktok', 'book'].map((f) => fetch(`data/${f}.json`).then((r) => r.json())))
+    .then(([t, b, m, p, st, tk, bk]) => {
+      trip = t; budget = b; media = m; places = p; steps = st; spots = tk; book = bk;
       trip.forEach((d) => d.stops.forEach((x) => { x.tour = /tour|boat/i.test((steps[x.what] || {}).label || ''); }));
-      initMap(); initSheet(); initDayWheel(); renderBudget(); renderSpots();
+      initMap(); initSheet(); initDayWheel(); renderBudget(); renderSpots(); renderBook();
       const h = location.hash.match(/^#day(\d+)\/(\d+)/);
+      if (location.hash === '#book') setView('book');
       if (h && trip[+h[1] - 1]) go(+h[1] - 1, Math.min(+h[2] - 1, trip[+h[1] - 1].stops.length - 1));
       else go(-1, 0);
     })
