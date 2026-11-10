@@ -1747,12 +1747,12 @@
    },
    {
     "n": 3,
-    "time": "12–1:15 pm",
+    "time": "12–1:25 pm",
     "hotel": false,
     "flight": true,
     "what": "Fly PQC to BKK",
-    "dur": "about 1h15 flight",
-    "details": "Direct if scheduled, otherwise via Saigon. Same time zone.",
+    "dur": "1h 25m flight",
+    "details": "Thai VietJet VZ981 at 12 pm, landing at Suvarnabhumi at 1:25 pm. Same time zone. Matthew booked on Trip.com (A$156); Amy to book the same flight.",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Suvarnabhumi_Airport_Terminal_Building_Departures_Level.jpg/500px-Suvarnabhumi_Airport_Terminal_Building_Departures_Level.jpg",
     "place": "Suvarnabhumi airport",
     "lat": 13.69,
@@ -1768,7 +1768,7 @@
    },
    {
     "n": 4,
-    "time": "1:15–2 pm",
+    "time": "1:25–2:10 pm",
     "hotel": false,
     "flight": false,
     "what": "Immigration and bags",
@@ -1789,7 +1789,7 @@
    },
    {
     "n": 5,
-    "time": "2:50–3:35 pm",
+    "time": "3–3:35 pm",
     "hotel": true,
     "flight": false,
     "what": "Check in at the hotel",
@@ -1801,7 +1801,7 @@
     "lon": 100.515,
     "map": "https://www.google.com/maps/search/?api=1&query=Bang%20Rak%2C%20Bangkok",
     "commute": {
-     "time": "2–2:50 pm",
+     "time": "2:10–3 pm",
      "mode": "d",
      "icon": "🚕",
      "label": "Grab or taxi",

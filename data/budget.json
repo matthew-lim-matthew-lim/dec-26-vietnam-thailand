@@ -28,9 +28,15 @@
   },
   {
    "category": "Flights",
-   "planned": 313,
-   "item": "Phu Quoc to Bangkok for two, Sun 27 Dec",
-   "notes": "Kiwi.com fare for two, 12 pm"
+   "planned": 156,
+   "item": "Matthew: Phu Quoc to Bangkok, Sun 27 Dec",
+   "notes": "Booked on Trip.com (11 Nov): Thai VietJet VZ981 12 pm, lands 1:25 pm"
+  },
+  {
+   "category": "Flights",
+   "planned": 157,
+   "item": "Amy: Phu Quoc to Bangkok, Sun 27 Dec",
+   "notes": "Same flight, VZ981 12 pm (not booked yet)"
   },
   {
    "category": "Accommodation",
