@@ -10,9 +10,9 @@
   },
   {
    "category": "Flights",
-   "planned": 921,
-   "item": "Matthew: Bangkok (Don Mueang) to Sydney via Kuala Lumpur, Sun 3 Jan",
-   "notes": "Thai AirAsia FD311 at 7:05 am + Batik Air OD121, lands Mon 4 Jan 7:10 am; self-transfer (Kiwi.com fare)"
+   "planned": 940,
+   "item": "Matthew: Bangkok (Suvarnabhumi) to Sydney via Singapore, Sat 2 Jan",
+   "notes": "Scoot TR689 at 5 pm + TR42, night in Changi, lands Sun 3 Jan 6:50 pm (Trip.com fare)"
   },
   {
    "category": "Flights",
@@ -145,12 +145,6 @@
    "planned": 140,
    "item": "Mae Klong and Amphawa private car and firefly boat, Fri 1 Jan",
    "notes": "Car about 2,500–3,000 THB for the afternoon and evening"
-  },
-  {
-   "category": "Activities and tours",
-   "planned": 10,
-   "item": "Golden Mount, Sat 2 Jan",
-   "notes": ""
   },
   {
    "category": "Local transport",
