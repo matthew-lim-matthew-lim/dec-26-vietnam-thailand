@@ -252,50 +252,6 @@
    }
   ]
  },
- "Trang An boat trip": {
-  "label": "On the boat",
-  "steps": [
-   {
-    "t": "Pick a route",
-    "d": "There are three routes from the ticket hall, all about 2.5 to 3 hours; the rowers know them all.",
-    "pid": "ChIJL9TQ1GJ5NjERctWf-ezAU2Q"
-   },
-   {
-    "t": "Through the caves",
-    "d": "Duck low as the boat passes through limestone caves, some a few hundred metres long."
-   },
-   {
-    "t": "Island temples",
-    "d": "Stop to walk up to small temples on the water, such as Trinh and Tran temples."
-   },
-   {
-    "t": "Kong: Skull Island set",
-    "d": "Route 2 stops at the tribal-village film set from the movie."
-   }
-  ]
- },
- "Tam Coc boat ride": {
-  "label": "On the boat",
-  "steps": [
-   {
-    "t": "Rowed with the feet",
-    "d": "Local rowers paddle with their feet along the Ngo Dong river.",
-    "pid": "ChIJpWmYell6NjERCt9I1i9QHxU"
-   },
-   {
-    "t": "Paddy fields between karsts",
-    "d": "Flat fields and water between sheer limestone peaks."
-   },
-   {
-    "t": "Three caves",
-    "d": "Hang Ca, Hang Hai and Hang Ba; the first is the longest."
-   },
-   {
-    "t": "Turnaround and tip",
-    "d": "Snack sellers wait at the turnaround; it's fine to say no. Tip the rower about 50,000 VND at the end."
-   }
-  ]
- },
  "Bai Dinh Pagoda": {
   "label": "What to see",
   "steps": [
@@ -319,24 +275,6 @@
    {
     "t": "13-storey stupa (optional)",
     "d": "A lift to the top for the view, at extra cost."
-   }
-  ]
- },
- "Hang Mua viewpoint": {
-  "label": "What to see",
-  "steps": [
-   {
-    "t": "The stone stairs",
-    "d": "About 500 steep steps; go slowly and bring water.",
-    "pid": "ChIJZdqCQkZ6NjERoHfeAj-b6bs"
-   },
-   {
-    "t": "Dragon on the peak",
-    "d": "A stone dragon winds along the ridge, with the view over Tam Coc's river and fields."
-   },
-   {
-    "t": "Guan Yin statue",
-    "d": "A white statue on the second peak, a short climb from the dragon."
    }
   ]
  },
