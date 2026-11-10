@@ -27,6 +27,20 @@
   // Google Maps Platform key. It only works on matthew-lim-matthew-lim.github.io (referrer restricted).
   const GKEY = 'AIzaSyC22mrrewNOFmwmXCY0waUHCl3sQ32IcR4';
   let map, layer, ghosts, arrows, legs = [], markers = new Map(), legMarkers = new Map(), selLeg = null;
+  // Booking mode: shows what to book on the trip map, and the hotel shortlist for each stay.
+  let bookMode = false, optMarkers = [], selOpt = null;
+  try { bookMode = localStorage.getItem('bookMode') === '1'; } catch (e) { /* ignore */ }
+  const getPick = (city) => { try { return localStorage.getItem('pick:' + city); } catch (e) { return null; } };
+  const setPick = (city, name) => { try { name ? localStorage.setItem('pick:' + city, name) : localStorage.removeItem('pick:' + city); } catch (e) { /* ignore */ } };
+  const aud = (n) => 'A$' + n.toLocaleString('en-AU');
+  const bookItems = () => (book ? book.sections.flatMap((x) => x.items) : []);
+  const hotelItem = (city) => bookItems().find((it) => it.city === city);
+  const itemFor = (di, what) => bookItems().find((it) => (it.stops || []).some(([d, w]) => d === di + 1 && w === what));
+  const slotsOf = (it) => typeof it.status === 'string'
+    ? [{ who: it.who || 'Matthew and Amy', st: it.status, price: it.price }]
+    : Object.keys(it.status).map((w) => ({ who: w, st: it.status[w], price: (it.price || {})[w] || 0 }));
+  const pillsOf = (it) => slotsOf(it).map((x) => `<span class="bpill ${x.st === 'booked' ? 'ok' : ''}">${x.st === 'booked' ? '✓' : '○'} ${esc(x.who)} · ${x.st === 'booked' ? 'booked' : 'to book'}${x.price ? ' · ' + (x.st === 'booked' ? '' : '~') + aud(x.price) : ''}</span>`).join('');
+  const isBooked = (it) => slotsOf(it).every((x) => x.st === 'booked');
 
   function initMap() {
     map = L.map('map', { zoomControl: !mobile(), scrollWheelZoom: true, tap: true });
@@ -264,20 +278,37 @@
     });
 
     const pts = [...groups.values()].map((g) => [g.lat, g.lon]);
+    optMarkers = [];
+    const hi = bookMode && hotelItem(SLEEP[day]);
+    if (hi) {
+      const pick = getPick(hi.city);
+      hi.options.forEach((o, k) => {
+        if (o.lat == null) return;
+        const lab = `🏨 ${o.night ? aud(o.night) : '?'}`;
+        const mk = L.marker([o.lat, o.lon], { icon: pinIcon(lab, '#0f766e', 'opt wide' + (o.name === pick ? ' picked' : '')), title: o.name, zIndexOffset: 600 })
+          .on('click', () => showHotels(k)).addTo(layer);
+        optMarkers[k] = mk;
+        pts.push([o.lat, o.lon]);
+      });
+    }
     if (pts.length > 1) map.fitBounds(pts, { ...fitPad(), maxZoom: 15 });
     else if (pts.length === 1) map.setView(pts[0], 14);
 
     $('#dayhead').innerHTML = `<h2>${esc(d.title)}</h2><p>${esc(d.sub)}</p>`;
     renderBar(d);
-    $('#timeline').innerHTML = d.stops.map((s, i) => {
+    const hotelRow = hi ? `<li><button class="hotelrow" id="hotelRow">🏨 <span><b>${esc(hi.title)}</b><small>${getPick(hi.city) ? '★ ' + esc(getPick(hi.city)) : `${hi.options.length} options to compare`} · ${isBooked(hi) ? 'booked' : 'to book'}</small></span><span class="go">Choose →</span></button></li>` : '';
+    $('#timeline').innerHTML = hotelRow + d.stops.map((s, i) => {
       const lm = legMode(s);
       const move = s.commute ? `<li><button class="move" data-leg="${i}">${s.commute.icon} ${esc(s.commute.label)} · ${esc(s.commute.dur)}</button></li>`
         : (lm === 'f' ? `<li><button class="move" data-fl="${i}">✈️ Flight</button></li>` : '');
-      return `${move}<li><button class="stop${s.tour ? ' tour' : ''}" data-i="${i}"><span class="num" style="background:${color}">${s.hotel ? '🏨' : s.n}</span><span class="t">${esc(s.time)}</span><span>${label(s)}</span></button></li>`;
+      const bi = bookMode && itemFor(day, s.what);
+      const badge = bi ? `<em class="bbadge ${isBooked(bi) ? 'ok' : ''}">${isBooked(bi) ? '✓ booked' : '○ to book'}</em>` : '';
+      return `${move}<li><button class="stop${s.tour ? ' tour' : ''}" data-i="${i}"><span class="num" style="background:${color}">${s.hotel ? '🏨' : s.n}</span><span class="t">${esc(s.time)}</span><span>${label(s)}${badge}</span></button></li>`;
     }).join('');
     $('#timeline').querySelectorAll('.stop').forEach((b) => b.addEventListener('click', () => go(day, +b.dataset.i)));
     $('#timeline').querySelectorAll('.move[data-leg]').forEach((b) => b.addEventListener('click', () => goLeg(+b.dataset.leg)));
     $('#timeline').querySelectorAll('.move[data-fl]').forEach((b) => b.addEventListener('click', () => go(day, +b.dataset.fl)));
+    if ($('#hotelRow')) $('#hotelRow').addEventListener('click', () => showHotels(null));
   }
 
   function gallery(s) {
@@ -398,6 +429,7 @@
         ${stepList(s)}
         <dl class="facts">${facts.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join('')}</dl>
         <div class="links">${links}</div>
+        ${bookBox(s)}
         ${videos(s)}
       </div>
       <div class="nav">
@@ -422,7 +454,10 @@
     setNow(s.time);
 
     $('#timeline').querySelectorAll('.stop').forEach((b) => b.classList.toggle('on', +b.dataset.i === stop));
+    if ($('#hotelRow')) $('#hotelRow').classList.remove('on');
     document.querySelectorAll('.pin.on').forEach((p) => p.classList.remove('on'));
+    const hb = $('#card').querySelector('[data-hotels]');
+    if (hb) hb.addEventListener('click', () => showHotels(null));
     const mk = markers.get(stop);
     if (mk) {
       const el = mk.m.getElement()?.querySelector('.pin');
@@ -438,6 +473,83 @@
         if (!visible) map.panBy(p.subtract(L.point(size.x / 2, (size.y - sheet) / 2)), { animate: true });
       } else if (!map.getBounds().pad(-0.1).contains(ll)) map.panTo(ll);
     }
+  }
+
+  // In booking mode, a stop that needs booking shows its status, price and booking links.
+  function bookBox(s) {
+    if (!bookMode) return '';
+    const it = itemFor(day, s.what);
+    const hi = s.hotel && hotelItem(SLEEP[day]);
+    if (!it && !hi) return '';
+    if (!it) {
+      const pick = getPick(hi.city);
+      return `<div class="bookbox"><b>🏨 ${esc(hi.title)}</b><div class="bpills">${pillsOf(hi)}</div>
+        ${pick ? `<p>★ Your pick: ${esc(pick)}</p>` : ''}<button class="bchoose" data-hotels>Compare ${hi.options.length} hotels →</button></div>`;
+    }
+    return `<div class="bookbox"><b>🎟️ ${esc(it.title)}</b><div class="bpills">${pillsOf(it)}</div>
+      ${it.notes ? `<p>${esc(it.notes)}</p>` : ''}
+      <div class="links">${(it.links || []).map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('')}</div></div>`;
+  }
+
+  // Hotel shortlist for tonight's stay, in the card, with each option pinned on the map.
+  function showHotels(k) {
+    const hi = hotelItem(SLEEP[day]);
+    if (!hi) return;
+    selOpt = k;
+    const pick = getPick(hi.city);
+    $('#card').classList.remove('tour');
+    $('#card').innerHTML = `
+      <div class="peek"><div class="when" style="color:#0f766e">🏨 ${esc(hi.date)} · ${hi.nights} night${hi.nights > 1 ? 's' : ''}</div><h3>${esc(hi.title)}</h3></div>
+      <div class="body">
+        <div class="bpills">${pillsOf(hi)}</div>
+        ${hi.notes ? `<p class="details">${esc(hi.notes)}</p>` : ''}
+        <p class="offmap">${esc(book.hotelNote || '')} Tap a 🏨 pin on the map to jump to it.</p>
+        <div class="hopts">${hi.options.map((o, j) => `
+          <div class="hopt${j === k ? ' on' : ''}${o.name === pick ? ' picked' : ''}" data-k="${j}">
+            <div class="hrow"><b>${o.name === pick ? '★ ' : ''}${esc(o.name)}</b>${o.night ? `<span class="num">from ${aud(o.night)}<small>/night</small></span>` : ''}</div>
+            <small class="muted">${esc(o.note)}</small>
+            <div class="links">${o.links.map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('')}
+              <button class="pickbtn" data-pick="${j}">${o.name === pick ? 'Unpick' : '★ Pick this one'}</button></div>
+          </div>`).join('')}</div>
+        <p class="offmap">Your pick is saved on this device only. Tell Claude which one you book and it goes into the plan.</p>
+      </div>`;
+    $('#card').querySelectorAll('.hopt').forEach((el) => el.addEventListener('click', (e) => {
+      if (e.target.closest('a,button')) return;
+      showHotels(+el.dataset.k);
+    }));
+    $('#card').querySelectorAll('[data-pick]').forEach((b) => b.addEventListener('click', () => {
+      const o = hi.options[+b.dataset.pick];
+      setPick(hi.city, getPick(hi.city) === o.name ? null : o.name);
+      const keep = +b.dataset.pick;
+      renderDay(); showHotels(keep); renderBook();
+    }));
+    $('#timeline').querySelectorAll('.stop.on,.move.on').forEach((b) => b.classList.remove('on'));
+    if ($('#hotelRow')) $('#hotelRow').classList.add('on');
+    $('#daybar').querySelectorAll('.blk').forEach((b) => b.classList.remove('on'));
+    document.querySelectorAll('.pin.on').forEach((p) => p.classList.remove('on'));
+    if ($('#daybar .now')) $('#daybar .now').hidden = true;
+    // Zoom in far enough that the candidates don't sit on top of each other.
+    const optPts = optMarkers.filter(Boolean).map((m) => m.getLatLng());
+    if (optPts.length > 1) {
+      const bz = map.getBoundsZoom(L.latLngBounds(optPts), false, L.point(80, 80));
+      if (map.getZoom() < Math.min(bz, 15) - 1 || k == null) map.fitBounds(optPts, { ...fitPad(), maxZoom: 15, animate: false });
+    }
+    if (k != null && optMarkers[k]) {
+      optMarkers[k].getElement()?.querySelector('.pin')?.classList.add('on');
+      optMarkers[k].setZIndexOffset(1000);
+      const ll = optMarkers[k].getLatLng();
+      if (!map.getBounds().pad(-0.15).contains(ll)) map.panTo(ll);
+      const el = $('#card').querySelector('.hopt.on');
+      if (el) el.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    } else if (!mobile()) $('#panel').scrollTop = 0;
+  }
+
+  function setBookMode(on) {
+    bookMode = on;
+    try { localStorage.setItem('bookMode', on ? '1' : '0'); } catch (e) { /* ignore */ }
+    document.body.classList.toggle('bookmode', on);
+    $('#bookToggle').setAttribute('aria-pressed', on);
+    if (day >= 0) { renderDay(); renderStop(); }
   }
 
   // Label a time above the day bar, kept inside the bar's width.
@@ -597,12 +709,14 @@
       if (bookFilter === 'todo' && allDone) return '';
       const [ul, uc] = URG[it.urgency] || URG.later;
       const pills = ss.map((x) => `<span class="bpill ${x.st === 'booked' ? 'ok' : ''}">${x.st === 'booked' ? '✓' : '○'} ${esc(x.who)} · ${x.st === 'booked' ? 'booked' : 'to book'}${x.price ? ' · ' + (x.st === 'booked' ? '' : '~') + fmt(x.price) : ''}</span>`).join('');
-      const opts = (it.options || []).length ? `<div class="bopts"><small class="muted">Shortlist (about, for all nights)</small>${it.options.map((o) => `
-        <div class="bopt"><div><b>${esc(o.name)}</b><small class="muted">${esc(o.note)}</small>
+      const pick = it.city && getPick(it.city);
+      const opts = (it.options || []).length ? `<div class="bopts"><small class="muted">Shortlist on Trip.com. ${esc(book.hotelNote || '')}</small>${it.options.map((o) => `
+        <div class="bopt${o.name === pick ? ' picked' : ''}"><div><b>${o.name === pick ? '★ ' : ''}${esc(o.name)}</b><small class="muted">${esc(o.note)}</small>
           <div class="links">${o.links.map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('')}</div></div>
-          <span class="num">~${fmt(o.price)}</span></div>`).join('')}</div>` : '';
+          ${o.night ? `<span class="num">from ${fmt(o.night)}<small class="muted">/night</small></span>` : ''}</div>`).join('')}</div>` : '';
       const links = (it.links || []).map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('');
-      const plan = it.day ? `<button class="inplan" data-d="${it.day - 1}">Day ${it.day} in the plan →</button>` : '';
+      const plan = it.city ? `<button class="inplan" data-d="${it.day - 1}" data-hotels="1">See them on the map →</button>`
+        : (it.day ? `<button class="inplan" data-d="${it.day - 1}">Day ${it.day} in the plan →</button>` : '');
       return `<article class="bcard${allDone ? ' done' : ''}">
         <div class="bhead"><div><h4>${esc(it.title)}</h4><small class="muted">${esc(it.date)}</small></div>
           ${allDone ? '<span class="burg ok">All booked</span>' : `<span class="burg ${uc}">${ul}</span>`}</div>
@@ -628,7 +742,12 @@
       }).join('')}
       <section class="bsec"><h3>No need to book</h3><ul class="nobook">${book.nobook.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>`;
     $('#bookView').querySelectorAll('.bfilter button').forEach((b) => b.addEventListener('click', () => { bookFilter = b.dataset.f; renderBook(); }));
-    $('#bookView').querySelectorAll('.inplan').forEach((b) => b.addEventListener('click', () => { setView('map'); go(+b.dataset.d, 0); }));
+    $('#bookView').querySelectorAll('.inplan').forEach((b) => b.addEventListener('click', () => {
+      setView('map');
+      if (b.dataset.hotels && !bookMode) setBookMode(true);
+      go(+b.dataset.d, 0);
+      if (b.dataset.hotels) showHotels(null);
+    }));
   }
 
   // "Popular on TikTok" page: the most-posted spots in each city, and where each sits in the plan.
@@ -707,6 +826,9 @@
       trip = t; budget = b; media = m; places = p; steps = st; spots = tk; book = bk;
       trip.forEach((d) => d.stops.forEach((x) => { x.tour = /tour|boat/i.test((steps[x.what] || {}).label || ''); }));
       initMap(); initSheet(); initDayWheel(); renderBudget(); renderSpots(); renderBook();
+      document.body.classList.toggle('bookmode', bookMode);
+      $('#bookToggle').setAttribute('aria-pressed', bookMode);
+      $('#bookToggle').addEventListener('click', () => setBookMode(!bookMode));
       const h = location.hash.match(/^#day(\d+)\/(\d+)(\/leg)?/);
       if (location.hash === '#book') setView('book');
       if (h && trip[+h[1] - 1]) {

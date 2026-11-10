@@ -23,6 +23,16 @@
        "label": "✈️ Amy's flight on Trip.com",
        "url": "https://au.trip.com/flights/showfarefirst?dcity=hkg&acity=sgn&ddate=2026-12-19&dairport=hkg&triptype=ow&class=y&quantity=1&locale=en-AU&curr=AUD"
       }
+     ],
+     "stops": [
+      [
+       1,
+       "Matthew: fly SYD to SGN via Brisbane"
+      ],
+      [
+       1,
+       "Amy: fly HKG to SGN"
+      ]
      ]
     },
     {
@@ -44,6 +54,12 @@
        "label": "✈️ Amy's seat on Trip.com",
        "url": "https://au.trip.com/flights/showfarefirst?dcity=pqc&acity=bkk&ddate=2026-12-27&dairport=pqc&triptype=ow&class=y&quantity=1&locale=en-AU&curr=AUD"
       }
+     ],
+     "stops": [
+      [
+       9,
+       "Fly PQC to BKK"
+      ]
      ]
     },
     {
@@ -65,6 +81,16 @@
        "label": "✈️ Amy's flight on Trip.com",
        "url": "https://au.trip.com/flights/showfarefirst?dcity=dmk&acity=hkg&ddate=2027-01-03&dairport=dmk&triptype=ow&class=y&quantity=1&locale=en-AU&curr=AUD"
       }
+     ],
+     "stops": [
+      [
+       16,
+       "Matthew: fly DMK to SYD via Kuala Lumpur"
+      ],
+      [
+       16,
+       "Amy: fly DMK to HKG"
+      ]
      ]
     }
    ]
@@ -83,50 +109,100 @@
      "options": [
       {
        "name": "La Doma en Adagio",
-       "price": 140,
-       "note": "4★, 10/10 (82 reviews). No pool, non-refundable.",
+       "note": "District 1. Google 4.7 (307). lastminute had it at about A$140 for all 3 nights. No pool.",
+       "trip": "https://au.trip.com/hotels/ho-chi-minh-city-hotel-detail-126489991/la-doma-en-adagio-sleep-and-heal/?checkIn=2026-12-19&checkOut=2026-12-22&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJo1BMrukpdTEReIsqgkAZ3fQ",
+       "lat": 10.76003,
+       "lon": 106.69253,
        "links": [
         {
-         "label": "📍 Map",
-         "url": "https://www.google.com/maps/search/?api=1&query=La%20Doma%20en%20Adagio%2C%20Ho%20Chi%20Minh%20City"
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/ho-chi-minh-city-hotel-detail-126489991/la-doma-en-adagio-sleep-and-heal/?checkIn=2026-12-19&checkOut=2026-12-22&adult=2&crn=1&curr=AUD&locale=en-AU"
         },
         {
-         "label": "💲 Compare prices",
-         "url": "https://www.google.com/search?q=La%20Doma%20en%20Adagio%20Ho%20Chi%20Minh%20City%20hotel"
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=La%20Doma%20en%20Adagio%2C%20Ho%20Chi%20Minh%20City&query_place_id=ChIJo1BMrukpdTEReIsqgkAZ3fQ"
         }
        ]
       },
       {
-       "name": "AMAYA Saigon Boutique Hotel",
-       "price": 550,
-       "note": "4★ with pool, 10/10 (121 reviews). Free cancellation.",
+       "name": "Amaya Saigon Boutique Hotel",
+       "note": "Le Thanh Ton, District 1, with pool. Google 4.9 (430). About A$550 for 3 nights on lastminute.",
+       "trip": "https://au.trip.com/hotels/ho-chi-minh-city-hotel-detail-131642329/amaya-saigon-boutique-hotel/?checkIn=2026-12-19&checkOut=2026-12-22&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJBU7xyfsvdTERG8PRZcZF4sw",
+       "lat": 10.78095,
+       "lon": 106.70513,
        "links": [
         {
-         "label": "📍 Map",
-         "url": "https://www.google.com/maps/search/?api=1&query=AMAYA%20Saigon%20Boutique%20Hotel%2C%20Ho%20Chi%20Minh%20City"
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/ho-chi-minh-city-hotel-detail-131642329/amaya-saigon-boutique-hotel/?checkIn=2026-12-19&checkOut=2026-12-22&adult=2&crn=1&curr=AUD&locale=en-AU"
         },
         {
-         "label": "💲 Compare prices",
-         "url": "https://www.google.com/search?q=AMAYA%20Saigon%20Boutique%20Hotel%20Ho%20Chi%20Minh%20City%20hotel"
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=Amaya%20Saigon%20Boutique%20Hotel%2C%20Ho%20Chi%20Minh%20City&query_place_id=ChIJBU7xyfsvdTERG8PRZcZF4sw"
         }
        ]
       },
       {
-       "name": "La Siesta Premium Saigon",
-       "price": 910,
-       "note": "5★, 10/10 (2,100 reviews).",
+       "name": "Au Lac Legend Hotel",
+       "note": "District 1, with a pool and gym. Trip.com 8.8 (141 reviews).",
+       "trip": "https://au.trip.com/hotels/ho-chi-minh-city-hotel-detail-714427/au-lac-legend-hotel/?checkIn=2026-12-19&checkOut=2026-12-22&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJSTqwHTcvdTERQjo-BiE7nQY",
+       "lat": 10.78087,
+       "lon": 106.69595,
        "links": [
         {
-         "label": "📍 Map",
-         "url": "https://www.google.com/maps/search/?api=1&query=La%20Siesta%20Premium%20Saigon%2C%20Ho%20Chi%20Minh%20City"
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/ho-chi-minh-city-hotel-detail-714427/au-lac-legend-hotel/?checkIn=2026-12-19&checkOut=2026-12-22&adult=2&crn=1&curr=AUD&locale=en-AU"
         },
         {
-         "label": "💲 Compare prices",
-         "url": "https://www.google.com/search?q=La%20Siesta%20Premium%20Saigon%20Ho%20Chi%20Minh%20City%20hotel"
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=Au%20Lac%20Legend%20Hotel%2C%20Ho%20Chi%20Minh%20City&query_place_id=ChIJSTqwHTcvdTERQjo-BiE7nQY"
         }
-       ]
+       ],
+       "night": 99
+      },
+      {
+       "name": "Orchids Saigon Hotel",
+       "note": "District 1. Trip.com 8.9 (210 reviews).",
+       "trip": "https://au.trip.com/hotels/ho-chi-minh-city-hotel-detail-23963505/orchids-saigon-hotel/?checkIn=2026-12-19&checkOut=2026-12-22&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJeYOoCOUvdTERDmQEQunuUz8",
+       "lat": 10.78107,
+       "lon": 106.69548,
+       "links": [
+        {
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/ho-chi-minh-city-hotel-detail-23963505/orchids-saigon-hotel/?checkIn=2026-12-19&checkOut=2026-12-22&adult=2&crn=1&curr=AUD&locale=en-AU"
+        },
+        {
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=Orchids%20Saigon%20Hotel%2C%20Ho%20Chi%20Minh%20City&query_place_id=ChIJeYOoCOUvdTERDmQEQunuUz8"
+        }
+       ],
+       "night": 144
+      },
+      {
+       "name": "PARK VIEW Avalon Apartment District 1",
+       "note": "Serviced apartment: more room and a washing machine. Trip.com 9.0 (464 reviews).",
+       "trip": "https://au.trip.com/hotels/ho-chi-minh-city-hotel-detail-131766890/park-view-avalon-apartment-district-1-hcm-city/?checkIn=2026-12-19&checkOut=2026-12-22&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJVVVlajcvdTERZKpfD3lWaC0",
+       "lat": 10.77966,
+       "lon": 106.6955,
+       "links": [
+        {
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/ho-chi-minh-city-hotel-detail-131766890/park-view-avalon-apartment-district-1-hcm-city/?checkIn=2026-12-19&checkOut=2026-12-22&adult=2&crn=1&curr=AUD&locale=en-AU"
+        },
+        {
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=PARK%20VIEW%20Avalon%20Apartment%20District%201%2C%20Ho%20Chi%20Minh%20City&query_place_id=ChIJVVVlajcvdTERZKpfD3lWaC0"
+        }
+       ],
+       "night": 92
       }
-     ]
+     ],
+     "city": "saigon",
+     "nights": 3
     },
     {
      "title": "Ha Tien · 1 night",
@@ -138,21 +214,44 @@
      "notes": "Close to the ferry pier for the 8 am boat.",
      "options": [
       {
-       "name": "VISUHA Hotel",
-       "price": 46,
-       "note": "3★ with pool, by the river. Free cancellation.",
+       "name": "Visuha Hotel",
+       "note": "By the river, with a pool, near the ferry. Google 4.1 (306). About A$46 for the night on lastminute.",
+       "trip": "https://au.trip.com/hotels/ha-tien-hotel-detail-109546093/visuha-hotel/?checkIn=2026-12-22&checkOut=2026-12-23&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJ2dr92hzaCTERTPK4oLuk95A",
+       "lat": 10.38006,
+       "lon": 104.48484,
        "links": [
         {
-         "label": "📍 Map",
-         "url": "https://www.google.com/maps/search/?api=1&query=VISUHA%20Hotel%2C%20Ha%20Tien"
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/ha-tien-hotel-detail-109546093/visuha-hotel/?checkIn=2026-12-22&checkOut=2026-12-23&adult=2&crn=1&curr=AUD&locale=en-AU"
         },
         {
-         "label": "💲 Compare prices",
-         "url": "https://www.google.com/search?q=VISUHA%20Hotel%20Ha%20Tien%20hotel"
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=Visuha%20Hotel%2C%20Ha%20Tien&query_place_id=ChIJ2dr92hzaCTERTPK4oLuk95A"
+        }
+       ]
+      },
+      {
+       "name": "Ha Tien Xua",
+       "note": "Hotel and resort with a pool, about 700 m from the centre. About A$50 on lastminute.",
+       "trip": "https://au.trip.com/hotels/ha-tien-hotel-detail-123453012/ha-tien-xua/?checkIn=2026-12-22&checkOut=2026-12-23&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJKQjzxnPbCTERfEQ9ZlvIhVE",
+       "lat": 10.38173,
+       "lon": 104.48037,
+       "links": [
+        {
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/ha-tien-hotel-detail-123453012/ha-tien-xua/?checkIn=2026-12-22&checkOut=2026-12-23&adult=2&crn=1&curr=AUD&locale=en-AU"
+        },
+        {
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=Ha%20Tien%20Xua%2C%20Ha%20Tien&query_place_id=ChIJKQjzxnPbCTERfEQ9ZlvIhVE"
         }
        ]
       }
-     ]
+     ],
+     "city": "hatien",
+     "nights": 1
     },
     {
      "title": "Phu Quoc resort · 4 nights",
@@ -165,50 +264,101 @@
      "options": [
       {
        "name": "Soul Boutique Hotel Phu Quoc",
-       "price": 1410,
-       "note": "4★ with pool, 9.6/10 (131 reviews).",
+       "note": "Bai Truong (Long Beach) complex, with pool. Google 4.8 (810). About A$1,410 for 4 nights on lastminute.",
+       "trip": "https://au.trip.com/hotels/phu-quoc-island-hotel-detail-121955047/soul-boutique-hotel-phu-quoc/?checkIn=2026-12-23&checkOut=2026-12-27&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJEUkRcwCTpzEREkP4pNOORIE",
+       "lat": 10.11667,
+       "lon": 103.98146,
        "links": [
         {
-         "label": "📍 Map",
-         "url": "https://www.google.com/maps/search/?api=1&query=Soul%20Boutique%20Hotel%20Phu%20Quoc%2C%20Phu%20Quoc"
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/phu-quoc-island-hotel-detail-121955047/soul-boutique-hotel-phu-quoc/?checkIn=2026-12-23&checkOut=2026-12-27&adult=2&crn=1&curr=AUD&locale=en-AU"
         },
         {
-         "label": "💲 Compare prices",
-         "url": "https://www.google.com/search?q=Soul%20Boutique%20Hotel%20Phu%20Quoc%20Phu%20Quoc%20hotel"
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=Soul%20Boutique%20Hotel%20Phu%20Quoc%2C%20Phu%20Quoc&query_place_id=ChIJEUkRcwCTpzEREkP4pNOORIE"
         }
        ]
       },
       {
-       "name": "The Up Hotel Phu Quoc",
-       "price": 1150,
-       "note": "4★, by the pool near Long Beach. Only 6 reviews.",
+       "name": "Sunset Beach Resort & Spa",
+       "note": "Beachfront on Long Beach, with a fire show at night. Trip.com 9.1.",
+       "trip": "https://au.trip.com/hotels/phu-quoc-island-hotel-detail-47773336/sunset-beach-resort-spa-beachfront-pirate-fire-show/?checkIn=2026-12-23&checkOut=2026-12-27&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJ87sKk4eMpzERAGTfS_BgDB0",
+       "lat": 10.20014,
+       "lon": 103.96275,
        "links": [
         {
-         "label": "📍 Map",
-         "url": "https://www.google.com/maps/search/?api=1&query=The%20Up%20Hotel%20Phu%20Quoc%2C%20Phu%20Quoc"
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/phu-quoc-island-hotel-detail-47773336/sunset-beach-resort-spa-beachfront-pirate-fire-show/?checkIn=2026-12-23&checkOut=2026-12-27&adult=2&crn=1&curr=AUD&locale=en-AU"
         },
         {
-         "label": "💲 Compare prices",
-         "url": "https://www.google.com/search?q=The%20Up%20Hotel%20Phu%20Quoc%20Phu%20Quoc%20hotel"
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=Sunset%20Beach%20Resort%20%26%20Spa%2C%20Phu%20Quoc&query_place_id=ChIJ87sKk4eMpzERAGTfS_BgDB0"
         }
-       ]
+       ],
+       "night": 141
       },
       {
-       "name": "Vinpearl Resort & Spa Phu Quoc",
-       "price": 2060,
-       "note": "5★ beach resort, 4,700 reviews. Free cancellation.",
+       "name": "La Vita Bliss Phu Quoc",
+       "note": "Short walk to the beach, with pools. Trip.com 8.6.",
+       "trip": "https://au.trip.com/hotels/phu-quoc-island-hotel-detail-134114109/la-vita-bliss-phu-quoc/?checkIn=2026-12-23&checkOut=2026-12-27&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJK441EP6TpzER86K9-dsmWc4",
+       "lat": 10.11563,
+       "lon": 103.98288,
        "links": [
         {
-         "label": "📍 Map",
-         "url": "https://www.google.com/maps/search/?api=1&query=Vinpearl%20Resort%20%26%20Spa%20Phu%20Quoc%2C%20Phu%20Quoc"
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/phu-quoc-island-hotel-detail-134114109/la-vita-bliss-phu-quoc/?checkIn=2026-12-23&checkOut=2026-12-27&adult=2&crn=1&curr=AUD&locale=en-AU"
         },
         {
-         "label": "💲 Compare prices",
-         "url": "https://www.google.com/search?q=Vinpearl%20Resort%20%26%20Spa%20Phu%20Quoc%20Phu%20Quoc%20hotel"
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=La%20Vita%20Bliss%20Phu%20Quoc%2C%20Phu%20Quoc&query_place_id=ChIJK441EP6TpzER86K9-dsmWc4"
         }
-       ]
+       ],
+       "night": 138
+      },
+      {
+       "name": "Best Western Premier Sonasea Phu Quoc",
+       "note": "Beach across the street, long pool. Trip.com 8.8.",
+       "trip": "https://au.trip.com/hotels/phu-quoc-island-hotel-detail-31583072/best-western-premier-sonasea-phu-quoc/?checkIn=2026-12-23&checkOut=2026-12-27&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJH58ibXKSpzERN59OMqttOUY",
+       "lat": 10.13044,
+       "lon": 103.98062,
+       "links": [
+        {
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/phu-quoc-island-hotel-detail-31583072/best-western-premier-sonasea-phu-quoc/?checkIn=2026-12-23&checkOut=2026-12-27&adult=2&crn=1&curr=AUD&locale=en-AU"
+        },
+        {
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=Best%20Western%20Premier%20Sonasea%20Phu%20Quoc%2C%20Phu%20Quoc&query_place_id=ChIJH58ibXKSpzERN59OMqttOUY"
+        }
+       ],
+       "night": 230
+      },
+      {
+       "name": "Seashells Phu Quoc Hotel & Spa",
+       "note": "On the sea near Duong Dong, with pool. Trip.com 9.0.",
+       "trip": "https://au.trip.com/hotels/phu-quoc-island-hotel-detail-10200862/seashells-phu-quoc-hotel-and-spa/?checkIn=2026-12-23&checkOut=2026-12-27&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJxfXY0YeMpzERVIRnrvcuBKE",
+       "lat": 10.21523,
+       "lon": 103.95816,
+       "links": [
+        {
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/phu-quoc-island-hotel-detail-10200862/seashells-phu-quoc-hotel-and-spa/?checkIn=2026-12-23&checkOut=2026-12-27&adult=2&crn=1&curr=AUD&locale=en-AU"
+        },
+        {
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=Seashells%20Phu%20Quoc%20Hotel%20%26%20Spa%2C%20Phu%20Quoc&query_place_id=ChIJxfXY0YeMpzERVIRnrvcuBKE"
+        }
+       ],
+       "night": 285
       }
-     ]
+     ],
+     "city": "phuquoc",
+     "nights": 4
     },
     {
      "title": "Bangkok, by the river · 7 nights",
@@ -220,36 +370,102 @@
      "notes": "Use the Trip.com 15% hotel code here (2-night minimum, up to A$50 off).",
      "options": [
       {
-       "name": "Shewin de Bangkok",
-       "price": 700,
-       "note": "4★ with pool, 9.8/10 (13 reviews). Free cancellation.",
+       "name": "Mercure Bangkok Surawong",
+       "note": "Bang Rak. Trip.com 9.1 (2,708 reviews).",
+       "trip": "https://au.trip.com/hotels/bangkok-hotel-detail-114397688/mercure-bangkok-surawong/?checkIn=2026-12-27&checkOut=2027-01-03&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJBdK6WWCZ4jAR3yM8Ir2qNLI",
+       "lat": 13.72775,
+       "lon": 100.52366,
        "links": [
         {
-         "label": "📍 Map",
-         "url": "https://www.google.com/maps/search/?api=1&query=Shewin%20de%20Bangkok%2C%20Bangkok"
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/bangkok-hotel-detail-114397688/mercure-bangkok-surawong/?checkIn=2026-12-27&checkOut=2027-01-03&adult=2&crn=1&curr=AUD&locale=en-AU"
         },
         {
-         "label": "💲 Compare prices",
-         "url": "https://www.google.com/search?q=Shewin%20de%20Bangkok%20Bangkok%20hotel"
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=Mercure%20Bangkok%20Surawong%2C%20Bangkok&query_place_id=ChIJBdK6WWCZ4jAR3yM8Ir2qNLI"
         }
-       ]
+       ],
+       "night": 92
       },
       {
-       "name": "TARA Bangkok Riverside",
-       "price": 1570,
-       "note": "4★ on the river, 9.8/10 (224 reviews).",
+       "name": "Centre Point Plus Hotel Silom",
+       "note": "Bang Rak, riverside area. Trip.com 9.1 (901 reviews).",
+       "trip": "https://au.trip.com/hotels/bangkok-hotel-detail-996271/centre-point-plus-hotel-silom/?checkIn=2026-12-27&checkOut=2027-01-03&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJmU3dTsSY4jARebbGetKNR-k",
+       "lat": 13.72007,
+       "lon": 100.51505,
        "links": [
         {
-         "label": "📍 Map",
-         "url": "https://www.google.com/maps/search/?api=1&query=TARA%20Bangkok%20Riverside%2C%20Bangkok"
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/bangkok-hotel-detail-996271/centre-point-plus-hotel-silom/?checkIn=2026-12-27&checkOut=2027-01-03&adult=2&crn=1&curr=AUD&locale=en-AU"
         },
         {
-         "label": "💲 Compare prices",
-         "url": "https://www.google.com/search?q=TARA%20Bangkok%20Riverside%20Bangkok%20hotel"
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=Centre%20Point%20Plus%20Hotel%20Silom%2C%20Bangkok&query_place_id=ChIJmU3dTsSY4jARebbGetKNR-k"
+        }
+       ],
+       "night": 113
+      },
+      {
+       "name": "Holiday Inn Bangkok Silom by IHG",
+       "note": "Bang Rak, near the river and BTS. Trip.com 9.1 (1,282 reviews).",
+       "trip": "https://au.trip.com/hotels/bangkok-hotel-detail-1497020/holiday-inn-bangkok-silom-by-ihg/?checkIn=2026-12-27&checkOut=2027-01-03&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJwb3uUy2f4jARzZ5MaShGHUA",
+       "lat": 13.72269,
+       "lon": 100.51966,
+       "links": [
+        {
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/bangkok-hotel-detail-1497020/holiday-inn-bangkok-silom-by-ihg/?checkIn=2026-12-27&checkOut=2027-01-03&adult=2&crn=1&curr=AUD&locale=en-AU"
+        },
+        {
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=Holiday%20Inn%20Bangkok%20Silom%20by%20IHG%2C%20Bangkok&query_place_id=ChIJwb3uUy2f4jARzZ5MaShGHUA"
+        }
+       ],
+       "night": 115
+      },
+      {
+       "name": "ISanook Bangkok",
+       "note": "Bang Rak, with a pool and gym. Trip.com 8.9 (379 reviews). Cheapest of these.",
+       "trip": "https://au.trip.com/hotels/bangkok-hotel-detail-1340746/isanook-bangkok/?checkIn=2026-12-27&checkOut=2027-01-03&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJ2_j9WdaY4jARTAV7sTEdRrg",
+       "lat": 13.73261,
+       "lon": 100.52168,
+       "links": [
+        {
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/bangkok-hotel-detail-1340746/isanook-bangkok/?checkIn=2026-12-27&checkOut=2027-01-03&adult=2&crn=1&curr=AUD&locale=en-AU"
+        },
+        {
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=ISanook%20Bangkok%2C%20Bangkok&query_place_id=ChIJ2_j9WdaY4jARTAV7sTEdRrg"
+        }
+       ],
+       "night": 47
+      },
+      {
+       "name": "Royal Orchid Sheraton Riverside Hotel",
+       "note": "Right on the river in Bang Rak, with pools and its own boat pier. Check the price for your dates.",
+       "trip": "https://au.trip.com/hotels/bangkok-hotel-detail-2171593/royal-orchid-sheraton-riverside-hotel-bangkok/?checkIn=2026-12-27&checkOut=2027-01-03&adult=2&crn=1&curr=AUD&locale=en-AU",
+       "pid": "ChIJ5S2A5duY4jARy8aLC8dvrqM",
+       "lat": 13.72909,
+       "lon": 100.5139,
+       "links": [
+        {
+         "label": "🏨 Trip.com, your dates",
+         "url": "https://au.trip.com/hotels/bangkok-hotel-detail-2171593/royal-orchid-sheraton-riverside-hotel-bangkok/?checkIn=2026-12-27&checkOut=2027-01-03&adult=2&crn=1&curr=AUD&locale=en-AU"
+        },
+        {
+         "label": "📍 Map",
+         "url": "https://www.google.com/maps/search/?api=1&query=Royal%20Orchid%20Sheraton%20Riverside%20Hotel%2C%20Bangkok&query_place_id=ChIJ5S2A5duY4jARy8aLC8dvrqM"
         }
        ]
       }
-     ]
+     ],
+     "city": "bangkok",
+     "nights": 7
     }
    ]
   },
@@ -269,6 +485,12 @@
        "label": "🚌 VeXeRe",
        "url": "https://vexere.com/en-US"
       }
+     ],
+     "stops": [
+      [
+       4,
+       "Board the bus at Mien Tay station"
+      ]
      ]
     },
     {
@@ -284,6 +506,12 @@
        "label": "⛴️ VeXeRe",
        "url": "https://vexere.com/en-US"
       }
+     ],
+     "stops": [
+      [
+       5,
+       "Ferry check-in at Ha Tien pier"
+      ]
      ]
     },
     {
@@ -293,7 +521,13 @@
      "urgency": "later",
      "status": "todo",
      "price": 40,
-     "notes": "Rent through the resort when you arrive. Check the licence rules for riding in Vietnam first, and that the travel insurance covers it."
+     "notes": "Rent through the resort when you arrive. Check the licence rules for riding in Vietnam first, and that the travel insurance covers it.",
+     "stops": [
+      [
+       6,
+       "Pick up the rental scooter"
+      ]
+     ]
     }
    ]
   },
@@ -313,6 +547,12 @@
        "label": "🎟️ GetYourGuide",
        "url": "https://www.getyourguide.com/s/?q=Mekong%20Delta%20Ben%20Tre%20small%20group"
       }
+     ],
+     "stops": [
+      [
+       2,
+       "Tour pickup"
+      ]
      ]
     },
     {
@@ -328,6 +568,12 @@
        "label": "🎟️ GetYourGuide",
        "url": "https://www.getyourguide.com/s/?q=Cu%20Chi%20Tunnels%20half%20day%20afternoon"
       }
+     ],
+     "stops": [
+      [
+       3,
+       "Cu Chi Tunnels"
+      ]
      ]
     },
     {
@@ -337,7 +583,17 @@
      "urgency": "soon",
      "status": "todo",
      "price": 200,
-     "notes": "Book a table with the resort or a restaurant once the hotel is chosen."
+     "notes": "Book a table with the resort or a restaurant once the hotel is chosen.",
+     "stops": [
+      [
+       6,
+       "Christmas Eve dinner"
+      ],
+      [
+       7,
+       "Christmas dinner"
+      ]
+     ]
     },
     {
      "title": "Kiss of the Sea show",
@@ -352,6 +608,12 @@
        "label": "🎟️ GetYourGuide",
        "url": "https://www.getyourguide.com/s/?q=Kiss%20of%20the%20Sea%20Phu%20Quoc"
       }
+     ],
+     "stops": [
+      [
+       6,
+       "Kiss of the Sea show"
+      ]
      ]
     },
     {
@@ -367,6 +629,12 @@
        "label": "🎟️ VinWonders",
        "url": "https://vinwonders.com/en/vinpearl-safari-phu-quoc/"
       }
+     ],
+     "stops": [
+      [
+       8,
+       "Vinpearl Safari"
+      ]
      ]
     },
     {
@@ -382,6 +650,12 @@
        "label": "🎟️ GetYourGuide",
        "url": "https://www.getyourguide.com/s/?q=Ayutthaya%20private%20day%20trip"
       }
+     ],
+     "stops": [
+      [
+       11,
+       "Wat Mahathat"
+      ]
      ]
     },
     {
@@ -397,6 +671,12 @@
        "label": "🔎 Search restaurants",
        "url": "https://www.google.com/search?q=New%20Year%27s%20Eve%202026%20riverside%20dinner%20Bangkok%20Chao%20Phraya%20fireworks%20view"
       }
+     ],
+     "stops": [
+      [
+       13,
+       "NYE riverside dinner and midnight fireworks"
+      ]
      ]
     },
     {
@@ -412,6 +692,12 @@
        "label": "🎟️ GetYourGuide",
        "url": "https://www.getyourguide.com/s/?q=Maeklong%20railway%20market%20Amphawa%20private"
       }
+     ],
+     "stops": [
+      [
+       14,
+       "Mae Klong Railway Market"
+      ]
      ]
     }
    ]
@@ -494,5 +780,6 @@
   "Sunset drinks at Three Sixty (walk in)",
   "Firefly boat at Amphawa (pay at the pier)",
   "Markets, temples and beaches (free)"
- ]
+ ],
+ "hotelNote": "Trip.com \"from\" prices are a typical night, not your dates; Christmas and New Year cost more. Open each one on Trip.com for the real price."
 }
