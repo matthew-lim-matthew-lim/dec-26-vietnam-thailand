@@ -202,5 +202,21 @@
  "Tuyet Tinh Coc": {
   "id": "ChIJn0yaEgB5NjER4lKTHUAbD1E",
   "name": "Tuyệt Tịnh Cốc"
+ },
+ "Mien Tay bus station": {
+  "id": "ChIJnzAlf9AtdTERvkmKz3QpbmI",
+  "name": "Western Bus Station (Ben Xe Mien Tay)"
+ },
+ "Ha Tien night market": {
+  "id": "ChIJbbgefADbCTERj737Tq_kuMs",
+  "name": "Ha Tien Night Market"
+ },
+ "Ha Tien ferry pier": {
+  "id": "ChIJ91Tjvx3aCTER_z04ETCCqXc",
+  "name": "Ha Tien Ferry Terminal"
+ },
+ "Bai Vong port": {
+  "id": "ChIJSYBN_l6PpzERtL2gcuYeiUI",
+  "name": "Bai Vong Port (Phu Quoc)"
  }
 }
