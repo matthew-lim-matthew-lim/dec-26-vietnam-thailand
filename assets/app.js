@@ -165,7 +165,7 @@
     });
     map.fitBounds(pts, fitPad());
     drawArrows();
-    $('#dayhead').innerHTML = `<h2>Whole trip</h2><p>Tap a city to open its first day, or pick a day above. Matthew flies from Sydney and Amy from Hong Kong; they meet in Saigon on 19 Dec, take the bus and ferry to Phu Quoc on 22–23 Dec, then Matthew flies home from Bangkok on 2 Jan and Amy on 3 Jan.</p>`;
+    $('#dayhead').innerHTML = `<h2>Whole trip</h2><p>Tap a city to open its first day, or pick a day above. Matthew flies from Sydney and Amy from Hong Kong; they meet in Saigon on 19 Dec, take the bus and ferry to Phu Quoc on 22–23 Dec, then both fly home from Bangkok on 3 Jan.</p>`;
     $('#card').classList.remove('tour');
     $('#card').innerHTML = `<div class="body">${BASES.map((b) => {
       const c = CITY[b.city];

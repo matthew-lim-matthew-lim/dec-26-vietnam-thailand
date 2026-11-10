@@ -4,15 +4,15 @@
  "items": [
   {
    "category": "Flights",
-   "planned": 1353,
+   "planned": 1339,
    "item": "Matthew: Sydney to Saigon via Brisbane, Fri 18 Dec",
-   "notes": "Virgin VA989 at 8 pm + VietJet VJ84, lands 5:05 am Sat (Kiwi.com fare, 11 Nov)"
+   "notes": "Booked on Trip.com (11 Nov): Virgin VA989 at 8 pm + VietJet VJ084, lands 5:05 am Sat"
   },
   {
    "category": "Flights",
-   "planned": 940,
-   "item": "Matthew: Bangkok (Suvarnabhumi) to Sydney via Singapore, Sat 2 Jan",
-   "notes": "Scoot TR689 at 5 pm + TR42, night in Changi, lands Sun 3 Jan 6:50 pm (Trip.com fare)"
+   "planned": 934,
+   "item": "Matthew: Bangkok (Don Mueang) to Sydney via Kuala Lumpur, Sun 3 Jan",
+   "notes": "Booked on Trip.com (11 Nov): AirAsia AK891 at 8:35 am + Batik Air OD121, lands Mon 4 Jan 7:10 am"
   },
   {
    "category": "Flights",
