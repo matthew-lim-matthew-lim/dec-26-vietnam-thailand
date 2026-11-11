@@ -302,4 +302,4 @@ td.num,th.num,.num{text-align:right;font-variant-numeric:tabular-nums}
 @media (max-width:860px){.booktoggle{top:8px;right:8px;padding:6px 11px;font-size:.8rem}}
 
 /* No double-tap zoom on phones (pinch zoom still works) */
-html,body,button,a,.leaflet-container{touch-action:manipulation}
+html,body,button,a,.panel,.days,.top{touch-action:manipulation}
