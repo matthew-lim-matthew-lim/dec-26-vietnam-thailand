@@ -11,19 +11,13 @@
      "urgency": "now",
      "status": {
       "Matthew": "booked",
-      "Amy": "todo"
+      "Amy": "booked"
      },
      "price": {
       "Matthew": 1339,
       "Amy": 207
      },
-     "notes": "Matthew: Virgin VA989 8 pm Sydney to Brisbane + VietJet VJ084, lands 5:05 am Sat (booked on Trip.com). Amy: VietJet VJ877, Hong Kong 7:15 pm, lands 8:55 pm Sat.",
-     "links": [
-      {
-       "label": "✈️ Amy's flight on Trip.com",
-       "url": "https://au.trip.com/flights/showfarefirst?dcity=hkg&acity=sgn&ddate=2026-12-19&dairport=hkg&triptype=ow&class=y&quantity=1&locale=en-AU&curr=AUD"
-      }
-     ],
+     "notes": "Matthew: Virgin VA989 8 pm Sydney to Brisbane + VietJet VJ084, lands 5:05 am Sat (booked on Trip.com). Amy: VietJet VJ877, Hong Kong 7:15 pm, lands 8:55 pm Sat (booked on Trip.com).",
      "stops": [
       [
        1,
@@ -42,19 +36,13 @@
      "urgency": "now",
      "status": {
       "Matthew": "booked",
-      "Amy": "todo"
+      "Amy": "booked"
      },
      "price": {
       "Matthew": 156,
       "Amy": 157
      },
-     "notes": "Thai VietJet VZ981, 12 pm, lands Suvarnabhumi 1:25 pm. Amy books the same flight.",
-     "links": [
-      {
-       "label": "✈️ Amy's seat on Trip.com",
-       "url": "https://au.trip.com/flights/showfarefirst?dcity=pqc&acity=bkk&ddate=2026-12-27&dairport=pqc&triptype=ow&class=y&quantity=1&locale=en-AU&curr=AUD"
-      }
-     ],
+     "notes": "Thai VietJet VZ981, 12 pm, lands Suvarnabhumi 1:25 pm. Both booked on Trip.com.",
      "stops": [
       [
        9,
@@ -69,19 +57,13 @@
      "urgency": "now",
      "status": {
       "Matthew": "booked",
-      "Amy": "todo"
+      "Amy": "booked"
      },
      "price": {
       "Matthew": 934,
       "Amy": 312
      },
-     "notes": "Matthew: AirAsia AK891 8:35 am Don Mueang to Kuala Lumpur, then Batik Air OD121, lands Sydney 7:10 am Mon (booked on Trip.com). Amy: Thai Lion Air SL360, Don Mueang 9:15 am to Hong Kong.",
-     "links": [
-      {
-       "label": "✈️ Amy's flight on Trip.com",
-       "url": "https://au.trip.com/flights/showfarefirst?dcity=dmk&acity=hkg&ddate=2027-01-03&dairport=dmk&triptype=ow&class=y&quantity=1&locale=en-AU&curr=AUD"
-      }
-     ],
+     "notes": "Matthew: AirAsia AK891 8:35 am Don Mueang to Kuala Lumpur, then Batik Air OD121, lands Sydney 7:10 am Mon (booked on Trip.com). Amy: Thai Lion Air SL360, Don Mueang 9:15 am, lands Hong Kong 1 pm (booked on Trip.com).",
      "stops": [
       [
        16,

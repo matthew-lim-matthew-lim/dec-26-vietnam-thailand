@@ -18,13 +18,13 @@
    "category": "Flights",
    "planned": 207,
    "item": "Amy: Hong Kong to Saigon, Sat 19 Dec",
-   "notes": "VietJet VJ877 at 7:15 pm, lands 8:55 pm (Kiwi.com fare)"
+   "notes": "Booked on Trip.com: VietJet VJ877 7:15 pm, lands 8:55 pm (estimate until the receipt amount is known)"
   },
   {
    "category": "Flights",
    "planned": 312,
    "item": "Amy: Bangkok (Don Mueang) to Hong Kong, Sun 3 Jan",
-   "notes": "Thai Lion Air SL360 at 9:15 am (Kiwi.com fare)"
+   "notes": "Booked on Trip.com: Thai Lion Air SL360 9:15 am, lands 1 pm (estimate until the receipt amount is known)"
   },
   {
    "category": "Flights",
@@ -36,7 +36,7 @@
    "category": "Flights",
    "planned": 157,
    "item": "Amy: Phu Quoc to Bangkok, Sun 27 Dec",
-   "notes": "Same flight, VZ981 12 pm (not booked yet)"
+   "notes": "Booked on Trip.com: VZ981 12 pm (estimate until the receipt amount is known)"
   },
   {
    "category": "Accommodation",
