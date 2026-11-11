@@ -300,3 +300,6 @@ td.num,th.num,.num{text-align:right;font-variant-numeric:tabular-nums}
 .bopt.picked{background:#f0fdfa;border-radius:8px}
 @media (prefers-color-scheme:dark){.hotelrow,.bookbox,.hopt.picked,.bopt.picked{background:#0d2b28}.bbadge{background:#45310b;color:#fcd34d}.bbadge.ok{background:#0f3d24;color:#86efac}}
 @media (max-width:860px){.booktoggle{top:8px;right:8px;padding:6px 11px;font-size:.8rem}}
+
+/* No double-tap zoom on phones (pinch zoom still works) */
+html,body,button,a,.leaflet-container{touch-action:manipulation}

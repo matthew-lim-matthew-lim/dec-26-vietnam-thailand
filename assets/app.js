@@ -43,7 +43,7 @@
   const isBooked = (it) => slotsOf(it).every((x) => x.st === 'booked');
 
   function initMap() {
-    map = L.map('map', { zoomControl: !mobile(), scrollWheelZoom: true, tap: true });
+    map = L.map('map', { zoomControl: !mobile(), scrollWheelZoom: true, tap: true, doubleClickZoom: !mobile() });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19, attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
